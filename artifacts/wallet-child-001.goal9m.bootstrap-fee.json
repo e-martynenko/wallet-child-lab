@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "9M",
+  "network": "mainnet-beta",
+  "observedAt": "2026-08-25T12:54:02.000Z",
+  "rpcOrigin": "https://mainnet.helius-rpc.com",
+  "message": {
+    "type": "legacy",
+    "source": "8W7sQKSRuYAdev3qcZCm9rrs4DDKbnEgD4fA8kvENvxt",
+    "destination": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "program": "11111111111111111111111111111111",
+    "transferLamports": "19990000",
+    "sha256": "c834872c6d0820cbb0e5586143b52e007dd9afa119d379f3cf7cb4d613fc063d",
+    "blockhashContextSlot": 441634604,
+    "feeContextSlot": 441634604,
+    "lastValidBlockHeight": 419683507,
+    "serializedBytesPublished": false,
+    "reusableForSigning": false
+  },
+  "allocation": {
+    "bootstrapTransferLamports": "19990000",
+    "quotedBootstrapFeeLamports": "5000",
+    "futureUsdcFundingFeeReserveLamports": "5000",
+    "totalExperimentSolBoundaryLamports": "20000000"
+  },
+  "checks": {
+    "mainnetGenesisVerified": true,
+    "dedicatedHttpsRpc": true,
+    "exactLegacySystemTransfer": true,
+    "feeQuotedForExactMessage": true,
+    "feeContextNotOlderThanBlockhashContext": true,
+    "unsigned": true,
+    "keyLoaded": false,
+    "simulationAttempted": false,
+    "transactionSubmitted": false
+  },
+  "limitation": "The recent blockhash expires. This message is quote evidence only and must never be signed or submitted; a future approved transfer requires fresh bytes and a fresh fee quote."
+}

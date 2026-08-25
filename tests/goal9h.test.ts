@@ -17,11 +17,13 @@ const budget: MainnetLifecycleBudget = {
   usdcAcquisitionUsdCents: 100,
   solAcquisitionUsdCents: 300,
   sol: {
+    bootstrapFundingFeeLamports: 5_000n,
+    usdcFundingFeeLamports: 5_000n,
     identityAndCollectionLamports: 8_000_000n,
     executiveAndDelegationLamports: 2_000_000n,
     metadataPublicationLamports: 100_000n,
     usdcAtaSetupLamports: 4_500_000n,
-    assetSignerReserveLamports: 5_000_000n,
+    assetSignerReserveLamports: 4_990_000n,
     boundedActionFeeLamports: 100_000n,
     revokeFeeLamports: 100_000n,
     usdcRescueFeeLamports: 100_000n,
@@ -75,6 +77,10 @@ describe('Goal 9H aggregate Mainnet lifecycle budget', () => {
       {
         ...budget,
         sol: { ...budget.sol, boundedActionFeeLamports: 100_001n },
+      },
+      {
+        ...budget,
+        sol: { ...budget.sol, bootstrapFundingFeeLamports: 5_001n },
       },
     ]) {
       expect(() => verifyMainnetLifecycleBudget(changed)).toThrow(

@@ -12,6 +12,7 @@
     "audit:deps": "pnpm audit --prod",
     "birth:devnet": "tsx src/cli/birth-devnet.ts",
     "brain:check": "tsx src/cli/check-brain.ts",
+    "bootstrap:quote:mainnet": "tsx src/cli/quote-bootstrap-mainnet.ts",
     "check:network": "tsx src/cli/check-network.ts",
     "delegates:audit:devnet": "tsx src/cli/audit-delegates-devnet.ts",
     "delegates:audit:mainnet": "tsx src/cli/audit-delegates-mainnet.ts",

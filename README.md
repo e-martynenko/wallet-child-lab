@@ -75,6 +75,12 @@ unfunded. The bootstrap policy permits only at most `0.02 SOL` and zero USDC to
 the isolated owner. Exactly `1 USDC` stays staged until the final Asset Signer
 exists and passes its immediate audit; the policy cannot build or submit either
 transfer.
+Goal 9M then compiled one exact unsigned SOL-only bootstrap message for
+`0.01999 SOL` and obtained a live `5,000` lamport Mainnet fee through the
+dedicated Helius RPC. Another `5,000` lamports remains reserved for the future
+direct USDC funding message, so transfer plus both fees equals exactly
+`0.02 SOL`. The quoted blockhash expired; no reusable bytes, key, signature,
+simulation, or transaction were produced.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -210,9 +216,20 @@ The command makes one fixed Mainnet `GET` request for `351` tagged bytes. It
 loads no key and cannot fund, upload, sign, or submit a transaction. The quote
 does not include the future Solana funding-transaction fee.
 
+Quote the exact unsigned SOL-only bootstrap message with a dedicated Mainnet
+RPC:
+
+```sh
+WALLET_CHILD_MAINNET_RPC_URL=https://your-dedicated-provider.example/path \
+  pnpm run bootstrap:quote:mainnet
+```
+
+This performs only Mainnet genesis, blockhash, and `getFeeForMessage` reads.
+It loads no key and cannot sign, simulate, or submit the expiring message.
+
 ## Safety boundary
 
-Goal 9L is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
+Goal 9M is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
 remains locked. The Executive Profile remains registered,
 but its per-asset Execution Delegate Record is closed. The Asset Signer holds
 exactly `9,900,000` lamports after spending the approved `100,000` Devnet

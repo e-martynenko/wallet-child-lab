@@ -7,8 +7,9 @@ Status: **PASS — aggregate contract complete; final simulated values unavailab
 - one pure fail-closed budget schema for the complete bounded Mainnet lifecycle;
 - exactly `1,000,000` maximum USDC base units;
 - at most `20,000,000` total acquired SOL lamports across metadata publication,
-  identity/collection, executive/delegation, ATA setup, Asset Signer reserve,
-  action, revoke, and two emergency-fee allowances;
+  external bootstrap/USDC funding fees, identity/collection,
+  executive/delegation, ATA setup, Asset Signer reserve, action, revoke, and
+  two emergency-fee allowances;
 - at most `USD 10.00` combined acquisition cost for all USDC and SOL;
 - per-slice `5,000,000` lamport ATA setup and `100,000` lamport action/revoke/
   rescue fee ceilings;
@@ -44,6 +45,8 @@ Status: **PASS — aggregate contract complete; final simulated values unavailab
    path cannot rely on an unbudgeted top-up.
 4. A quote is manual input, not an oracle claim. It must be obtained from the
    selected isolated funding route immediately before acquisition.
+5. Goal 9M adds two fixed `5,000` lamport external funding-fee slices without
+   increasing the aggregate cap.
 
 ## Unexpected findings
 

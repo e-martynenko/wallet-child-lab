@@ -7,6 +7,10 @@ import {
 } from '../mainnet/readiness.js';
 import { GOAL_9E_MAX_FEE_PAYER_SPEND_LAMPORTS } from '../goal9e/policy.js';
 import { GOAL_9G_MAX_ATA_SETUP_SPEND_LAMPORTS } from '../goal9g/usdc-ata-setup.js';
+import {
+  GOAL_9M_BOOTSTRAP_FEE_LAMPORTS,
+  GOAL_9M_FUTURE_USDC_FUNDING_FEE_RESERVE_LAMPORTS,
+} from '../goal9m/bootstrap-fee.js';
 
 const nonnegativeBigint = z.bigint().nonnegative();
 
@@ -17,6 +21,12 @@ export const MainnetLifecycleBudgetSchema = z
     solAcquisitionUsdCents: z.number().int().nonnegative(),
     sol: z
       .object({
+        bootstrapFundingFeeLamports: z.literal(
+          GOAL_9M_BOOTSTRAP_FEE_LAMPORTS,
+        ),
+        usdcFundingFeeLamports: z.literal(
+          GOAL_9M_FUTURE_USDC_FUNDING_FEE_RESERVE_LAMPORTS,
+        ),
         identityAndCollectionLamports: nonnegativeBigint,
         executiveAndDelegationLamports: nonnegativeBigint,
         metadataPublicationLamports: nonnegativeBigint,

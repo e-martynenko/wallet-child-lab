@@ -397,6 +397,28 @@ Review: [`reviews/goal-9l.md`](reviews/goal-9l.md)
 Artifact:
 [`wallet-child-001.goal9l.funding-route.json`](../artifacts/wallet-child-001.goal9l.funding-route.json)
 
+## Goal 9M — exact unsigned bootstrap fee quote
+
+Status: **complete — reviewed 2026-08-25; message expired and was never signed**
+
+Expected result:
+
+- one exact legacy System Program transfer from the external experimental
+  source to the isolated Mainnet owner;
+- exactly `19,990,000` lamports transferred, with one `5,000` lamport quoted
+  bootstrap fee and one `5,000` lamport future USDC-funding fee reserve inside
+  the fixed `20,000,000` lamport experiment boundary;
+- dedicated HTTPS RPC and verified Mainnet genesis;
+- fresh finalized blockhash and `getFeeForMessage` for the exact serialized
+  unsigned bytes at a non-stale context slot;
+- public SHA-256 evidence without publishing reusable message bytes;
+- no key loading, signing, simulation, or transaction submission.
+
+Review: [`reviews/goal-9m.md`](reviews/goal-9m.md)
+
+Artifact:
+[`wallet-child-001.goal9m.bootstrap-fee.json`](../artifacts/wallet-child-001.goal9m.bootstrap-fee.json)
+
 ## Goal 10 — one-dollar Mainnet experiment
 
 Status: **locked**

@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "9S",
+  "network": "mainnet-beta",
+  "observedAt": "2026-08-25T14:20:32.000Z",
+  "rpcOrigin": "https://mainnet.helius-rpc.com",
+  "status": "STOP_AWAIT_EXACT_APPROVAL",
+  "finalizedSlot": 441648274,
+  "source": {
+    "address": "8W7sQKSRuYAdev3qcZCm9rrs4DDKbnEgD4fA8kvENvxt",
+    "solLamports": "88698606",
+    "usdcAta": "2RETLnM6iGVayfXP9ynTLmgk5oB5gqHpY8BbVuG1oVyQ",
+    "usdcBaseUnits": "1078695",
+    "usdcMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
+  },
+  "walletChildAccounts": {
+    "checkedCount": 10,
+    "allAbsent": true,
+    "addresses": {
+      "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+      "executive": "EJQcuD9FtJ33c2wA7GM6HzvmJJJbPsYnmH5ZjTDdhbjF",
+      "recovery": "ABZePapHbYaTg7GU4LGQNcYmfURvue5uVrrf4FUa4x3j",
+      "coreAsset": "HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty",
+      "agentIdentity": "EDT4DguQoQgUcEWP7h9z7F4Z5N75oinW6r9PhhuReXf8",
+      "assetSignerPda": "5Snge43iBczUT16b4ndffdgB4xxR2Bev9vxvLRe5YWyu",
+      "assetSignerUsdcAta": "hCmisMZFRL7SWKvgdtFWXMTDW3PY858Kmvg6dQ8GQMU",
+      "recoveryUsdcAta": "8dbJMqCGAMTuJZ5ZZZeQMT43WqkkrwmBiyEJRH8szAd",
+      "executiveProfile": "3Uy4XhPJLAdFRyFLAfJM7ruNc3Td5Ld1258Gx5z2WYXo",
+      "delegateRecord": "Fr2yQyG7gEQYjL6Sr8sYXrS2n21bfjod5rKQDdo7bgcm"
+    }
+  },
+  "durableMetadata": {
+    "byteLength": 351,
+    "sha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+    "publicationStatus": "NOT_PUBLISHED",
+    "durableUri": null,
+    "officialIrysWorkflow": ["GET_PRICE", "FUND", "UPLOAD", "VERIFY_RECEIPT_ID"],
+    "implementationStatus": "NOT_IMPLEMENTED_BEFORE_GATE"
+  },
+  "completedEvidence": {
+    "goalsThrough": "9R",
+    "baselineRemoteCommit": "5defc329c95b7b80db06268594e11ba959399238",
+    "testFiles": 30,
+    "tests": 234,
+    "typecheckPassed": true
+  },
+  "gates": {
+    "exactApprovalPhraseProvided": false,
+    "actionTimeConfirmationProvided": false,
+    "ownerBootstrapFunded": false,
+    "metadataPublished": false,
+    "assetCreated": false,
+    "sameBytesSimulationsPassed": false,
+    "finalGo": false
+  },
+  "checks": {
+    "verifiedMainnetGenesis": true,
+    "sourceUsdcCanonical": true,
+    "keyLoaded": false,
+    "messageSigned": false,
+    "transactionSubmitted": false,
+    "networkWrite": false,
+    "fundsSpent": false
+  },
+  "verdict": "NO_GO"
+}

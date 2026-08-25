@@ -521,6 +521,26 @@ Review: [`reviews/goal-9r.md`](reviews/goal-9r.md)
 Artifact:
 [`wallet-child-001.goal9r.internal-message-fees.json`](../artifacts/wallet-child-001.goal9r.internal-message-fees.json)
 
+## Goal 9S — final pre-approval audit
+
+Status: **complete — reviewed 2026-08-25; STOP awaiting exact approval**
+
+Expected result:
+
+- one fresh finalized read of the external source and all ten final Wallet
+  Child accounts;
+- exact confirmation that balances and absent account state have not drifted;
+- current official Irys price/fund/upload workflow recorded without installing
+  a signer-capable dependency or creating external state;
+- every approval, action-time confirmation, signature, write, and spend flag
+  remains false;
+- one explicit `NO_GO` verdict with no Mainnet transaction.
+
+Review: [`reviews/goal-9s.md`](reviews/goal-9s.md)
+
+Artifact:
+[`wallet-child-001.goal9s.preapproval-audit.json`](../artifacts/wallet-child-001.goal9s.preapproval-audit.json)
+
 ## Goal 10 — one-dollar Mainnet experiment
 
 Status: **locked**

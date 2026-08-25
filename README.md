@@ -103,6 +103,12 @@ Goal 9R compiles and live-quotes the six URI-independent internal messages for
 an exact `40,000` lamport total. Asset/Identity creation still waits for the
 durable URI, and SOL rescue still waits for its real post-setup balance; neither
 is guessed.
+Goal 9S then performs the final read-only pre-approval audit. At finalized slot
+`441,648,274`, the external source still held `0.088698606 SOL` and `1.078695`
+official USDC, while all ten final Wallet Child accounts remained absent. The
+current official Irys `getPrice → fund → upload` flow is now explicit, but no
+uploader dependency, key, signature, upload, or transaction was added. Safe
+pre-gate preparation is complete and the verdict remains **NO-GO**.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -251,7 +257,7 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goal 9R is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
+Goal 9S is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
 remains locked. The Executive Profile remains registered,
 but its per-asset Execution Delegate Record is closed. The Asset Signer holds
 exactly `9,900,000` lamports after spending the approved `100,000` Devnet

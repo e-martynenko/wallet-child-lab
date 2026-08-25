@@ -22,6 +22,7 @@
     "metadata:check": "tsx src/cli/check-metadata.ts",
     "metadata:quote:irys": "tsx src/cli/quote-irys-metadata.ts",
     "metadata:verify-durable": "tsx src/cli/verify-durable-metadata.ts",
+    "messages:quote:mainnet": "tsx src/cli/quote-internal-mainnet.ts",
     "policy:check": "tsx src/cli/check-policy.ts",
     "prepare:mainnet-recovery": "tsx src/cli/prepare-mainnet-recovery.ts",
     "prepare:mainnet-identity": "tsx src/cli/prepare-mainnet-identity.ts",

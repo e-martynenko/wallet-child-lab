@@ -23,8 +23,9 @@
     "CREATE_STANDALONE_ASSET_AND_REGISTER_IDENTITY",
     "LIVE_ASSET_IDENTITY_AND_DELEGATE_AUDIT",
     "CREATE_ATAS_REGISTER_EXECUTIVE_AND_DELEGATE",
-    "SIMULATE_ACTION_REVOKE_AND_RESCUES",
+    "PRE_FUNDING_STATIC_MESSAGE_AND_FEE_REVIEW",
     "SOURCE_TO_ASSET_SIGNER_USDC_FUNDING",
+    "SIMULATE_ACTION_REVOKE_AND_RESCUES",
     "EXECUTE_0_1_USDC_REVOKE_AND_FINAL_AUDIT"
   ],
   "missing": {
@@ -38,7 +39,8 @@
     "fixedRentBelowNineMillionLamports": true,
     "delegateRentCountedWithoutAssumingRefund": true,
     "usdcFundingAfterLiveAudit": true,
-    "usdcFundingAfterSimulations": true,
+    "staticReviewBeforeUsdcFunding": true,
+    "sameBytesSimulationsAfterUsdcFunding": true,
     "networkWrite": false,
     "keyLoaded": false,
     "transactionSigned": false,

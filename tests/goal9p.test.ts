@@ -139,6 +139,7 @@ describe('Goal 9P final standalone Mainnet policy contract', () => {
       recovery: identity.addresses['recovery'],
       coreAsset: identity.addresses['coreAsset'],
       assetSigner: identity.addresses['assetSignerPda'],
+      agentIdentity: identity.addresses['agentIdentity'],
       assetSignerUsdcAta: identity.addresses['assetSignerUsdcAta'],
       recoveryUsdcAta: identity.addresses['recoveryUsdcAta'],
     });

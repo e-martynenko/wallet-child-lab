@@ -1,4 +1,5 @@
 import {
+  findAgentIdentityV2Pda,
   findExecutionDelegateRecordV1Pda,
   findExecutiveProfileV1Pda,
 } from '@metaplex-foundation/mpl-agent-registry';
@@ -32,6 +33,8 @@ export const GOAL_9P_CORE_ASSET =
   'HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty';
 export const GOAL_9P_ASSET_SIGNER =
   '5Snge43iBczUT16b4ndffdgB4xxR2Bev9vxvLRe5YWyu';
+export const GOAL_9P_AGENT_IDENTITY =
+  'EDT4DguQoQgUcEWP7h9z7F4Z5N75oinW6r9PhhuReXf8';
 export const GOAL_9P_ASSET_SIGNER_USDC_ATA =
   'hCmisMZFRL7SWKvgdtFWXMTDW3PY858Kmvg6dQ8GQMU';
 export const GOAL_9P_RECOVERY_USDC_ATA =
@@ -55,6 +58,7 @@ export function createFinalMainnetContract(umi: Umi) {
     agentAsset: asset,
   });
   const assetSigner = findAssetSignerPda(umi, { asset });
+  const agentIdentity = findAgentIdentityV2Pda(umi, { asset });
   const assetSignerAta = findAssociatedTokenPda(umi, {
     mint: publicKey(SOLANA_MAINNET_USDC_MINT),
     owner: assetSigner[0],
@@ -67,6 +71,7 @@ export function createFinalMainnetContract(umi: Umi) {
     String(executiveProfile[0]),
     String(executionDelegateRecord[0]),
     String(assetSigner[0]),
+    String(agentIdentity[0]),
     String(assetSignerAta[0]),
     String(recoveryAta[0]),
   ];
@@ -74,6 +79,7 @@ export function createFinalMainnetContract(umi: Umi) {
     GOAL_9P_EXECUTIVE_PROFILE,
     GOAL_9P_EXECUTION_DELEGATE_RECORD,
     GOAL_9P_ASSET_SIGNER,
+    GOAL_9P_AGENT_IDENTITY,
     GOAL_9P_ASSET_SIGNER_USDC_ATA,
     GOAL_9P_RECOVERY_USDC_ATA,
   ];
@@ -89,6 +95,7 @@ export function createFinalMainnetContract(umi: Umi) {
       recovery: GOAL_9P_RECOVERY,
       coreAsset: GOAL_9P_CORE_ASSET,
       assetSigner: GOAL_9P_ASSET_SIGNER,
+      agentIdentity: GOAL_9P_AGENT_IDENTITY,
       assetSignerUsdcAta: GOAL_9P_ASSET_SIGNER_USDC_ATA,
       recoveryUsdcAta: GOAL_9P_RECOVERY_USDC_ATA,
       executiveProfile: GOAL_9P_EXECUTIVE_PROFILE,

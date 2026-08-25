@@ -62,13 +62,20 @@ describe('Goal 9Q fixed Mainnet rents and phased bootstrap', () => {
     }
   });
 
-  it('keeps USDC funding after live audits and simulations', () => {
+  it('keeps funding after audit/static review and simulations after funding', () => {
     expect(() => assertSafePhaseOrder()).not.toThrow();
     const unsafe = [...GOAL_9Q_PHASE_ORDER];
     const funding = unsafe.indexOf('SOURCE_TO_ASSET_SIGNER_USDC_FUNDING');
     unsafe.splice(funding, 1);
-    unsafe.splice(3, 0, 'SOURCE_TO_ASSET_SIGNER_USDC_FUNDING');
+    unsafe.splice(4, 0, 'SOURCE_TO_ASSET_SIGNER_USDC_FUNDING');
     expect(() => assertSafePhaseOrder(unsafe)).toThrow(FixedRentPlanError);
+    const impossible = [...GOAL_9Q_PHASE_ORDER];
+    const simulation = impossible.indexOf(
+      'SIMULATE_ACTION_REVOKE_AND_RESCUES',
+    );
+    impossible.splice(simulation, 1);
+    impossible.splice(6, 0, 'SIMULATE_ACTION_REVOKE_AND_RESCUES');
+    expect(() => assertSafePhaseOrder(impossible)).toThrow(FixedRentPlanError);
   });
 
   it('contains no RPC, key loading, transaction builder, or send path', async () => {

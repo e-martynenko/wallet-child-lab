@@ -490,7 +490,8 @@ Expected result:
   Executive Profile, Delegate Record, and two official-USDC ATAs;
 - known fixed rent total below `9,000,000` lamports;
 - delegate rent counted without assuming a successful refund;
-- strict phase order that places USDC funding after live audits and simulations;
+- strict phase order that places USDC funding after live audit/static review
+  and state-dependent simulations immediately after funding but before action;
 - unknown Core/plugin rent and remaining fees preserved as blockers, never
   replaced by estimates;
 - no network write, key load, signature, simulation, or transaction.
@@ -499,6 +500,26 @@ Review: [`reviews/goal-9q.md`](reviews/goal-9q.md)
 
 Artifact:
 [`wallet-child-001.goal9q.fixed-rent-plan.json`](../artifacts/wallet-child-001.goal9q.fixed-rent-plan.json)
+
+## Goal 9R — URI-independent unsigned Mainnet message fees
+
+Status: **complete — reviewed 2026-08-25; messages expired unsigned**
+
+Expected result:
+
+- exact final-address messages for ATA setup, Executive registration,
+  delegation, `0.1 USDC` action, owner revoke, and `0.9 USDC` rescue;
+- exact signer headers, instruction counts, deterministic test-vector digests,
+  and non-stale Mainnet fee quotes;
+- exact URI-independent internal fee total of `40,000` lamports;
+- Asset/Identity messages blocked until durable URI and SOL rescue blocked until
+  its live balance, with no guessed values;
+- no local key load, signature, simulation, or submission.
+
+Review: [`reviews/goal-9r.md`](reviews/goal-9r.md)
+
+Artifact:
+[`wallet-child-001.goal9r.internal-message-fees.json`](../artifacts/wallet-child-001.goal9r.internal-message-fees.json)
 
 ## Goal 10 — one-dollar Mainnet experiment
 

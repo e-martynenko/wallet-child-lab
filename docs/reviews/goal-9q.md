@@ -10,7 +10,7 @@ Status: **PASS for fixed facts; full lifecycle budget remains NO-GO**
 - finalized Mainnet rent quotes for those four account classes;
 - one hard `9,000,000` lamport ceiling for the known fixed rents;
 - a strict phase order that keeps USDC outside Wallet Child until the live
-  Asset audit and action/revoke/rescue simulations pass;
+  Asset audit and static message/fee review pass;
 - explicit null-equivalent blockers instead of guessed Core/plugin and fee
   values.
 
@@ -34,7 +34,8 @@ Status: **PASS for fixed facts; full lifecycle budget remains NO-GO**
 - exact installed fixed sizes: PASS;
 - finalized quote acceptance and exact arithmetic: PASS;
 - zero, excessive, malformed, or over-cap quote: DENY;
-- USDC funding before audit/simulations: DENY;
+- USDC funding before audit/static review: DENY;
+- state-dependent simulations before USDC funding: DENY as infeasible;
 - mutation-capability source scan: PASS;
 - public artifact preserves missing fields and `NO_GO`: PASS;
 - `pnpm run typecheck`: PASS;
@@ -48,12 +49,18 @@ Status: **PASS for fixed facts; full lifecycle budget remains NO-GO**
    creation/plugin top-up, metadata funding fee, internal fees, and emergency
    space must all fit before it can be treated as sufficient.
 3. USDC funding is a late phase. It cannot precede durable metadata, Asset and
-   Identity creation, a live delegate scan, ATA/delegate setup, and simulation.
+   Identity creation, a live delegate scan, ATA/delegate setup, and static
+   bytes/fee review. State-dependent simulations run immediately after funding
+   and must pass before execution.
 4. Phase one remains locked behind the exact Mainnet phrase plus action-time
    confirmation in the external funding wallet.
 
 ## Unexpected findings
 
+- post-publication self-review found that action/rescue simulation cannot pass
+  before USDC funding because the live source ATA would be empty. The corrected
+  phase order funds only after static review, simulates immediately afterward,
+  and still blocks execution until those same-bytes simulations pass;
 - read-only Devnet cross-check found the existing Identity and Profile use the
   same `104`/`40` byte layouts and rent values quoted on Mainnet;
 - the existing Devnet Core Asset is `435` bytes and holds `5,564,640` lamports,

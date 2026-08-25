@@ -16,7 +16,7 @@ All three limits apply at the same time:
 1. maximum experiment treasury: `1,000,000` USDC base units = `1 USDC`;
 2. maximum total experiment SOL acquisition: `20,000,000` lamports =
    `0.02 SOL`, including every rent payment, setup cost, fee, Asset Signer
-   reserve, and emergency allowance;
+   reserve, metadata publication payment, and emergency allowance;
 3. maximum combined acquisition cost of the USDC and SOL: `USD 10.00`.
 
 If `1 USDC + 0.02 SOL` would cost more than `$10`, the SOL quantity must be
@@ -59,7 +59,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Fixed offline Mainnet USDC contract | PASS | Goal 9E exact `0.1 USDC` intent, official mint, canonical ATAs, `TransferChecked` bytes/metas, and single Core Execute shape; no network/sign/send path |
 | Offline owner-only rescue contract | PASS | Goal 9F exact capped USDC and SOL evacuation shapes to recovery, no delegate dependency, and full-balance reconciliation; final accounts/simulations remain unavailable |
 | Offline USDC ATA setup contract | PASS | Goal 9G exact two regular Creates, canonical official-USDC ATAs, safe read-back, partial-state STOP, and ≤`5,000,000` lamport setup spend; final accounts/simulation unavailable |
-| Aggregate lifecycle budget contract | PASS | Goal 9H sums all rent/setup/reserve/action/revoke/emergency SOL under `0.02 SOL`, fixes `1 USDC`, and enforces ≤`$10` combined acquisition; final values unavailable |
+| Aggregate lifecycle budget contract | PASS | Goal 9H sums metadata/rent/setup/reserve/action/revoke/emergency SOL under `0.02 SOL`, fixes `1 USDC`, and enforces ≤`$10` combined acquisition; final values unavailable |
 | Mainnet delegate-audit implementation | PASS | Goal 9I requires dedicated HTTPS RPC, verifies Mainnet genesis/owner, repeats full closed-world scan plus independent filter, and hard-fails funding on any record; final asset unavailable |
 | Durable metadata verifier | PASS | Goal 9J requires exact frozen bytes from two independent HTTPS origins and the reviewed digest; upload, durable URI, and on-chain binding remain unavailable |
 

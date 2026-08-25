@@ -19,8 +19,9 @@ const budget: MainnetLifecycleBudget = {
   sol: {
     identityAndCollectionLamports: 8_000_000n,
     executiveAndDelegationLamports: 2_000_000n,
+    metadataPublicationLamports: 100_000n,
     usdcAtaSetupLamports: 4_500_000n,
-    assetSignerReserveLamports: 5_100_000n,
+    assetSignerReserveLamports: 5_000_000n,
     boundedActionFeeLamports: 100_000n,
     revokeFeeLamports: 100_000n,
     usdcRescueFeeLamports: 100_000n,

@@ -19,6 +19,7 @@ export const MainnetLifecycleBudgetSchema = z
       .object({
         identityAndCollectionLamports: nonnegativeBigint,
         executiveAndDelegationLamports: nonnegativeBigint,
+        metadataPublicationLamports: nonnegativeBigint,
         usdcAtaSetupLamports: nonnegativeBigint.max(
           GOAL_9G_MAX_ATA_SETUP_SPEND_LAMPORTS,
         ),

@@ -6,9 +6,9 @@ Status: **PASS — aggregate contract complete; final simulated values unavailab
 
 - one pure fail-closed budget schema for the complete bounded Mainnet lifecycle;
 - exactly `1,000,000` maximum USDC base units;
-- at most `20,000,000` total acquired SOL lamports across identity/collection,
-  executive/delegation, ATA setup, Asset Signer reserve, action, revoke, and two
-  emergency-fee allowances;
+- at most `20,000,000` total acquired SOL lamports across metadata publication,
+  identity/collection, executive/delegation, ATA setup, Asset Signer reserve,
+  action, revoke, and two emergency-fee allowances;
 - at most `USD 10.00` combined acquisition cost for all USDC and SOL;
 - per-slice `5,000,000` lamport ATA setup and `100,000` lamport action/revoke/
   rescue fee ceilings;
@@ -55,8 +55,8 @@ Status: **PASS — aggregate contract complete; final simulated values unavailab
 
 ## Remaining uncertainty
 
-1. Exact rent and fees require final account addresses and same-bytes Mainnet
-   simulations.
+1. Exact storage price, rent, and fees require an upload quote, final account
+   addresses, and same-bytes Mainnet simulations.
 2. Current SOL and USDC acquisition quotes require the selected funding route.
 3. No final populated budget artifact exists yet.
 4. Dedicated RPC, durable metadata, final asset/delegate audit, funding route,

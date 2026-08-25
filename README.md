@@ -58,7 +58,8 @@ owner-only USDC and SOL rescue contracts to the same recovery destination,
 still without a live Mainnet message or write path. Goal 9G then fixed the
 two-account USDC ATA setup and read-back contract, also offline only.
 Goal 9H tightened `0.02 SOL` into the total SOL acquired for every lifecycle
-cost—not an extra reserve—and added one aggregate `$10` acquisition gate.
+cost—including metadata publication, not an extra reserve—and added one
+aggregate `$10` acquisition gate.
 Goal 9I added the final-asset Mainnet delegation scanner; it requires a
 dedicated HTTPS RPC and refuses public cluster endpoints, but cannot run until
 the Mainnet asset exists.

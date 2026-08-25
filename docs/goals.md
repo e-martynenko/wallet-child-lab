@@ -319,8 +319,8 @@ Status: **complete — reviewed 2026-08-25; final values remain unresolved**
 Expected result:
 
 - fixed `1 USDC`, `0.02 total SOL`, and `$10 combined acquisition` ceilings;
-- identity, delegation, ATA, reserve, action, revoke, and emergency slices in
-  one fail-closed sum;
+- metadata publication, identity, delegation, ATA, reserve, action, revoke, and
+  emergency slices in one fail-closed sum;
 - per-slice setup and fee ceilings;
 - no unbudgeted top-up or setup spend outside the total SOL amount;
 - no network, price feed, key, builder, signing, simulation, or send path.

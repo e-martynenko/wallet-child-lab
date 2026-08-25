@@ -68,6 +68,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Final standalone identity addresses | PASS, absent | Goal 9N fixes Core Asset `HPaGuh…1Uty`, Agent Identity `EDT4…eXf8`, Asset Signer `5Snge…YWyu`, and both canonical USDC ATAs; all five were absent at finalized slot `441,642,028` |
 | Exact unsigned USDC funding fee | PASS, expired quote | Goal 9O fixes direct `1.000000 USDC` source-ATA-to-Asset-Signer-ATA `TransferChecked` and quotes the exact reserved `5,000` lamport fee at slot `441,643,866`; no key, signing, simulation, or submission |
 | Final standalone policy contract | PASS, offline | Goal 9P derives final Profile/Delegate PDAs and compiles final ATA setup, delegated action, and both owner rescues with `collection: null`; Profile and Record were absent at slot `441,645,228` |
+| Fixed rents and phase order | PARTIAL, exact known slice | Goal 9Q quotes `8,477,280` lamports for Identity, Profile, Delegate Record, and two USDC ATAs at finalized slot `441,646,119`; Core/plugin rent and remaining fees stay explicit blockers |
 | Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and returned Mainnet genesis plus health `ok`; final-asset audit remains unavailable |
 
 Public key evidence:
@@ -83,7 +84,7 @@ artifacts, or normal runtime configuration.
 | USDC-specific fixed intent and builder | PARTIAL | Goal 9E fixes official USDC and exactly `0.1 USDC` to isolated recovery; Goal 9P compiles the final-address standalone builder, but a blockhash-bound message and same-bytes simulation do not exist |
 | USDC-shaped Devnet test | PASS | TEST mint/ATAs, fixed supply, bounded transfer, denial, revoke, rescue, accounting, and idempotency all finalized |
 | Exact allowed programs/accounts | PARTIAL | Goals 9E–9G assert exact Core/Token/System/ATA programs, bytes, and metas; Goals 9N/9P freeze all final addresses and standalone builder contracts, but exact blockhash-bound messages remain unavailable |
-| Hard limits enforced in code | PARTIAL | Goals 9E–9O enforce action, treasury, setup, rescue, total-SOL, total-USD, storage quote, and both exact external funding fees; final rent, simulation values, and acquisition quotes are not populated or connected to an executor |
+| Hard limits enforced in code | PARTIAL | Goals 9E–9Q enforce action, treasury, setup, rescue, total-SOL, total-USD, storage quote, both exact external funding fees, and the exact fixed-rent slice; Core/plugin rent, simulations, and final acquisition reconciliation remain |
 | Exact Mainnet transaction simulation | BLOCKED | Build only after the USDC path passes Devnet; simulate the same signed bytes intended for submission |
 | Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes; Goal 9J implements two-origin exact retrieval verification; Goal 9K obtains a bounded Irys storage quote; permanent upload, live retrieval verification, on-chain binding, and immutability decision remain undone |
 | Reliable delegate enumeration | PARTIAL | Goal 9I implements the Mainnet-capable keyless path, Goal 9N fixes the final asset address, and the private Helius RPC is verified; the asset does not exist, so the required immediate post-create/pre-funding scan remains unavailable |
@@ -97,8 +98,9 @@ a warning.
 
 ## Emergency procedure
 
-This is the required operational sequence; the fixed rescue implementation is
-still a blocker and must be proven on Devnet before funding.
+This is the required operational sequence. The USDC-shaped rescue passed
+Devnet and Goal 9P compiles the final standalone paths offline; exact Mainnet
+same-bytes simulation remains a blocker before funding.
 
 1. stop the brain/provider and executive runtime;
 2. disable all automated restarts and preserve logs without secret material;
@@ -123,7 +125,7 @@ created earlier.
 ## Read-only verification
 
 ```sh
-WALLET_CHILD_MAINNET_READ_RPC_URL=https://api.mainnet.solana.com \
+WALLET_CHILD_MAINNET_READ_RPC_URL=https://your-dedicated-mainnet-rpc.example \
   pnpm run readiness:mainnet
 ```
 
@@ -162,7 +164,7 @@ simulation, or send function.
 
 ## Final decision
 
-**NO-GO for Goal 10.** Goals 9A–9P now close the safe local, quote-only, and
+**NO-GO for Goal 10.** Goals 9A–9Q now close the safe local, quote-only, and
 external-route remediation slice available before external choices: the
 real-token policy, recovery, USDC ATA setup, aggregate budget, Mainnet delegate
 scanner, metadata

@@ -480,6 +480,26 @@ Review: [`reviews/goal-9p.md`](reviews/goal-9p.md)
 Artifact:
 [`wallet-child-001.goal9p.final-contract.json`](../artifacts/wallet-child-001.goal9p.final-contract.json)
 
+## Goal 9Q — fixed Mainnet rents and phased bootstrap
+
+Status: **complete — reviewed 2026-08-25; full budget still NO-GO**
+
+Expected result:
+
+- exact installed fixed sizes and finalized Mainnet rents for Agent Identity,
+  Executive Profile, Delegate Record, and two official-USDC ATAs;
+- known fixed rent total below `9,000,000` lamports;
+- delegate rent counted without assuming a successful refund;
+- strict phase order that places USDC funding after live audits and simulations;
+- unknown Core/plugin rent and remaining fees preserved as blockers, never
+  replaced by estimates;
+- no network write, key load, signature, simulation, or transaction.
+
+Review: [`reviews/goal-9q.md`](reviews/goal-9q.md)
+
+Artifact:
+[`wallet-child-001.goal9q.fixed-rent-plan.json`](../artifacts/wallet-child-001.goal9q.fixed-rent-plan.json)
+
 ## Goal 10 — one-dollar Mainnet experiment
 
 Status: **locked**

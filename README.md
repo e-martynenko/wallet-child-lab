@@ -94,6 +94,10 @@ Goal 9P then repairs the action and rescue builders for that standalone
 topology, freezes the final Executive Profile and Delegate Record PDAs, and
 compiles all final-address policy paths offline. Collection inputs are now
 explicitly forbidden on Mainnet.
+Goal 9Q quotes the exact fixed rents for Identity, Profile, Delegate Record,
+and two USDC ATAs: `8,477,280` lamports total. It deliberately leaves Core
+Asset/plugin rent and remaining fees unresolved, and freezes a phase order that
+keeps USDC outside the child until audits and simulations pass.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -242,7 +246,7 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goal 9P is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
+Goal 9Q is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
 remains locked. The Executive Profile remains registered,
 but its per-asset Execution Delegate Record is closed. The Asset Signer holds
 exactly `9,900,000` lamports after spending the approved `100,000` Devnet

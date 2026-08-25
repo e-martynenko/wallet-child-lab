@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "9Q",
+  "network": "mainnet-beta",
+  "observedAt": "2026-08-25T14:04:56.000Z",
+  "rpcOrigin": "https://mainnet.helius-rpc.com",
+  "finalizedSlot": 441646119,
+  "status": "PARTIAL_FIXED_RENTS_QUOTED",
+  "accounts": {
+    "agentIdentity": { "bytes": 104, "rentLamports": "1614720", "count": 1 },
+    "executiveProfile": { "bytes": 40, "rentLamports": "1169280", "count": 1 },
+    "executionDelegateRecord": { "bytes": 104, "rentLamports": "1614720", "count": 1 },
+    "usdcTokenAccount": { "bytes": 165, "rentLamports": "2039280", "count": 2 }
+  },
+  "fixedRentLamports": "8477280",
+  "bootstrapTransferLamports": "19990000",
+  "remainingBootstrapLamports": "11512720",
+  "phaseOrder": [
+    "PRE_APPROVAL_READ_ONLY",
+    "SOURCE_TO_OWNER_SOL_BOOTSTRAP",
+    "DURABLE_METADATA_UPLOAD_AND_TWO_ORIGIN_VERIFY",
+    "CREATE_STANDALONE_ASSET_AND_REGISTER_IDENTITY",
+    "LIVE_ASSET_IDENTITY_AND_DELEGATE_AUDIT",
+    "CREATE_ATAS_REGISTER_EXECUTIVE_AND_DELEGATE",
+    "SIMULATE_ACTION_REVOKE_AND_RESCUES",
+    "SOURCE_TO_ASSET_SIGNER_USDC_FUNDING",
+    "EXECUTE_0_1_USDC_REVOKE_AND_FINAL_AUDIT"
+  ],
+  "missing": {
+    "coreAssetRentAndIdentityPluginTopUp": true,
+    "metadataFundingTransactionFee": true,
+    "exactInternalTransactionFees": true,
+    "sameBytesSimulations": true
+  },
+  "checks": {
+    "installedSdkSizesUsed": true,
+    "fixedRentBelowNineMillionLamports": true,
+    "delegateRentCountedWithoutAssumingRefund": true,
+    "usdcFundingAfterLiveAudit": true,
+    "usdcFundingAfterSimulations": true,
+    "networkWrite": false,
+    "keyLoaded": false,
+    "transactionSigned": false,
+    "transactionSubmitted": false
+  },
+  "verdict": "NO_GO"
+}

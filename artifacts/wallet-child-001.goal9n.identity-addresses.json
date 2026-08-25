@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "9N",
+  "network": "mainnet-beta",
+  "createdAt": "2026-08-25T13:38:47.000Z",
+  "status": "FINAL_ADDRESSES_FROZEN_UNFUNDED",
+  "architecture": {
+    "standaloneCoreAsset": true,
+    "collection": null,
+    "reason": "A Collection is optional and adds an unnecessary account, metadata object, transaction, and rent for the bounded Mainnet experiment."
+  },
+  "addresses": {
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "executive": "EJQcuD9FtJ33c2wA7GM6HzvmJJJbPsYnmH5ZjTDdhbjF",
+    "recovery": "ABZePapHbYaTg7GU4LGQNcYmfURvue5uVrrf4FUa4x3j",
+    "fundingSource": "8W7sQKSRuYAdev3qcZCm9rrs4DDKbnEgD4fA8kvENvxt",
+    "coreAsset": "HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty",
+    "agentIdentity": "EDT4DguQoQgUcEWP7h9z7F4Z5N75oinW6r9PhhuReXf8",
+    "assetSignerPda": "5Snge43iBczUT16b4ndffdgB4xxR2Bev9vxvLRe5YWyu",
+    "assetSignerUsdcAta": "hCmisMZFRL7SWKvgdtFWXMTDW3PY858Kmvg6dQ8GQMU",
+    "recoveryUsdcAta": "8dbJMqCGAMTuJZ5ZZZeQMT43WqkkrwmBiyEJRH8szAd"
+  },
+  "availability": {
+    "verifiedMainnetGenesis": true,
+    "finalizedSlot": 441642028,
+    "coreAssetExists": false,
+    "agentIdentityExists": false,
+    "assetSignerPdaExists": false,
+    "assetSignerUsdcAtaExists": false,
+    "recoveryUsdcAtaExists": false
+  },
+  "checks": {
+    "allAddressesDistinct": true,
+    "distinctFromDevnetPrincipals": true,
+    "coreAssetAccountCreatedLocally": true,
+    "localFileMode0600": true,
+    "networkRequestDuringGeneration": false,
+    "transactionBuilt": false,
+    "transactionSigned": false,
+    "transactionSubmitted": false
+  }
+}

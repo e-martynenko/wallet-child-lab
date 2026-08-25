@@ -81,6 +81,11 @@ dedicated Helius RPC. Another `5,000` lamports remains reserved for the future
 direct USDC funding message, so transfer plus both fees equals exactly
 `0.02 SOL`. The quoted blockhash expired; no reusable bytes, key, signature,
 simulation, or transaction were produced.
+Goal 9N then selected the smaller standalone-Core-Asset topology for Mainnet,
+generated one isolated local Core Asset account, and froze every final derived
+address. Mainnet finalized read-back found the Core Asset, Agent Identity,
+Asset Signer PDA, and both USDC ATAs absent. No Collection or transaction was
+created.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -229,7 +234,7 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goal 9M is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
+Goal 9N is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
 remains locked. The Executive Profile remains registered,
 but its per-asset Execution Delegate Record is closed. The Asset Signer holds
 exactly `9,900,000` lamports after spending the approved `100,000` Devnet

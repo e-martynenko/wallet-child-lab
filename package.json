@@ -24,6 +24,7 @@
     "metadata:verify-durable": "tsx src/cli/verify-durable-metadata.ts",
     "policy:check": "tsx src/cli/check-policy.ts",
     "prepare:mainnet-recovery": "tsx src/cli/prepare-mainnet-recovery.ts",
+    "prepare:mainnet-identity": "tsx src/cli/prepare-mainnet-identity.ts",
     "prepare:mainnet-wallets": "tsx src/cli/prepare-mainnet-wallets.ts",
     "readiness:mainnet": "tsx src/cli/check-mainnet-readiness.ts",
     "status:devnet": "tsx src/cli/status-devnet.ts",

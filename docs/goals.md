@@ -419,6 +419,29 @@ Review: [`reviews/goal-9m.md`](reviews/goal-9m.md)
 Artifact:
 [`wallet-child-001.goal9m.bootstrap-fee.json`](../artifacts/wallet-child-001.goal9m.bootstrap-fee.json)
 
+## Goal 9N — final standalone Mainnet identity addresses
+
+Status: **complete — reviewed 2026-08-25; every final account remains absent**
+
+Expected result:
+
+- one isolated mode-`0600` Core Asset account generated offline and stored only
+  under the gitignored Mainnet-readiness directory;
+- no Mainnet Collection because it is optional and would add an unnecessary
+  account, metadata object, transaction, and rent;
+- canonical Agent Identity, Asset Signer PDA, Asset Signer USDC ATA, and
+  recovery USDC ATA derivation;
+- every address distinct from the funding source, Mainnet principals, official
+  USDC mint, and all Devnet principals;
+- verified Mainnet genesis plus finalized proof that all five derived accounts
+  remain absent;
+- no transaction builder, signing, simulation, or submission path.
+
+Review: [`reviews/goal-9n.md`](reviews/goal-9n.md)
+
+Artifact:
+[`wallet-child-001.goal9n.identity-addresses.json`](../artifacts/wallet-child-001.goal9n.identity-addresses.json)
+
 ## Goal 10 — one-dollar Mainnet experiment
 
 Status: **locked**

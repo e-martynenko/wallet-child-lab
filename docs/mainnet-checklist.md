@@ -66,6 +66,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Isolated funding route | PARTIAL, staged only | Goal 9L records `1.078695 USDC` and `0.088698606 SOL` in the external experimental source at finalized slot `441,631,349`; later read-back at slot `441,632,634` confirms Wallet Child remains empty, bootstrap permits only capped SOL to owner, and USDC stays blocked until the final Asset Signer audit |
 | Exact unsigned bootstrap fee | PASS, expired quote | Goal 9M fixes `19,990,000` lamports source-to-owner, quotes an exact-message `5,000` lamport fee at slot `441,634,604`, reserves another `5,000` for future USDC funding, and keeps their sum at `0.02 SOL`; no key, signing, simulation, or submission |
 | Final standalone identity addresses | PASS, absent | Goal 9N fixes Core Asset `HPaGuh…1Uty`, Agent Identity `EDT4…eXf8`, Asset Signer `5Snge…YWyu`, and both canonical USDC ATAs; all five were absent at finalized slot `441,642,028` |
+| Exact unsigned USDC funding fee | PASS, expired quote | Goal 9O fixes direct `1.000000 USDC` source-ATA-to-Asset-Signer-ATA `TransferChecked` and quotes the exact reserved `5,000` lamport fee at slot `441,643,866`; no key, signing, simulation, or submission |
 | Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and returned Mainnet genesis plus health `ok`; final-asset audit remains unavailable |
 
 Public key evidence:
@@ -86,7 +87,7 @@ artifacts, or normal runtime configuration.
 | Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes; Goal 9J implements two-origin exact retrieval verification; Goal 9K obtains a bounded Irys storage quote; permanent upload, live retrieval verification, on-chain binding, and immutability decision remain undone |
 | Reliable delegate enumeration | PARTIAL | Goal 9I implements the Mainnet-capable keyless path, Goal 9N fixes the final asset address, and the private Helius RPC is verified; the asset does not exist, so the required immediate post-create/pre-funding scan remains unavailable |
 | Emergency rescue implementation | PARTIAL | Goal 9F provides exact owner-only capped USDC/SOL builders; Goal 9G provides recovery ATA setup; final accounts and exact-message simulations remain absent |
-| Funding route without main-wallet runtime | PARTIAL, operator-attested | Goals 9L–9N fix a separate experimental source, exact SOL bootstrap recipient/message/fee, and final Asset Signer USDC destination without loading the source key; the USDC message/fee, simulations, action-time confirmations, and public upstream-linkage caveat remain |
+| Funding route without main-wallet runtime | PARTIAL, operator-attested | Goals 9L–9O fix a separate experimental source plus exact SOL and USDC destinations/messages/fees without loading the source key; live preflights, simulations, action-time confirmations, and the public upstream-linkage caveat remain |
 | Dedicated Mainnet RPC | PASS | private Helius HTTPS RPC is locally configured, secret-safe, healthy, and Mainnet genesis verified; rerun health immediately before the final asset audit |
 | Dependency advisory decision | ACCEPTED, RECHECK | Goal 9D accepts one real moderate advisory only while the exact graph and unreachable `v3/v5/v6` buffer path remain unchanged; repeat the audit and guard immediately before signing review |
 
@@ -155,10 +156,12 @@ simulation, or send function.
   defines the exact serialized-message fee query used by Goal 9M.
 - [Metaplex Core creating assets](https://www.metaplex.com/docs/smart-contracts/core/create-asset)
   documents that a Core Asset may be standalone without a Collection.
+- [Solana token transfer guide](https://solana.com/docs/tokens/basics/transfer-tokens)
+  documents the checked token-transfer account relationship used by Goal 9O.
 
 ## Final decision
 
-**NO-GO for Goal 10.** Goals 9A–9N now close the safe local, quote-only, and
+**NO-GO for Goal 10.** Goals 9A–9O now close the safe local, quote-only, and
 external-route remediation slice available before external choices: the
 real-token policy, recovery, USDC ATA setup, aggregate budget, Mainnet delegate
 scanner, metadata

@@ -442,6 +442,25 @@ Review: [`reviews/goal-9n.md`](reviews/goal-9n.md)
 Artifact:
 [`wallet-child-001.goal9n.identity-addresses.json`](../artifacts/wallet-child-001.goal9n.identity-addresses.json)
 
+## Goal 9O — exact unsigned Mainnet USDC funding fee
+
+Status: **complete — reviewed 2026-08-25; message expired unsigned**
+
+Expected result:
+
+- exactly `1,000,000` official USDC base units from the isolated funding
+  source's canonical ATA directly to the final Asset Signer's canonical ATA;
+- one exact legacy `TransferChecked` message with fixed program, account order,
+  compiled indexes, discriminator, amount bytes, and decimals;
+- Mainnet genesis plus finalized non-stale `getFeeForMessage` evidence;
+- exact fee `5,000` lamports, equal to the existing Goal 9M reserve;
+- no funding-wallet key, signature, simulation, or submission.
+
+Review: [`reviews/goal-9o.md`](reviews/goal-9o.md)
+
+Artifact:
+[`wallet-child-001.goal9o.usdc-funding-fee.json`](../artifacts/wallet-child-001.goal9o.usdc-funding-fee.json)
+
 ## Goal 10 — one-dollar Mainnet experiment
 
 Status: **locked**

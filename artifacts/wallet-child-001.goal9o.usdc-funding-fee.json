@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "9O",
+  "network": "mainnet-beta",
+  "observedAt": "2026-08-25T13:50:33.000Z",
+  "rpcOrigin": "https://mainnet.helius-rpc.com",
+  "status": "EXACT_UNSIGNED_FEE_QUOTED",
+  "message": {
+    "type": "legacy",
+    "sourceOwner": "8W7sQKSRuYAdev3qcZCm9rrs4DDKbnEgD4fA8kvENvxt",
+    "sourceTokenAccount": "2RETLnM6iGVayfXP9ynTLmgk5oB5gqHpY8BbVuG1oVyQ",
+    "destinationOwner": "5Snge43iBczUT16b4ndffdgB4xxR2Bev9vxvLRe5YWyu",
+    "destinationTokenAccount": "hCmisMZFRL7SWKvgdtFWXMTDW3PY858Kmvg6dQ8GQMU",
+    "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "program": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA",
+    "amountBaseUnits": "1000000",
+    "sha256": "f499d43d9eb6a856b50740b70bd4900e83f97f44cd15b3305cfe49ab511e43cc",
+    "blockhashContextSlot": 441643865,
+    "feeContextSlot": 441643866,
+    "lastValidBlockHeight": 419692760,
+    "serializedBytesPublished": false,
+    "reusableForSigning": false
+  },
+  "fee": {
+    "quotedLamports": "5000",
+    "reservedLamports": "5000",
+    "matchesReservedLamports": true
+  },
+  "checks": {
+    "mainnetGenesisVerified": true,
+    "dedicatedHttpsRpc": true,
+    "sourceAtaCanonical": true,
+    "destinationAtaCanonical": true,
+    "exactLegacyTransferChecked": true,
+    "feeQuotedForExactMessage": true,
+    "feeContextNotOlderThanBlockhashContext": true,
+    "unsigned": true,
+    "keyLoaded": false,
+    "simulationAttempted": false,
+    "transactionSubmitted": false
+  },
+  "limitation": "The destination ATA is not yet live and the recent blockhash expires. This is fee evidence only; a fresh message may be signed only after the final Asset audit, ATA verification, exact Mainnet gate, and action-time confirmation."
+}

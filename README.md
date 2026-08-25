@@ -86,6 +86,10 @@ generated one isolated local Core Asset account, and froze every final derived
 address. Mainnet finalized read-back found the Core Asset, Agent Identity,
 Asset Signer PDA, and both USDC ATAs absent. No Collection or transaction was
 created.
+Goal 9O fixes the future direct treasury transfer at exactly `1.000000 USDC`
+from the experimental source ATA to the final Asset Signer ATA. A live
+read-only exact-message quote confirmed the reserved `5,000` lamport fee. The
+message expired unsigned; no wallet key, simulation, or submission was used.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -234,7 +238,7 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goal 9N is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
+Goal 9O is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
 remains locked. The Executive Profile remains registered,
 but its per-asset Execution Delegate Record is closed. The Asset Signer holds
 exactly `9,900,000` lamports after spending the approved `100,000` Devnet

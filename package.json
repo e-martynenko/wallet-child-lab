@@ -29,6 +29,7 @@
     "readiness:mainnet": "tsx src/cli/check-mainnet-readiness.ts",
     "status:devnet": "tsx src/cli/status-devnet.ts",
     "test-token:devnet": "tsx src/cli/execute-test-token-devnet.ts",
+    "treasury:quote:mainnet": "tsx src/cli/quote-usdc-funding-mainnet.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"

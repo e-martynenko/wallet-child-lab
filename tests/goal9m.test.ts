@@ -72,6 +72,15 @@ describe('Goal 9M unsigned Mainnet bootstrap fee', () => {
         'https://user:pass@mainnet.example.test/private?credential=hidden',
       rpcOrigin: 'https://mainnet.example.test',
     });
+    expect(
+      parseBootstrapFeeConfig({
+        WALLET_CHILD_MAINNET_RPC_URL:
+          'https://mainnet.example.test//?credential=hidden',
+      }),
+    ).toEqual({
+      rpcUrl: 'https://mainnet.example.test/?credential=hidden',
+      rpcOrigin: 'https://mainnet.example.test',
+    });
     for (const rpcUrl of [
       'http://mainnet.example.test',
       'https://api.mainnet-beta.solana.com',

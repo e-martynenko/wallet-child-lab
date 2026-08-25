@@ -127,6 +127,9 @@ export function parseBootstrapFeeConfig(
       'Bootstrap fee quote requires a dedicated HTTPS Mainnet RPC.',
     );
   }
+  if (/^\/{2,}$/.test(url.pathname)) {
+    url.pathname = '/';
+  }
   return Object.freeze({ rpcUrl: url.toString(), rpcOrigin: url.origin });
 }
 

@@ -33,7 +33,6 @@ import { SYSTEM_PROGRAM_ID } from '../src/policy/policy.js';
 const OWNER = '6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385';
 const RECOVERY = 'ABZePapHbYaTg7GU4LGQNcYmfURvue5uVrrf4FUa4x3j';
 const ASSET = '66aw2vNMJHk4xPjc6VAE9CPPahkEaj7EfpQFFuQuvTd2';
-const COLLECTION = 'csuvrVdZYpgVT5dVH9LYfdzQuWzXBYwL1xWDkcenThX';
 const ASSET_SIGNER = '5ZaoSJxJhZ7cK3kCHZun9Bv3K6TdUj5QJ92MjYZKxaSD';
 
 const umi = createUmi('http://127.0.0.1:8899')
@@ -67,7 +66,7 @@ const policy: MainnetRescuePolicy = {
 
 const accounts = {
   asset: ASSET,
-  collection: COLLECTION,
+  collection: null,
   assetSigner: ASSET_SIGNER,
   owner: createNoopSigner(publicKey(OWNER)),
 };

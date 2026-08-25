@@ -22,7 +22,7 @@ import { SYSTEM_PROGRAM_ID } from '../policy/policy.js';
 
 export type MainnetUsdcAccounts = Readonly<{
   asset: string;
-  collection: string;
+  collection: null;
   assetSigner: string;
   executionDelegateRecord: string;
   feePayer: Signer;
@@ -125,7 +125,7 @@ function assertOuterBuilder(
   builder: TransactionBuilder,
   expected: Readonly<{
     asset: string;
-    collection: string;
+    collection: null;
     assetSigner: string;
     feePayer: string;
     executive: string;
@@ -148,7 +148,7 @@ function assertOuterBuilder(
   }
   const metas = [
     [expected.asset, false, true],
-    [expected.collection, false, true],
+    [String(MPL_CORE_PROGRAM_ID), false, false],
     [expected.assetSigner, false, false],
     [expected.feePayer, true, true],
     [expected.executive, true, false],
@@ -221,7 +221,6 @@ export function buildMainnetUsdcTransfer(
 
   const builder = execute(umi, {
     asset: { publicKey: publicKey(accounts.asset) },
-    collection: { publicKey: publicKey(accounts.collection) },
     payer: accounts.feePayer,
     authority: accounts.executive,
     instructions: [forwarded],

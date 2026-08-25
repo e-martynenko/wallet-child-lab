@@ -67,6 +67,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Exact unsigned bootstrap fee | PASS, expired quote | Goal 9M fixes `19,990,000` lamports source-to-owner, quotes an exact-message `5,000` lamport fee at slot `441,634,604`, reserves another `5,000` for future USDC funding, and keeps their sum at `0.02 SOL`; no key, signing, simulation, or submission |
 | Final standalone identity addresses | PASS, absent | Goal 9N fixes Core Asset `HPaGuh…1Uty`, Agent Identity `EDT4…eXf8`, Asset Signer `5Snge…YWyu`, and both canonical USDC ATAs; all five were absent at finalized slot `441,642,028` |
 | Exact unsigned USDC funding fee | PASS, expired quote | Goal 9O fixes direct `1.000000 USDC` source-ATA-to-Asset-Signer-ATA `TransferChecked` and quotes the exact reserved `5,000` lamport fee at slot `441,643,866`; no key, signing, simulation, or submission |
+| Final standalone policy contract | PASS, offline | Goal 9P derives final Profile/Delegate PDAs and compiles final ATA setup, delegated action, and both owner rescues with `collection: null`; Profile and Record were absent at slot `441,645,228` |
 | Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and returned Mainnet genesis plus health `ok`; final-asset audit remains unavailable |
 
 Public key evidence:
@@ -79,14 +80,14 @@ artifacts, or normal runtime configuration.
 
 | Requirement | Status | What must happen before a GO |
 |---|---|---|
-| USDC-specific fixed intent and builder | PARTIAL | Goal 9E fixes official USDC and exactly `0.1 USDC` to isolated recovery with an offline builder; final asset accounts, compiled message, and same-bytes simulation do not exist |
+| USDC-specific fixed intent and builder | PARTIAL | Goal 9E fixes official USDC and exactly `0.1 USDC` to isolated recovery; Goal 9P compiles the final-address standalone builder, but a blockhash-bound message and same-bytes simulation do not exist |
 | USDC-shaped Devnet test | PASS | TEST mint/ATAs, fixed supply, bounded transfer, denial, revoke, rescue, accounting, and idempotency all finalized |
-| Exact allowed programs/accounts | PARTIAL | Goals 9E–9G assert exact Core/Token/System/ATA programs, bytes, and metas; Goal 9N freezes every final asset-derived address, but final compiled messages remain unavailable |
-| Hard limits enforced in code | PARTIAL | Goals 9E–9M enforce action, treasury, setup, rescue, total-SOL, total-USD, storage quote, and both external funding-fee slices; final rent, future USDC fee quote, simulation values, and acquisition quotes are not populated or connected to an executor |
+| Exact allowed programs/accounts | PARTIAL | Goals 9E–9G assert exact Core/Token/System/ATA programs, bytes, and metas; Goals 9N/9P freeze all final addresses and standalone builder contracts, but exact blockhash-bound messages remain unavailable |
+| Hard limits enforced in code | PARTIAL | Goals 9E–9O enforce action, treasury, setup, rescue, total-SOL, total-USD, storage quote, and both exact external funding fees; final rent, simulation values, and acquisition quotes are not populated or connected to an executor |
 | Exact Mainnet transaction simulation | BLOCKED | Build only after the USDC path passes Devnet; simulate the same signed bytes intended for submission |
 | Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes; Goal 9J implements two-origin exact retrieval verification; Goal 9K obtains a bounded Irys storage quote; permanent upload, live retrieval verification, on-chain binding, and immutability decision remain undone |
 | Reliable delegate enumeration | PARTIAL | Goal 9I implements the Mainnet-capable keyless path, Goal 9N fixes the final asset address, and the private Helius RPC is verified; the asset does not exist, so the required immediate post-create/pre-funding scan remains unavailable |
-| Emergency rescue implementation | PARTIAL | Goal 9F provides exact owner-only capped USDC/SOL builders; Goal 9G provides recovery ATA setup; final accounts and exact-message simulations remain absent |
+| Emergency rescue implementation | PARTIAL | Goals 9F/9P provide final-address owner-only capped USDC/SOL builders and Goal 9G provides recovery ATA setup; exact-message simulations remain absent |
 | Funding route without main-wallet runtime | PARTIAL, operator-attested | Goals 9L–9O fix a separate experimental source plus exact SOL and USDC destinations/messages/fees without loading the source key; live preflights, simulations, action-time confirmations, and the public upstream-linkage caveat remain |
 | Dedicated Mainnet RPC | PASS | private Helius HTTPS RPC is locally configured, secret-safe, healthy, and Mainnet genesis verified; rerun health immediately before the final asset audit |
 | Dependency advisory decision | ACCEPTED, RECHECK | Goal 9D accepts one real moderate advisory only while the exact graph and unreachable `v3/v5/v6` buffer path remain unchanged; repeat the audit and guard immediately before signing review |
@@ -161,12 +162,12 @@ simulation, or send function.
 
 ## Final decision
 
-**NO-GO for Goal 10.** Goals 9A–9O now close the safe local, quote-only, and
+**NO-GO for Goal 10.** Goals 9A–9P now close the safe local, quote-only, and
 external-route remediation slice available before external choices: the
 real-token policy, recovery, USDC ATA setup, aggregate budget, Mainnet delegate
 scanner, metadata
 integrity, durable retrieval verifier, private RPC, and bounded Irys storage
 quote all exist and pass. This is still not a claim that Mainnet execution is
-safe. Durable publication, final asset-derived accounts, live audits and
-same-bytes simulations, the future USDC funding-message fee, remaining live
-acquisition/fee quotes, and the exact approval phrase remain mandatory.
+safe. Durable publication, exact identity/setup messages, live audits and
+same-bytes simulations, final identity/setup rents and fees, remaining live
+acquisition quotes, and the exact approval phrase remain mandatory.

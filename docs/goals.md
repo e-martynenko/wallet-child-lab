@@ -461,6 +461,25 @@ Review: [`reviews/goal-9o.md`](reviews/goal-9o.md)
 Artifact:
 [`wallet-child-001.goal9o.usdc-funding-fee.json`](../artifacts/wallet-child-001.goal9o.usdc-funding-fee.json)
 
+## Goal 9P — final standalone policy contract
+
+Status: **complete — reviewed 2026-08-25; all builds remain offline**
+
+Expected result:
+
+- canonical final Executive Profile and Execution Delegate Record PDAs;
+- one final-address contract for ATA setup, delegated `0.1 USDC` action, and
+  both owner rescue paths;
+- Mainnet builders accept only `collection: null` and assert the exact read-only
+  Core program sentinel used for an omitted optional Collection;
+- finalized proof that the final Profile and Delegate Record remain absent;
+- no key loading, signing, simulation, or submission.
+
+Review: [`reviews/goal-9p.md`](reviews/goal-9p.md)
+
+Artifact:
+[`wallet-child-001.goal9p.final-contract.json`](../artifacts/wallet-child-001.goal9p.final-contract.json)
+
 ## Goal 10 — one-dollar Mainnet experiment
 
 Status: **locked**

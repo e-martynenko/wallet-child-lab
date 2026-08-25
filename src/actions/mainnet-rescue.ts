@@ -21,7 +21,7 @@ import {
 
 export type MainnetOwnerRescueAccounts = Readonly<{
   asset: string;
-  collection: string;
+  collection: null;
   assetSigner: string;
   owner: Signer;
 }>;
@@ -166,7 +166,6 @@ export function buildOwnerMainnetUsdcRescue(
 
   const builder = execute(umi, {
     asset: { publicKey: publicKey(accounts.asset) },
-    collection: { publicKey: publicKey(accounts.collection) },
     payer: accounts.owner,
     authority: accounts.owner,
     instructions: [inner],
@@ -183,7 +182,7 @@ export function buildOwnerMainnetUsdcRescue(
   }
   const outerMetas = [
     [accounts.asset, false, true],
-    [accounts.collection, false, true],
+    [String(MPL_CORE_PROGRAM_ID), false, false],
     [accounts.assetSigner, false, false],
     [policy.owner, true, true],
     [policy.owner, true, false],
@@ -234,7 +233,6 @@ export function buildOwnerMainnetSolRescue(
 
   const builder = execute(umi, {
     asset: { publicKey: publicKey(accounts.asset) },
-    collection: { publicKey: publicKey(accounts.collection) },
     payer: accounts.owner,
     authority: accounts.owner,
     instructions: [inner],
@@ -251,7 +249,7 @@ export function buildOwnerMainnetSolRescue(
   }
   const outerMetas = [
     [accounts.asset, false, true],
-    [accounts.collection, false, true],
+    [String(MPL_CORE_PROGRAM_ID), false, false],
     [accounts.assetSigner, false, false],
     [policy.owner, true, true],
     [policy.owner, true, false],

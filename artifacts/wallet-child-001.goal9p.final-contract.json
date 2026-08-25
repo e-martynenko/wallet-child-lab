@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "9P",
+  "network": "mainnet-beta",
+  "observedAt": "2026-08-25T13:59:47.000Z",
+  "status": "FINAL_STANDALONE_POLICY_FROZEN_UNFUNDED",
+  "architecture": {
+    "standaloneCoreAsset": true,
+    "collection": null
+  },
+  "addresses": {
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "executive": "EJQcuD9FtJ33c2wA7GM6HzvmJJJbPsYnmH5ZjTDdhbjF",
+    "recovery": "ABZePapHbYaTg7GU4LGQNcYmfURvue5uVrrf4FUa4x3j",
+    "coreAsset": "HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty",
+    "assetSigner": "5Snge43iBczUT16b4ndffdgB4xxR2Bev9vxvLRe5YWyu",
+    "assetSignerUsdcAta": "hCmisMZFRL7SWKvgdtFWXMTDW3PY858Kmvg6dQ8GQMU",
+    "recoveryUsdcAta": "8dbJMqCGAMTuJZ5ZZZeQMT43WqkkrwmBiyEJRH8szAd",
+    "executiveProfile": "3Uy4XhPJLAdFRyFLAfJM7ruNc3Td5Ld1258Gx5z2WYXo",
+    "executionDelegateRecord": "Fr2yQyG7gEQYjL6Sr8sYXrS2n21bfjod5rKQDdo7bgcm"
+  },
+  "availability": {
+    "finalizedSlot": 441645228,
+    "executiveProfileExists": false,
+    "executionDelegateRecordExists": false
+  },
+  "checks": {
+    "allPdasAndAtasCanonical": true,
+    "collectionAccountOmitted": true,
+    "coreOptionalCollectionSentinelAsserted": true,
+    "finalAtaSetupBuild": true,
+    "finalDelegatedActionBuild": true,
+    "finalUsdcRescueBuild": true,
+    "finalSolRescueBuild": true,
+    "networkRequestDuringBuild": false,
+    "keyLoaded": false,
+    "transactionSigned": false,
+    "transactionSubmitted": false
+  }
+}

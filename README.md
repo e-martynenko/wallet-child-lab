@@ -68,7 +68,13 @@ on-chain URI update has occurred.
 Goal 9K added a fixed read-only Irys Mainnet storage quote for the exact frozen
 metadata bytes. The live tagged quote observed on 2026-08-25 was `3,208`
 lamports (`0.000003208 SOL`); it is not an upload, funding estimate, or durable
-URI.
+URI. Goal 9L then fixed the operator-designated experimental wallet as an
+external funding source. A finalized read found `1.078695 USDC` and
+`0.088698606 SOL` there while every Wallet Child Mainnet principal remained
+unfunded. The bootstrap policy permits only at most `0.02 SOL` and zero USDC to
+the isolated owner. Exactly `1 USDC` stays staged until the final Asset Signer
+exists and passes its immediate audit; the policy cannot build or submit either
+transfer.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -206,7 +212,7 @@ does not include the future Solana funding-transaction fee.
 
 ## Safety boundary
 
-Goal 9K is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
+Goal 9L is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
 remains locked. The Executive Profile remains registered,
 but its per-asset Execution Delegate Record is closed. The Asset Signer holds
 exactly `9,900,000` lamports after spending the approved `100,000` Devnet
@@ -215,4 +221,6 @@ receiver holds `100,000` base units, and the owner recovery ATA holds the other
 `1,900,000`. Mint and freeze authorities are absent, token delegates and close
 authorities are absent, and the execution delegation is revoked. Goal 9 created
 only local, unfunded readiness keys and performed read-only RPC calls. No
-Mainnet transaction, real USDC, or real-money funding has occurred.
+Mainnet write by the lab has occurred. The operator performed one real Jupiter
+swap in the separate experimental source wallet, but no real SOL or USDC has
+entered the Wallet Child owner, executive, recovery, or Asset Signer.

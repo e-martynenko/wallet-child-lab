@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "9L",
+  "network": "mainnet-beta",
+  "observedAt": "2026-08-25T12:42:27.000Z",
+  "sourceFinalizedSlot": 441631349,
+  "walletChildFinalizedSlot": 441632634,
+  "status": "STAGED_OUTSIDE_WALLET_CHILD",
+  "source": {
+    "address": "8W7sQKSRuYAdev3qcZCm9rrs4DDKbnEgD4fA8kvENvxt",
+    "solLamports": "88698606",
+    "usdcAccount": "2RETLnM6iGVayfXP9ynTLmgk5oB5gqHpY8BbVuG1oVyQ",
+    "usdcBaseUnits": "1078695"
+  },
+  "permittedRoute": {
+    "bootstrap": {
+      "destinationOwner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+      "usdcBaseUnits": "0",
+      "maximumSolLamports": "20000000"
+    },
+    "treasury": {
+      "destinationAssetSigner": null,
+      "usdcBaseUnits": "1000000",
+      "status": "BLOCKED_UNTIL_FINAL_ASSET_AND_AUDIT"
+    }
+  },
+  "walletChildAtObservation": {
+    "ownerSolLamports": "0",
+    "ownerUsdcAccountCount": 0,
+    "executiveSolLamports": "0",
+    "executiveUsdcAccountCount": 0,
+    "recoverySolLamports": "0",
+    "recoveryUsdcAccountCount": 0
+  },
+  "checks": {
+    "sourceIsOperatorDesignatedExperimentalWallet": true,
+    "sourceDistinctFromEveryWalletChildPrincipal": true,
+    "sourceUsdcAccountCanonical": true,
+    "sourceUsdcAccountHasNoDelegateOrCloseAuthority": true,
+    "sourceCanCoverFixedCaps": true,
+    "walletChildStillUnfunded": true,
+    "fundingSourceKeyLoadedByLab": false,
+    "transactionBuilt": false,
+    "transactionSubmittedByLab": false
+  },
+  "limitation": "The operator identifies the source as experimental. Public on-chain history cannot prove that an upstream wallet is unrelated."
+}

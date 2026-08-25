@@ -372,6 +372,31 @@ Expected result:
 
 Review: [`reviews/goal-9k.md`](reviews/goal-9k.md)
 
+## Goal 9L — isolated Mainnet funding route
+
+Status: **complete — reviewed 2026-08-25; assets remain staged outside Wallet Child**
+
+Expected result:
+
+- one operator-designated experimental source, distinct from every Wallet Child
+  principal and never loaded as a key by the lab;
+- finalized proof that the source can cover the fixed `1 USDC` and `0.02 SOL`
+  caps while owner, executive, and recovery remain unfunded;
+- canonical source USDC ATA for the official legacy-token mint;
+- source token-account checks for owner, mint, initialization, delegate, and
+  close authority;
+- one fail-closed bootstrap intent allowing at most `0.02 SOL` and no USDC to
+  the isolated owner;
+- `1 USDC` remains staged until the final Asset Signer exists and passes its
+  immediate pre-funding audit;
+- no RPC in the policy module and no key, builder, simulation, signing, or send
+  path anywhere in the goal.
+
+Review: [`reviews/goal-9l.md`](reviews/goal-9l.md)
+
+Artifact:
+[`wallet-child-001.goal9l.funding-route.json`](../artifacts/wallet-child-001.goal9l.funding-route.json)
+
 ## Goal 10 — one-dollar Mainnet experiment
 
 Status: **locked**

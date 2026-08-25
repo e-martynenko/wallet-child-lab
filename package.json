@@ -19,6 +19,7 @@
     "fund:devnet": "tsx src/cli/fund-devnet.ts",
     "lifecycle:devnet": "tsx src/cli/lifecycle-devnet.ts",
     "metadata:check": "tsx src/cli/check-metadata.ts",
+    "metadata:quote:irys": "tsx src/cli/quote-irys-metadata.ts",
     "metadata:verify-durable": "tsx src/cli/verify-durable-metadata.ts",
     "policy:check": "tsx src/cli/check-policy.ts",
     "prepare:mainnet-recovery": "tsx src/cli/prepare-mainnet-recovery.ts",

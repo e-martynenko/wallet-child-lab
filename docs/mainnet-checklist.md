@@ -49,7 +49,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Authoritative Solana USDC mint | PASS, read-only | Circle address and live initialized 6-decimal SPL mint agree |
 | Agent Tools deployed | PASS, read-only | expected program is executable on Mainnet |
 | Maximum possible funded loss | PASS | three simultaneous caps above |
-| Live Mainnet execution path | ABSENT | Goals 9E–9J contain offline builders/readers only; no final-account signer, exact-message simulation, or send command exists |
+| Live Mainnet execution path | ABSENT | Goals 9E–9K contain offline builders/readers only; no final-account signer, exact-message simulation, or send command exists |
 | USDC-shaped Devnet lifecycle | PASS | Goal 9A exact TEST-token transfer, revoke, denial, owner rescue, and finalized reconciliation |
 | Goal 9A rerun safety | PASS | completed rerun submitted zero transactions after live-state validation |
 | Complete Devnet delegate discovery | PASS | Goal 9B full Agent Tools scan, closed-world layout check, all-record PDA/profile validation, and independent filter comparison found zero for the asset |
@@ -62,6 +62,8 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Aggregate lifecycle budget contract | PASS | Goal 9H sums metadata/rent/setup/reserve/action/revoke/emergency SOL under `0.02 SOL`, fixes `1 USDC`, and enforces ≤`$10` combined acquisition; final values unavailable |
 | Mainnet delegate-audit implementation | PASS | Goal 9I requires dedicated HTTPS RPC, verifies Mainnet genesis/owner, repeats full closed-world scan plus independent filter, and hard-fails funding on any record; final asset unavailable |
 | Durable metadata verifier | PASS | Goal 9J requires exact frozen bytes from two independent HTTPS origins and the reviewed digest; upload, durable URI, and on-chain binding remain unavailable |
+| Irys storage quote | PASS, read-only | Goal 9K fixes the tagged `351`-byte Mainnet quote request; live result on 2026-08-25 was `3,208` lamports; no key, funding, upload, or transaction path exists |
+| Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and returned Mainnet genesis plus health `ok`; final-asset audit remains unavailable |
 
 Public key evidence:
 [`artifacts/wallet-child-001.goal9.mainnet-readiness.json`](../artifacts/wallet-child-001.goal9.mainnet-readiness.json).
@@ -76,13 +78,13 @@ artifacts, or normal runtime configuration.
 | USDC-specific fixed intent and builder | PARTIAL | Goal 9E fixes official USDC and exactly `0.1 USDC` to isolated recovery with an offline builder; final asset accounts, compiled message, and same-bytes simulation do not exist |
 | USDC-shaped Devnet test | PASS | TEST mint/ATAs, fixed supply, bounded transfer, denial, revoke, rescue, accounting, and idempotency all finalized |
 | Exact allowed programs/accounts | PARTIAL | Goals 9E–9G assert exact Core/Token/System/ATA programs, bytes, metas, and canonical accounts; final asset-derived addresses and compiled messages remain unavailable |
-| Hard limits enforced in code | PARTIAL | Goals 9E–9H enforce action, treasury, setup, rescue, total-SOL, and total-USD contracts; final simulation values/live quotes are not populated or connected to an executor |
+| Hard limits enforced in code | PARTIAL | Goals 9E–9H enforce action, treasury, setup, rescue, total-SOL, and total-USD contracts; Goal 9K bounds the Irys storage quote, but final rent, funding fee, simulation values, and acquisition quotes are not populated or connected to an executor |
 | Exact Mainnet transaction simulation | BLOCKED | Build only after the USDC path passes Devnet; simulate the same signed bytes intended for submission |
-| Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes; Goal 9J implements two-origin exact retrieval verification; permanent upload, live verification, on-chain binding, and immutability decision remain undone |
-| Reliable delegate enumeration | PARTIAL | Goal 9I implements the Mainnet-capable keyless path and refuses public RPC; final asset and dedicated-provider run immediately before funding remain unavailable |
+| Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes; Goal 9J implements two-origin exact retrieval verification; Goal 9K obtains a bounded Irys storage quote; permanent upload, live retrieval verification, on-chain binding, and immutability decision remain undone |
+| Reliable delegate enumeration | PARTIAL | Goal 9I implements the Mainnet-capable keyless path and the private Helius RPC is verified; the final asset does not exist, so the required immediate pre-funding scan remains unavailable |
 | Emergency rescue implementation | PARTIAL | Goal 9F provides exact owner-only capped USDC/SOL builders; Goal 9G provides recovery ATA setup; final accounts and exact-message simulations remain absent |
 | Funding route without main wallet | BLOCKED | Define a reviewed route that does not reuse or connect the user's normal wallet |
-| Dedicated Mainnet RPC | BLOCKED | Select a private/dedicated HTTPS RPC; public Solana RPC is suitable only for this low-rate read check |
+| Dedicated Mainnet RPC | PASS | private Helius HTTPS RPC is locally configured, secret-safe, healthy, and Mainnet genesis verified; rerun health immediately before the final asset audit |
 | Dependency advisory decision | ACCEPTED, RECHECK | Goal 9D accepts one real moderate advisory only while the exact graph and unreachable `v3/v5/v6` buffer path remain unchanged; repeat the audit and guard immediately before signing review |
 
 Because one BLOCKED item is sufficient for `NO-GO`, none may be downgraded to
@@ -140,14 +142,18 @@ simulation, or send function.
 - [Registry package](https://www.npmjs.com/package/@metaplex-foundation/mpl-agent-registry)
   remained `0.2.6` at this review; the registry still depends on exact MPL Core
   `1.8.0`.
+- [Irys metadata upload guide](https://docs.irys.xyz/build/d/guides/uploading-nfts)
+  defines the storage-price check that precedes any funding or upload.
+- [Irys supported tokens](https://docs.irys.xyz/build/d/features/supported-tokens)
+  lists SOL with the Mainnet token parameter `solana`.
 
 ## Final decision
 
-**NO-GO for Goal 10.** Goals 9A–9J now close every safe local remediation
-slice available before external choices: the real-token policy, recovery,
-USDC ATA setup, aggregate budget, Mainnet delegate scanner, metadata integrity,
-and durable retrieval verifier all exist and pass offline. This is still not a
-claim that Mainnet execution is safe. Durable publication, a private
-project-specific RPC endpoint, an isolated funding route, final asset-derived
-accounts, live audits and same-bytes simulations, live acquisition quotes, and
-the exact approval phrase remain mandatory.
+**NO-GO for Goal 10.** Goals 9A–9K now close the safe local and quote-only
+remediation slice available before external choices: the real-token policy,
+recovery, USDC ATA setup, aggregate budget, Mainnet delegate scanner, metadata
+integrity, durable retrieval verifier, private RPC, and bounded Irys storage
+quote all exist and pass. This is still not a claim that Mainnet execution is
+safe. Durable publication, an isolated funding route, final asset-derived
+accounts, live audits and same-bytes simulations, remaining live
+acquisition/fee quotes, and the exact approval phrase remain mandatory.

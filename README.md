@@ -65,6 +65,10 @@ dedicated HTTPS RPC and refuses public cluster endpoints, but cannot run until
 the Mainnet asset exists.
 Goal 9J added a read-only two-origin durable metadata verifier, but no upload or
 on-chain URI update has occurred.
+Goal 9K added a fixed read-only Irys Mainnet storage quote for the exact frozen
+metadata bytes. The live tagged quote observed on 2026-08-25 was `3,208`
+lamports (`0.000003208 SOL`); it is not an upload, funding estimate, or durable
+URI.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -190,9 +194,19 @@ WALLET_CHILD_METADATA_RETRIEVAL_URLS='["https://first.example/content","https://
 This command only downloads and hashes bytes. It does not upload or update the
 agent.
 
+Refresh the Irys storage quote for the exact frozen metadata with:
+
+```sh
+pnpm run metadata:quote:irys
+```
+
+The command makes one fixed Mainnet `GET` request for `351` tagged bytes. It
+loads no key and cannot fund, upload, sign, or submit a transaction. The quote
+does not include the future Solana funding-transaction fee.
+
 ## Safety boundary
 
-Goal 9J is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
+Goal 9K is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
 remains locked. The Executive Profile remains registered,
 but its per-asset Execution Delegate Record is closed. The Asset Signer holds
 exactly `9,900,000` lamports after spending the approved `100,000` Devnet

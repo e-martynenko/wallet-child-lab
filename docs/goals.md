@@ -357,6 +357,21 @@ Expected result:
 
 Review: [`reviews/goal-9j.md`](reviews/goal-9j.md)
 
+## Goal 9K — Irys metadata storage quote
+
+Status: **complete — reviewed 2026-08-25; publication blocked**
+
+Expected result:
+
+- fixed Irys Mainnet `GET /price/solana/351` path;
+- exact frozen SHA-256, byte length, public owner, and JSON tag;
+- atomic lamport parsing without floating-point conversion;
+- storage quote hard-stop above `100,000` lamports;
+- no wallet key, signer, funding, upload, signing, or send path;
+- explicit separation between storage price and future funding transaction fee.
+
+Review: [`reviews/goal-9k.md`](reviews/goal-9k.md)
+
 ## Goal 10 — one-dollar Mainnet experiment
 
 Status: **locked**

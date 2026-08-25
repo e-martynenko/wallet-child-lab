@@ -1,0 +1,47 @@
+{
+  "name": "wallet-child-lab",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A Devnet-first lab for learning Metaplex agent identity and wallet primitives.",
+  "type": "module",
+  "packageManager": "pnpm@10.29.3",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "audit:deps": "pnpm audit --prod",
+    "birth:devnet": "tsx src/cli/birth-devnet.ts",
+    "brain:check": "tsx src/cli/check-brain.ts",
+    "check:network": "tsx src/cli/check-network.ts",
+    "delegates:audit:devnet": "tsx src/cli/audit-delegates-devnet.ts",
+    "delegates:audit:mainnet": "tsx src/cli/audit-delegates-mainnet.ts",
+    "execute:devnet": "tsx src/cli/execute-bounded-devnet.ts",
+    "fund:devnet": "tsx src/cli/fund-devnet.ts",
+    "lifecycle:devnet": "tsx src/cli/lifecycle-devnet.ts",
+    "metadata:check": "tsx src/cli/check-metadata.ts",
+    "metadata:verify-durable": "tsx src/cli/verify-durable-metadata.ts",
+    "policy:check": "tsx src/cli/check-policy.ts",
+    "prepare:mainnet-recovery": "tsx src/cli/prepare-mainnet-recovery.ts",
+    "prepare:mainnet-wallets": "tsx src/cli/prepare-mainnet-wallets.ts",
+    "readiness:mainnet": "tsx src/cli/check-mainnet-readiness.ts",
+    "status:devnet": "tsx src/cli/status-devnet.ts",
+    "test-token:devnet": "tsx src/cli/execute-test-token-devnet.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@metaplex-foundation/mpl-agent-registry": "0.2.6",
+    "@metaplex-foundation/mpl-core": "1.8.0",
+    "@metaplex-foundation/mpl-toolbox": "0.10.0",
+    "@metaplex-foundation/umi": "1.5.1",
+    "@metaplex-foundation/umi-bundle-defaults": "1.5.1",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "26.2.0",
+    "tsx": "4.23.12",
+    "typescript": "7.0.2",
+    "vitest": "4.1.11"
+  }
+}

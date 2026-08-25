@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "network": "devnet",
+  "status": "complete",
+  "startedAt": "2026-08-24T11:24:06.550Z",
+  "rpcOrigin": "https://api.devnet.solana.com",
+  "metadata": {
+    "gist": "https://gist.github.com/djent3052/047b96e293e586f6167ca8da41ef5d90",
+    "asset": "https://gist.githubusercontent.com/djent3052/047b96e293e586f6167ca8da41ef5d90/raw/0c542aae387a11a0357d898744da44cb8305d9a8/wallet-child-001.json",
+    "collection": "https://gist.githubusercontent.com/djent3052/047b96e293e586f6167ca8da41ef5d90/raw/8b79dfa9f05f16f5148a235a31458c9b7d5d9603/wallet-child-lab-collection.json"
+  },
+  "addresses": {
+    "owner": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+    "collection": "csuvrVdZYpgVT5dVH9LYfdzQuWzXBYwL1xWDkcenThX",
+    "asset": "66aw2vNMJHk4xPjc6VAE9CPPahkEaj7EfpQFFuQuvTd2",
+    "agentIdentity": "2n9Xko2hRYp7yRxGJCn72RQXdDfXwdpfTMC3ea2zbh57",
+    "assetSigner": "5ZaoSJxJhZ7cK3kCHZun9Bv3K6TdUj5QJ92MjYZKxaSD"
+  },
+  "transactions": {
+    "ownerAirdrops": [
+      {
+        "signature": "61CZrfA2uhkQqeHcypam6SgFVgQ6Jq7ArgkMnL5dNsCB3BN1DWsdthKaDhZ4LS4uTCJcemfcPg8DkcXm2fUwomQq",
+        "status": "confirmed"
+      },
+      {
+        "signature": "GaFmpAad3aVhffLHhuu3ez5MuT5voHpB6UYGJyH2AcGbzLdKknvoarid69XhUrZrLqTGNfL8vbr2T6nJ5cS9rgP",
+        "status": "confirmed"
+      }
+    ],
+    "createCollection": {
+      "signature": "mFCQ381dUnhzMbYTa2VeUkWG23mfNrhnhrHHpmYs5PMk53syvHFQiuUiBt8vuJruaXQRbLie7Nc38yheUEKDNb5",
+      "status": "confirmed"
+    },
+    "createAsset": {
+      "signature": "3jVHvYgAm4iJswxEpvVaweH7W7DdTdHzKGLN9bPry3b4gHtFuUeMQR424Lg4RckKwXethheZcFCcVGZegpL2q6jb",
+      "status": "confirmed"
+    },
+    "registerIdentity": {
+      "signature": "1UwWfoqCWLq2B6aWYiBtxMSeQiinvsu51xakxej8cdD39zSCDQMdRfw47bwJEWbb6dhxfhzFbkEE97TTiRm4omd",
+      "status": "confirmed"
+    }
+  },
+  "readBack": {
+    "collectionName": "Wallet Child Lab",
+    "collectionUri": "https://gist.githubusercontent.com/djent3052/047b96e293e586f6167ca8da41ef5d90/raw/8b79dfa9f05f16f5148a235a31458c9b7d5d9603/wallet-child-lab-collection.json",
+    "collectionNumMinted": 1,
+    "collectionCurrentSize": 1,
+    "assetName": "Wallet Child #001",
+    "assetUri": "https://gist.githubusercontent.com/djent3052/047b96e293e586f6167ca8da41ef5d90/raw/0c542aae387a11a0357d898744da44cb8305d9a8/wallet-child-001.json",
+    "agentIdentityUri": "https://gist.githubusercontent.com/djent3052/047b96e293e586f6167ca8da41ef5d90/raw/0c542aae387a11a0357d898744da44cb8305d9a8/wallet-child-001.json",
+    "agentToken": null,
+    "assetSignerBalanceLamports": "0",
+    "ownerBalanceLamports": "990519720"
+  },
+  "completedAt": "2026-08-24T11:34:42.236Z"
+}

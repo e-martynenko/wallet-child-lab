@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "candidatePath": "metadata/wallet-child-001.mainnet-candidate.json",
+  "canonicalization": "WALLET_CHILD_METADATA_V1_PRETTY_UTF8_LF_TRAILING_NEWLINE",
+  "sha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+  "byteLength": 351,
+  "publicationStatus": "NOT_PUBLISHED",
+  "durableUri": null,
+  "onChainUriUpdated": false
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": 4,
+  "network": "devnet",
+  "status": "complete",
+  "startedAt": "2026-08-24T12:00:20.991Z",
+  "rpcOrigin": "https://api.devnet.solana.com",
+  "addresses": {
+    "owner": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+    "collection": "csuvrVdZYpgVT5dVH9LYfdzQuWzXBYwL1xWDkcenThX",
+    "asset": "66aw2vNMJHk4xPjc6VAE9CPPahkEaj7EfpQFFuQuvTd2",
+    "agentIdentity": "2n9Xko2hRYp7yRxGJCn72RQXdDfXwdpfTMC3ea2zbh57",
+    "assetSigner": "5ZaoSJxJhZ7cK3kCHZun9Bv3K6TdUj5QJ92MjYZKxaSD"
+  },
+  "funding": {
+    "amountLamports": "10000000",
+    "ownerBeforeLamports": "990519720",
+    "beforeLamports": "0",
+    "transaction": {
+      "signature": "4T27EFVfNov3VmeW8RY8jQDZsru3jjtV16rMznpSoouQHcpkZqkSqJdWZnUVt3PfuSX5TAbSPQe6j2r2hXEcUt4Z",
+      "status": "confirmed"
+    },
+    "ownerAfterLamports": "980514720",
+    "afterLamports": "10000000"
+  },
+  "readBack": {
+    "registered": true,
+    "executive": "NONE",
+    "tokenAccounts": {
+      "legacy": [],
+      "token2022": []
+    },
+    "relationship": {
+      "assetOwner": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+      "assetCollection": "csuvrVdZYpgVT5dVH9LYfdzQuWzXBYwL1xWDkcenThX",
+      "collectionUpdateAuthority": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+      "identityAsset": "66aw2vNMJHk4xPjc6VAE9CPPahkEaj7EfpQFFuQuvTd2"
+    }
+  },
+  "completedAt": "2026-08-24T12:00:29.306Z"
+}

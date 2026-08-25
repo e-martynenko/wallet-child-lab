@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": 9,
+  "network": "mainnet-beta",
+  "status": "unfunded",
+  "createdAt": "2026-08-25T05:44:40.306Z",
+  "addresses": {
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "executive": "EJQcuD9FtJ33c2wA7GM6HzvmJJJbPsYnmH5ZjTDdhbjF"
+  },
+  "checks": {
+    "distinctFromEachOther": true,
+    "distinctFromDevnet": true,
+    "funded": false
+  }
+}

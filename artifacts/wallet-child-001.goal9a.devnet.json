@@ -1,0 +1,151 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "9A",
+  "network": "devnet",
+  "status": "complete",
+  "startedAt": "2026-08-25T06:57:34.809Z",
+  "rpcOrigin": "https://api.devnet.solana.com",
+  "addresses": {
+    "owner": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+    "executiveAuthority": "ET7sHJiBdS5VgXfQvgzenS9U1iPAa5b3dUZKotCDW2dn",
+    "executiveProfile": "5JCE3kBRz6U9hGWdEjAoPKrieucfgrnZ9n66Fz3R2Ymq",
+    "executionDelegateRecord": "4nzrCQWJNXRdyd7To3vtzMQioNkDrn4RduW4g3QcqFaH",
+    "collection": "csuvrVdZYpgVT5dVH9LYfdzQuWzXBYwL1xWDkcenThX",
+    "asset": "66aw2vNMJHk4xPjc6VAE9CPPahkEaj7EfpQFFuQuvTd2",
+    "agentIdentity": "2n9Xko2hRYp7yRxGJCn72RQXdDfXwdpfTMC3ea2zbh57",
+    "assetSigner": "5ZaoSJxJhZ7cK3kCHZun9Bv3K6TdUj5QJ92MjYZKxaSD",
+    "testReceiver": "B96kUFzEvVzmW9DKfg3VDV9ZagXXjZ9rc3vyZeMk5svy",
+    "testMint": "Axe7U6PFbGFFkzzPxEgDUbSDXaYuqBMc3npimMWoV8uv",
+    "sourceAta": "FHibzozTbQVcGkzTE2j8VTV2cUmVw4DrLoiEft8Mmiwp",
+    "destinationAta": "4FvttsuRs21vJ4KN9MpK7ZdsmArVPZCuUye21YUqJCXQ",
+    "recoveryOwner": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+    "recoveryAta": "F6Jaj1fapXFih6j1PZgkxKxf3SXAPwGRYCPDQenvMALG"
+  },
+  "policy": {
+    "token": "WALLET_CHILD_USDC_SHAPED_TEST_ONLY",
+    "decimals": 6,
+    "initialSupplyBaseUnits": "2000000",
+    "actionBaseUnits": "100000",
+    "maximumTransferBaseUnits": "1000000",
+    "rescueBaseUnits": "1900000",
+    "maximumFeePayerSpendLamports": "100000",
+    "allowedProgram": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+  },
+  "ownerStartingLamports": "978315840",
+  "transactions": {
+    "createMint": [
+      {
+        "signature": "2wjvGxBrXSZXMvNjHJLaAiE6JfT4QbwTqG8XKjYT5coVuRwnXET4KDkksLBSdunDKa2BnFboPMgySQxovSFSKVn9",
+        "blockhash": "BV1SzPSArrBsXReSLdNf3PpRh2gK2JHjiKwVvyRp4Hdn",
+        "lastValidBlockHeight": 475506098,
+        "status": "confirmed"
+      }
+    ],
+    "createAtas": [
+      {
+        "signature": "3bMEKGVyFxii9MtD7E6A8z3ih4XqHMRsrWnvKzx2w8u8cdwfgZGBd8bp1GREDEg7r1MemxnzQzWZgj8F6mjDs5Ps",
+        "blockhash": "Auyf1Vzqaz4YCiAbf56fQFDLvFvASmFB7aGBSwrfqgGc",
+        "lastValidBlockHeight": 475506134,
+        "status": "confirmed"
+      }
+    ],
+    "mintSupply": [
+      {
+        "signature": "2RSUq7A8yeExBnknhodrgL7sdKrRmMBMZpvKLaNHZicJQfy54h3e5hmVSiqJmsTV941zbZa2tfkb1w9E6vhj5ot9",
+        "blockhash": "E7mzCGFADFxqyNKFE3UUAcrKHtfHYr7savoqbzzekWs3",
+        "lastValidBlockHeight": 475506170,
+        "status": "confirmed"
+      }
+    ],
+    "delegate": [
+      {
+        "signature": "3hfRp2RgbcggNApDYB9KBmjM529r65Jf2pGGNRzr9WBACJCsBRBGnCH8Cmq8JJrG4EFhJNhDyobfehwndBCtkkSJ",
+        "blockhash": "4FugZXsvdwoqta6DEgeNXmKrnZrDeJvvR1ZKWGuonZD9",
+        "lastValidBlockHeight": 475506207,
+        "status": "confirmed"
+      }
+    ],
+    "boundedTransfer": [
+      {
+        "signature": "58ZGjcBJbBXvUvDSqzxNSceXribxxc5ov64jLjZGEbSAVEvBbc6jeGV3kvY1i7ZLRjBndpMULKL3qiFy8pYDHo8L",
+        "blockhash": "AcY4SQTYPtTeiRZsn5QVfdvYNNNJMus7bPCRxtMP7t8i",
+        "lastValidBlockHeight": 475506246,
+        "status": "confirmed"
+      }
+    ],
+    "revoke": [
+      {
+        "signature": "2v3F4VioXimXbCkveig9ASKNkTcujFwzj9GFjBxq8CeU27UP78ZRsiZx5vGingvXSuU9yWjDBAAyLUDRkCngpbEZ",
+        "blockhash": "CPZ5MwpcY9LZE5cZwR16N4xfpsjkW9TZEZJMkVxRfzXh",
+        "lastValidBlockHeight": 475506284,
+        "status": "confirmed"
+      }
+    ],
+    "ownerRescue": [
+      {
+        "signature": "2GJjMEvzxoz2gWgJbJoSzQYcRnNsf6K7bMRWpZ11YPs1muvmrm26U8TwANxJJ3QVyN5hiTK3ZrJBd6nZDq3RfZNH",
+        "blockhash": "EGfdZvnZ6HWFrci9fEg5hFC1QD2jFvgLiMA7czVv7osP",
+        "lastValidBlockHeight": 475506322,
+        "status": "confirmed"
+      }
+    ]
+  },
+  "checks": {
+    "forbiddenActionsDenied": {
+      "officialMainnetUsdc": "OFFICIAL_USDC_FORBIDDEN",
+      "officialDevnetUsdc": "OFFICIAL_USDC_FORBIDDEN",
+      "overLimit": "AMOUNT_OVER_LIMIT",
+      "unknownDestination": "DESTINATION_NOT_ALLOWED",
+      "injectedInstruction": "MALFORMED_ACTION"
+    },
+    "mintVerified": true,
+    "atasVerified": true,
+    "mintAuthorityRevoked": true,
+    "activeDelegateVerified": true,
+    "actionBefore": {
+      "sourceBaseUnits": "2000000",
+      "destinationBaseUnits": "0",
+      "recoveryBaseUnits": "0",
+      "feePayerLamports": "969096680"
+    },
+    "actionAfter": {
+      "sourceBaseUnits": "1900000",
+      "destinationBaseUnits": "100000",
+      "recoveryBaseUnits": "0",
+      "feePayerLamports": "969037960"
+    },
+    "actionReconciled": true,
+    "recordAbsentAfterRevoke": true,
+    "deniedAfterRevoke": "NoApprovals",
+    "rescueBefore": {
+      "sourceBaseUnits": "1900000",
+      "destinationBaseUnits": "100000",
+      "recoveryBaseUnits": "0",
+      "feePayerLamports": "970647680"
+    },
+    "rescueAfter": {
+      "sourceBaseUnits": "0",
+      "destinationBaseUnits": "100000",
+      "recoveryBaseUnits": "1900000",
+      "feePayerLamports": "970593960"
+    },
+    "rescueReconciled": true,
+    "final": {
+      "owner": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+      "activeDelegate": false,
+      "sourceBaseUnits": "0",
+      "destinationBaseUnits": "100000",
+      "recoveryBaseUnits": "1900000",
+      "mintSupplyBaseUnits": "2000000",
+      "mintAuthority": null,
+      "freezeAuthority": null,
+      "tokenDelegates": 0,
+      "tokenCloseAuthorities": 0,
+      "assetSignerBalanceLamports": "9900000",
+      "ownerEndingLamports": "970593960",
+      "totalOwnerSpendLamports": "7721880"
+    }
+  },
+  "completedAt": "2026-08-25T06:58:30.821Z"
+}

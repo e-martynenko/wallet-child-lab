@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": 7,
+  "network": "devnet",
+  "status": "complete",
+  "startedAt": "2026-08-24T13:16:44.293Z",
+  "rpcOrigin": "https://api.devnet.solana.com",
+  "addresses": {
+    "owner": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+    "executiveAuthority": "ET7sHJiBdS5VgXfQvgzenS9U1iPAa5b3dUZKotCDW2dn",
+    "executiveProfile": "5JCE3kBRz6U9hGWdEjAoPKrieucfgrnZ9n66Fz3R2Ymq",
+    "executionDelegateRecord": "4nzrCQWJNXRdyd7To3vtzMQioNkDrn4RduW4g3QcqFaH",
+    "collection": "csuvrVdZYpgVT5dVH9LYfdzQuWzXBYwL1xWDkcenThX",
+    "asset": "66aw2vNMJHk4xPjc6VAE9CPPahkEaj7EfpQFFuQuvTd2",
+    "agentIdentity": "2n9Xko2hRYp7yRxGJCn72RQXdDfXwdpfTMC3ea2zbh57",
+    "assetSigner": "5ZaoSJxJhZ7cK3kCHZun9Bv3K6TdUj5QJ92MjYZKxaSD",
+    "testReceiver": "B96kUFzEvVzmW9DKfg3VDV9ZagXXjZ9rc3vyZeMk5svy"
+  },
+  "policy": {
+    "token": "SOL",
+    "amountLamports": "100000",
+    "maximumTransferLamports": "1000000",
+    "maximumFeePayerSpendLamports": "100000",
+    "allowedProgram": "11111111111111111111111111111111"
+  },
+  "startingBalances": {
+    "assetSignerLamports": "10000000",
+    "testReceiverLamports": "0",
+    "feePayerLamports": "979290440"
+  },
+  "transactions": {
+    "delegate": [
+      {
+        "signature": "3wUvFh9iRddkHPyQDQGWQworEgGp37AAikrYVj8BaF5XE4ve7Eez7RANtnhuXqybhjc99oRQjnn22YoKtnRA5dgn",
+        "blockhash": "5AtxhfFMEHSpi14MyLHVKuhpY1zp6FrrRpgFdUQ5ZVFu",
+        "lastValidBlockHeight": 475211107,
+        "status": "confirmed"
+      },
+      {
+        "signature": "27PZ4XK272jjVyqVy4e9QwnDR7F73fjQdGf5okCy187yAtn52XikV9epAQFwxorGZcSyjBgWiG6NgJvYJoaDnfQH",
+        "blockhash": "GPgBmZGajpBJBkMp4dJhrQtGYTXdMEwQCp3gyJ3r3iiH",
+        "lastValidBlockHeight": 475217228,
+        "status": "confirmed"
+      }
+    ],
+    "revoke": [
+      {
+        "signature": "47BJQwHeG2Z2RuGBsrVWFUiwqm72v3VuKc12ctLyEYtKCVZcS2xr6qQGH1aeUk1S1HnyVmQS34fsbT8FpG5gLpnS",
+        "blockhash": "DsJxjSjTGQXiqKXDudnW6VgP8fKumwrkEgy4ZNw5cHbT",
+        "lastValidBlockHeight": 475211145,
+        "status": "confirmed"
+      },
+      {
+        "signature": "252TzHhRdzxJejnfRSDwHfqbvBjUFK3qcKBsTLREFTpAaMxpKfRCUKrwcopAEgSmRuFyVeZ2YaVeDY36mhAZJoB3",
+        "blockhash": "Cu4cpMz6dbfoNUHAsr98gDwmqX6f8BGVsya98cTuMNyD",
+        "lastValidBlockHeight": 475217300,
+        "status": "confirmed"
+      }
+    ],
+    "prepareReceiver": [
+      {
+        "signature": "2x3cVqoY8iVCG11Dm8R3YhxXQwhYaT91wb7A9kJ7uzLx64U3mrLGKxACU3uUVbNkW6igWNFAM8Wbd4CiCnSc38AY",
+        "blockhash": "EXrphPW3kxCerpbxPGhoKywB6CFAx5aRGZFQmcoyXo6y",
+        "lastValidBlockHeight": 475217193,
+        "status": "confirmed"
+      }
+    ],
+    "boundedTransfer": [
+      {
+        "signature": "3bgnCUmNYfCHxqPtvVot83dAYcjjyrPg4N6fehC1Mj8vTPNcBANPzgU32WYi3KXu2KDh2cr3PcyEscwED3FWk823",
+        "blockhash": "ASZnZxzRBxPNuSGLaL36EE54jU4Sug9kqjiw73D47CHT",
+        "lastValidBlockHeight": 475217264,
+        "status": "confirmed"
+      }
+    ]
+  },
+  "checks": {
+    "forbiddenActionsDenied": {
+      "oneSol": "AMOUNT_OVER_LIMIT",
+      "unknownDestination": "DESTINATION_NOT_ALLOWED",
+      "injectedProgram": "MALFORMED_ACTION"
+    },
+    "activeDelegateVerified": true,
+    "actionBefore": {
+      "assetSignerLamports": "10000000",
+      "testReceiverLamports": "890880",
+      "feePayerLamports": "976764840"
+    },
+    "recordAbsentAfterRevoke": true,
+    "receiverRentExempt": {
+      "minimumLamports": "890880",
+      "ownerFundingLamports": "890880",
+      "balanceAfterLamports": "890880"
+    },
+    "actionAfter": {
+      "assetSignerLamports": "9900000",
+      "testReceiverLamports": "990880",
+      "feePayerLamports": "976706120"
+    },
+    "actionReconciled": true,
+    "deniedAfterRevoke": "NoApprovals",
+    "final": {
+      "owner": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+      "activeDelegate": false,
+      "assetSignerBalanceLamports": "9900000",
+      "testReceiverBalanceLamports": "990880",
+      "legacyTokenAccounts": 0,
+      "token2022Accounts": 0
+    }
+  },
+  "completedAt": "2026-08-24T13:39:11.294Z"
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "9B",
+  "network": "devnet",
+  "status": "complete",
+  "auditedAt": "2026-08-25T07:12:19.390Z",
+  "rpcOrigin": "https://api.devnet.solana.com",
+  "finalizedSlotFloor": 487701675,
+  "finalizedSlotAfter": 487701677,
+  "addresses": {
+    "asset": "66aw2vNMJHk4xPjc6VAE9CPPahkEaj7EfpQFFuQuvTd2",
+    "owner": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+    "agentToolsProgram": "TLREGni9ZEyGC3vnPZtqUh95xQ8oPqJSvNjvB7FGK8S",
+    "knownExecutiveProfile": "5JCE3kBRz6U9hGWdEjAoPKrieucfgrnZ9n66Fz3R2Ymq",
+    "knownExecutionDelegateRecord": "4nzrCQWJNXRdyd7To3vtzMQioNkDrn4RduW4g3QcqFaH"
+  },
+  "layout": {
+    "executiveProfileDiscriminator": 1,
+    "executiveProfileSize": 40,
+    "executionDelegateDiscriminator": 2,
+    "executionDelegateSize": 104,
+    "agentAssetOffset": 72
+  },
+  "counts": {
+    "allProgramAccounts": 253,
+    "executiveProfiles": 120,
+    "executionDelegateRecords": 133,
+    "matchingAssetDelegates": 0
+  },
+  "activeRecords": [],
+  "checks": {
+    "verifiedDevnetGenesis": true,
+    "programLayoutClosedWorld": true,
+    "everyRecordPdaVerified": true,
+    "everyRecordProfileVerified": true,
+    "filteredQueryMatchesFullScan": true,
+    "knownProfileVerified": true,
+    "knownRecordAbsent": true,
+    "assetOwnerVerified": true
+  },
+  "verdict": "NO_ACTIVE_EXECUTION_DELEGATES_AT_FINALIZED_AUDIT",
+  "scopeClaim": "Complete for current ExecutionDelegateRecordV1 accounts returned by the verified Devnet RPC at finalized commitment.",
+  "limitation": "A single RPC cannot cryptographically prove that the provider is not censoring data; Mainnet must use a reviewed dedicated RPC and repeat the audit immediately before funding."
+}

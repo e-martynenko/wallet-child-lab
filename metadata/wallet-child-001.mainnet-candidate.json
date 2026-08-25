@@ -1,0 +1,11 @@
+{
+  "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1",
+  "name": "Wallet Child #001",
+  "description": "A minimal experimental agent identity for testing bounded wallet execution under explicit owner control.",
+  "image": "",
+  "services": [],
+  "x402Support": false,
+  "active": false,
+  "registrations": [],
+  "supportedTrust": []
+}

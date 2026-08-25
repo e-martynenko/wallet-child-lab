@@ -1,0 +1,8 @@
+{
+  "type": "agent",
+  "name": "Wallet Child #001",
+  "description": "A Devnet-only learning experiment for understanding Metaplex Agent Identity and the MPL Core Asset Signer.",
+  "services": [],
+  "registrations": [],
+  "supportedTrust": []
+}

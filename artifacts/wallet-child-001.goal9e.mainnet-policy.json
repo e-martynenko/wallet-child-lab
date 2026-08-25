@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "9E",
+  "network": "mainnet-beta",
+  "status": "offline-policy-only",
+  "createdAt": "2026-08-25T07:32:48.768Z",
+  "addresses": {
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "executive": "EJQcuD9FtJ33c2wA7GM6HzvmJJJbPsYnmH5ZjTDdhbjF",
+    "recovery": "ABZePapHbYaTg7GU4LGQNcYmfURvue5uVrrf4FUa4x3j"
+  },
+  "policy": {
+    "token": "USDC",
+    "mint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "decimals": 6,
+    "actionBaseUnits": "100000",
+    "maximumTreasuryBaseUnits": "1000000",
+    "maximumSolReserveLamports": "20000000",
+    "maximumAcquisitionCostUsdCents": "1000",
+    "allowedDestinationOwner": "ABZePapHbYaTg7GU4LGQNcYmfURvue5uVrrf4FUa4x3j"
+  },
+  "checks": {
+    "allPrincipalsDistinct": true,
+    "funded": false,
+    "networkRequest": false,
+    "offlineBuilderShapeTested": true,
+    "finalMainnetMessageBuilt": false,
+    "finalMainnetMessageSigned": false,
+    "mainnetTransactionSubmitted": false
+  }
+}

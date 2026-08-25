@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": 5,
+  "network": "devnet",
+  "status": "complete",
+  "startedAt": "2026-08-24T12:25:07.076Z",
+  "rpcOrigin": "https://api.devnet.solana.com",
+  "addresses": {
+    "owner": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+    "nextOwner": "B96kUFzEvVzmW9DKfg3VDV9ZagXXjZ9rc3vyZeMk5svy",
+    "executiveAuthority": "ET7sHJiBdS5VgXfQvgzenS9U1iPAa5b3dUZKotCDW2dn",
+    "executiveProfile": "5JCE3kBRz6U9hGWdEjAoPKrieucfgrnZ9n66Fz3R2Ymq",
+    "executionDelegateRecord": "4nzrCQWJNXRdyd7To3vtzMQioNkDrn4RduW4g3QcqFaH",
+    "collection": "csuvrVdZYpgVT5dVH9LYfdzQuWzXBYwL1xWDkcenThX",
+    "asset": "66aw2vNMJHk4xPjc6VAE9CPPahkEaj7EfpQFFuQuvTd2",
+    "agentIdentity": "2n9Xko2hRYp7yRxGJCn72RQXdDfXwdpfTMC3ea2zbh57",
+    "assetSigner": "5ZaoSJxJhZ7cK3kCHZun9Bv3K6TdUj5QJ92MjYZKxaSD"
+  },
+  "startingAssetSignerBalanceLamports": "10000000",
+  "transactions": {
+    "registerExecutive": {
+      "signature": "5MN2hucV2rU2RbTbYPPxnwVgd7o8s5vCJ2XMw44NtWKTifehVAxQ9SjZJ8GheutGYhJuTwMBS27FcdnEHWMkRoLM",
+      "status": "confirmed"
+    },
+    "delegateInitial": {
+      "signature": "5Jct14AUPzPQNschxYVBainRDUWMiubE3wqXF2N8Yv4X5ehXJ8qAuhsUSpwc8Uu5trcPp7acUEkjTr5DvggqHVXn",
+      "status": "confirmed"
+    },
+    "revokeInitial": {
+      "signature": "59gD9V2RQ3VcyjzMatNp6WReYn8xeyDp4kBjtiVfEBASEzqFaSsZ55SYpmmFdVseZBQmDvif1Zb5RB6yQAduX8be",
+      "status": "confirmed"
+    },
+    "delegateOwnershipTest": {
+      "signature": "5A3iusZp7chR1wnKktn4ExLkuej4bq2Lwcs2K4qNyF6Wd6cJGUiJTHYSB9DnMTvTD44foV9WSbz5WHYdn6QENqJu",
+      "status": "confirmed"
+    },
+    "transferToNextOwner": {
+      "signature": "3puSMFHAXtqnwdzqr4e6ERomCjoTrKK1AjqTaxLsyd1BFcHJQ2BvFwomHgzfHidWvsfG3rHQ1LZhySpSeXMB9wTj",
+      "status": "confirmed"
+    },
+    "revokeAfterTransfer": {
+      "signature": "3Tehhdapj7RHTtZT3eihYKbGPczEXQ9Wuf6pco3SYfzUGJis7h4M75RnytMWxpUrpPaN7SjpyZrtFiFDXGASrXhk",
+      "status": "confirmed"
+    },
+    "transferBack": {
+      "signature": "297rcZSJgZPsdkp17pXh8w6xGBjzG7SB1Z7XRwwX7ngTd4gPm6r3Kf98ZEDAVmmVuuHpB1PBFMamB8p3QFCSZJPy",
+      "status": "confirmed"
+    }
+  },
+  "checks": {
+    "executiveProfileVerified": true,
+    "initialDelegationVerified": true,
+    "activeSimulationBeforeRevoke": "allowed",
+    "recordAbsentAfterInitialRevoke": true,
+    "deniedAfterInitialRevoke": "NoApprovals",
+    "ownershipTest": {
+      "ownerBefore": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+      "ownerAfter": "B96kUFzEvVzmW9DKfg3VDV9ZagXXjZ9rc3vyZeMk5svy",
+      "delegateRecordSurvived": true,
+      "activeSimulationAfterTransfer": "allowed"
+    },
+    "recordAbsentAfterFinalRevoke": true,
+    "deniedAfterFinalRevoke": "NoApprovals",
+    "final": {
+      "owner": "7Pz13XTximTybgNrWrMQDWWw2LsM6QPsGjsSharggs5c",
+      "activeDelegate": false,
+      "assetSignerBalanceLamports": "10000000",
+      "legacyTokenAccounts": 0,
+      "token2022Accounts": 0
+    }
+  },
+  "completedAt": "2026-08-24T12:26:01.497Z"
+}

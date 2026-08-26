@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10G",
+  "network": "mainnet",
+  "recordedAt": "2026-08-26T12:49:41Z",
+  "status": "READ_ONLY_UPLOAD_REVIEW_COMPLETE",
+  "uploadActionReview": {
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "metadataPath": "metadata/wallet-child-001.mainnet-candidate.json",
+    "metadataSha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+    "metadataByteLength": 351,
+    "contentType": "application/json",
+    "dataItems": 1,
+    "uploadMethod": "irys.upload(exactBuffer, { tags: [Content-Type] })",
+    "existingIrysCreditLamports": "3208",
+    "freshTaggedQuoteLamports": "3208",
+    "maximumCreditSpendLamports": "3208",
+    "confirmationPhrase": "CONFIRM PERMANENT PUBLIC IRYS METADATA UPLOAD 351 BYTES WITH SHA256 7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c FROM OWNER 6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385 USING AT MOST 3208 LAMPORTS OF EXISTING IRYS CREDIT WITH CONTENT-TYPE application/json",
+    "confirmationReceived": false,
+    "publicUpload": true,
+    "intendedPermanentUpload": true,
+    "topUpAllowed": false,
+    "solanaTransactionIncluded": false,
+    "uploadAttempted": false
+  },
+  "sourceContract": {
+    "uploadPackage": "@irys/upload@0.0.15",
+    "solanaPackage": "@irys/upload-solana@0.1.8",
+    "uploadCorePackage": "@irys/upload-core@0.0.10",
+    "registryIntegrityVerified": true,
+    "completeLockfileHashVerified": true,
+    "directBufferUploadAvailable": true,
+    "bufferSignedAsOneDataItem": true,
+    "taggedQuoteContractVerified": true,
+    "receiptSignatureVerificationAvailable": true,
+    "sourceHashesVerified": true
+  },
+  "requiredPostUploadVerification": {
+    "receiptSignature": true,
+    "exactGatewayByteHash": true,
+    "twoIndependentOrigins": true,
+    "durableUriRecorded": true
+  },
+  "checks": {
+    "goal10fFinalizedFundingReceiptVerified": true,
+    "metadataIntegrityVerified": true,
+    "liveCreditEqualsFundedAmount": true,
+    "freshTaggedQuoteCoveredByExistingCredit": true,
+    "ownerKeyLoaded": false,
+    "sdkWalletInitialized": false,
+    "uploadAttempted": false,
+    "networkWrite": false,
+    "fundsMoved": false,
+    "treasuryActionAuthorized": false
+  },
+  "verification": {
+    "testFiles": 37,
+    "tests": 278,
+    "testsPassed": true,
+    "typecheckPassed": true,
+    "codeReviewPassed": true,
+    "credentialScanPassed": true,
+    "diffCheckPassed": true,
+    "productionAuditClean": false,
+    "productionAuditFindings": 5
+  },
+  "nextGate": {
+    "uploadAuthorized": false,
+    "topUpAuthorized": false,
+    "solanaTransactionAuthorized": false,
+    "treasuryActionAuthorized": false,
+    "requiredExactConfirmation": true,
+    "requiredNextGoal": "10H_EXACT_IRYS_METADATA_UPLOAD"
+  },
+  "verdict": "STOP_AWAITING_EXACT_PERMANENT_UPLOAD_CONFIRMATION"
+}

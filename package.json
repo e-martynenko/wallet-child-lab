@@ -25,6 +25,7 @@
     "metadata:plan:mainnet": "tsx src/cli/plan-metadata-mainnet.ts",
     "metadata:quote:irys": "tsx src/cli/quote-irys-metadata.ts",
     "metadata:review-action:mainnet": "tsx src/cli/review-irys-action-mainnet.ts",
+    "metadata:review-upload:mainnet": "tsx src/cli/review-metadata-upload-mainnet.ts",
     "metadata:verify-durable": "tsx src/cli/verify-durable-metadata.ts",
     "messages:quote:mainnet": "tsx src/cli/quote-internal-mainnet.ts",
     "policy:check": "tsx src/cli/check-policy.ts",

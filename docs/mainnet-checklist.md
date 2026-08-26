@@ -2,7 +2,7 @@
 
 Review date: **2026-08-26**
 
-Verdict: **NO-GO for the `0.1 USDC` action; owner bootstrap and Irys funding finalized**
+Verdict: **NO-GO for the `0.1 USDC` action; metadata upload awaits confirmation**
 
 This checklist is evidence for a future decision. It is not permission to
 submit another Mainnet transaction. The exact project phrase
@@ -78,6 +78,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Durable metadata publication plan | PASS, read-only STOP | Goal 10D re-verifies the frozen 351 bytes, current Irys `0.2.0` funding contract and zero balance, `3,208` lamport storage price, exact `5,000` lamport one-instruction funding fee, and `8,208` publication total; no SDK install, key, signature, funding, upload, or write occurred |
 | Irys SDK and funding action gate | PASS, confirmation STOP | Goal 10E pins the two official packages, verifies their registry/source contract, records all five audit findings and exact native-SOL reachability, refreshes the `3,208 + 5,000` lamport contract, and publishes a funding-only phrase; no SDK wallet, key, signature, funding, upload, or write occurred |
 | Finalized Irys metadata funding | PASS, upload STOP | Goal 10F repeats the audit/reachability and live contract before key load, simulates and finalizes one exact `3,208` lamport System transfer with a `5,000` fee at slot `441,857,234`, reconciles owner `19,976,792`, and verifies exact `3,208` Irys credit; SDK wallet and upload remain unused |
+| Permanent Irys metadata upload gate | PASS, confirmation STOP | Goal 10G pins the exact direct-buffer upload and receipt contract, refreshes the tagged quote and exact `3,208` credit, and proves no top-up or Solana transaction is needed; no key, SDK wallet, upload, or write occurred |
 | Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and returned Mainnet genesis plus health `ok`; final-asset audit remains unavailable |
 
 Public key evidence:
@@ -95,12 +96,12 @@ artifacts, or normal runtime configuration.
 | Exact allowed programs/accounts | PARTIAL | Goals 9E–9G assert exact Core/Token/System/ATA programs, bytes, and metas; Goals 9N/9P/9R freeze all final addresses and six static exact messages, while URI-dependent and live-balance messages remain unavailable |
 | Hard limits enforced in code | PARTIAL | Goals 9E–9R enforce action, treasury, setup, rescue, total-SOL, total-USD, storage quote, exact external/internal funding fees, and the fixed-rent slice; Goal 10C reconciles the bootstrap boundary and Goal 10F enforces and reconciles the exact `8,208` lamport metadata-funding outflow, while Core/plugin rent and later simulations remain |
 | Exact Mainnet transaction simulation | BLOCKED | Build only after the USDC path passes Devnet; simulate the same signed bytes intended for submission |
-| Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes; Goal 9J implements two-origin exact retrieval verification; Goals 10D–10F fix and complete exact Irys funding; permanent upload, live two-origin retrieval, on-chain binding, and immutability decision remain undone |
+| Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes; Goal 9J implements two-origin exact retrieval verification; Goals 10D–10F complete exact Irys funding and Goal 10G fixes the permanent-upload gate; upload, live two-origin retrieval, and on-chain binding remain undone |
 | Reliable delegate enumeration | PARTIAL | Goal 9I implements the Mainnet-capable keyless path, Goal 9N fixes the final asset address, and the private Helius RPC is verified; the asset does not exist, so the required immediate post-create/pre-funding scan remains unavailable |
 | Emergency rescue implementation | PARTIAL | Goals 9F/9P provide final-address owner-only capped USDC/SOL builders and Goal 9G provides recovery ATA setup; exact-message simulations remain absent |
 | Funding route without main-wallet runtime | PARTIAL, bootstrap verified | Goal 10C proves the experimental source-to-owner SOL bootstrap without loading its key into the lab. Direct USDC funding, its fresh preflight/simulation/confirmation, and the public upstream-linkage caveat remain |
 | Dedicated Mainnet RPC | PASS | private Helius HTTPS RPC is locally configured, secret-safe, healthy, and Mainnet genesis verified; rerun health immediately before the final asset audit |
-| Dependency advisory decision | BOUNDED, RECHECK | Goal 10E records the expanded five-finding Irys graph. Goal 10F repeats the exact audit and reachability guard immediately before key load; the funding executor itself does not initialize the SDK wallet. The same guard remains mandatory before any separately confirmed upload path |
+| Dependency advisory decision | BOUNDED, RECHECK | Goal 10E records the expanded five-finding Irys graph. Goal 10F repeats the audit/reachability guard before funding, and Goal 10G pins the additional direct-upload source contract without key load. The same guard remains mandatory immediately before a separately confirmed upload |
 
 Because one BLOCKED item is sufficient for `NO-GO`, none may be downgraded to
 a warning.
@@ -178,7 +179,7 @@ simulation, or send function.
 
 ## Final decision
 
-**NO-GO for the bounded treasury action.** Goals 9A–10F close the safe local,
+**NO-GO for the bounded treasury action.** Goals 9A–10G close the safe local,
 quote-only, external-route, approval, bootstrap execution, and finalized
 read-back slice. Exactly two Mainnet writes have occurred: the reviewed owner
 bootstrap and the exact Irys funding transfer. Neither authorizes another

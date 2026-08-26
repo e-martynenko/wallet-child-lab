@@ -151,6 +151,12 @@ exact `5,000` lamport fee and leaving the owner at `19,976,792` lamports. Irys
 credits exactly `3,208` lamports to the owner. The SDK never receives the
 wallet, metadata upload is not attempted, and the treasury action remains
 **NO-GO**.
+Goal 10G reviews only that remaining upload. The live tagged quote and existing
+Irys credit are both exactly `3,208` lamports, so no top-up or Solana
+transaction is needed. The direct-buffer and receipt-verification paths are
+pinned, but no key is loaded, no SDK wallet is initialized, and no bytes are
+uploaded. The public, intended-permanent upload now waits for its own exact
+confirmation.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -300,6 +306,16 @@ This command reads public Irys/Mainnet state, verifies the complete lockfile
 and reviewed source hashes, and prints the exact confirmation phrase. It does
 not import the SDK into lab runtime, load a wallet, sign, fund, or upload.
 
+Review the exact permanent-upload-only gate with:
+
+```sh
+pnpm run metadata:review-upload:mainnet
+```
+
+This command hashes local metadata and reviewed SDK source, then makes only the
+fixed public Irys quote and credit GET requests. It loads no key, initializes no
+SDK wallet, spends no credit, and uploads no bytes.
+
 Quote the exact unsigned SOL-only bootstrap message with a dedicated Mainnet
 RPC:
 
@@ -313,7 +329,7 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goals 10A–10F are complete and Goal 10 is active only as a phase-gated
+Goals 10A–10G are complete and Goal 10 is active only as a phase-gated
 remediation sequence. The owner bootstrap is finalized, and the final Mainnet
 treasury-action verdict remains **NO-GO**. The
 Executive Profile remains registered,
@@ -330,3 +346,5 @@ Wallet Child; executive, recovery, Asset Signer, and all other final accounts
 remain unfunded or absent. Goal 10F additionally finalizes one `3,208` lamport
 owner-to-Irys funding transfer with a `5,000` lamport fee and verifies an exact
 `3,208` lamport Irys credit. No metadata bytes have been uploaded.
+Goal 10G verifies that the exact credit still covers the exact tagged upload
+quote and stops at a separate permanent-upload confirmation gate.

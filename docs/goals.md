@@ -684,6 +684,27 @@ Review: [`reviews/goal-10f.md`](reviews/goal-10f.md)
 Artifact:
 [`wallet-child-001.goal10f.irys-funding-receipt.json`](../artifacts/wallet-child-001.goal10f.irys-funding-receipt.json)
 
+## Goal 10G — permanent Irys metadata upload gate
+
+Status: **complete — reviewed 2026-08-26; STOP awaiting exact upload confirmation**
+
+Expected result:
+
+- re-verify the exact frozen metadata and finalized Goal 10F funding receipt;
+- pin the direct-buffer upload, one-data-item signature, tagged quote, uploader
+  endpoint, and receipt-verification source contract;
+- confirm the fresh tagged quote is covered entirely by exactly `3,208`
+  lamports of existing Irys credit;
+- publish one exact upload-only phrase and make its public, intended-permanent
+  consequence explicit;
+- load no key, initialize no SDK wallet, upload nothing, perform no top-up or
+  Solana transaction, and STOP.
+
+Review: [`reviews/goal-10g.md`](reviews/goal-10g.md)
+
+Artifact:
+[`wallet-child-001.goal10g.metadata-upload-review.json`](../artifacts/wallet-child-001.goal10g.metadata-upload-review.json)
+
 ## Self-review format
 
 Every goal ends with:

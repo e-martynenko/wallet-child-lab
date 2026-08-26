@@ -75,6 +75,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Project gate and bootstrap preview | PASS, superseded | Goal 10A records the exact project phrase, repeats the stable preflight at slot `441,794,729`, and simulates the exact first `19,990,000` lamport transfer plus `5,000` lamport fee at monotonic finalized slot `441,796,096`; its later action-time phrase was invalidated by the live Goal 10B fee mismatch, with no signature or submission |
 | Jupiter live-fee stop and rework | PASS, superseded | Goal 10B stopped the mismatched first preview and capped the reworked transfer; its new exact phrase was later received and executed by Goal 10C |
 | Finalized owner bootstrap | PASS, STOP | Goal 10C finalizes signature `5sB41…8sVq` at slot `441,800,468`: two bounded Compute Budget instructions plus one exact `19,985,000` lamport System transfer, `5,001` fee, reconciled source `68,708,605`, owner `19,985,000`, unchanged source USDC, and no next-write authorization |
+| Durable metadata publication plan | PASS, read-only STOP | Goal 10D re-verifies the frozen 351 bytes, current Irys `0.2.0` funding contract and zero balance, `3,208` lamport storage price, exact `5,000` lamport one-instruction funding fee, and `8,208` publication total; no SDK install, key, signature, funding, upload, or write occurred |
 | Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and returned Mainnet genesis plus health `ok`; final-asset audit remains unavailable |
 
 Public key evidence:
@@ -92,7 +93,7 @@ artifacts, or normal runtime configuration.
 | Exact allowed programs/accounts | PARTIAL | Goals 9E–9G assert exact Core/Token/System/ATA programs, bytes, and metas; Goals 9N/9P/9R freeze all final addresses and six static exact messages, while URI-dependent and live-balance messages remain unavailable |
 | Hard limits enforced in code | PARTIAL | Goals 9E–9R enforce action, treasury, setup, rescue, total-SOL, total-USD, storage quote, exact external/internal funding fees, and the fixed-rent slice; Goal 10C reconciles the actual bootstrap, leaving `4,999` lamports unallocated, while Core/plugin rent and simulations remain |
 | Exact Mainnet transaction simulation | BLOCKED | Build only after the USDC path passes Devnet; simulate the same signed bytes intended for submission |
-| Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes; Goal 9J implements two-origin exact retrieval verification; Goal 9K obtains a bounded Irys storage quote; permanent upload, live retrieval verification, on-chain binding, and immutability decision remain undone |
+| Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes; Goal 9J implements two-origin exact retrieval verification; Goal 10D refreshes the Irys contract and exact `8,208` lamport publication slice; signer-capable integration, permanent upload, live two-origin retrieval, on-chain binding, and immutability decision remain undone |
 | Reliable delegate enumeration | PARTIAL | Goal 9I implements the Mainnet-capable keyless path, Goal 9N fixes the final asset address, and the private Helius RPC is verified; the asset does not exist, so the required immediate post-create/pre-funding scan remains unavailable |
 | Emergency rescue implementation | PARTIAL | Goals 9F/9P provide final-address owner-only capped USDC/SOL builders and Goal 9G provides recovery ATA setup; exact-message simulations remain absent |
 | Funding route without main-wallet runtime | PARTIAL, bootstrap verified | Goal 10C proves the experimental source-to-owner SOL bootstrap without loading its key into the lab. Direct USDC funding, its fresh preflight/simulation/confirmation, and the public upstream-linkage caveat remain |
@@ -175,10 +176,10 @@ simulation, or send function.
 
 ## Final decision
 
-**NO-GO for the bounded treasury action.** Goals 9A–10C close the safe local,
+**NO-GO for the bounded treasury action.** Goals 9A–10D close the safe local,
 quote-only, external-route, approval, bootstrap execution, and finalized
 read-back slice. Exactly one Mainnet write has occurred: the reviewed owner
-bootstrap. It does not authorize another write. Durable
-publication, exact Asset/Identity messages, live audits and same-bytes
-simulations, Core/plugin rent and metadata funding fee, remaining live
-acquisition quotes, and per-action confirmations remain mandatory.
+bootstrap. It does not authorize another write. Durable metadata execution,
+exact Asset/Identity messages, live audits and same-bytes simulations,
+Core/plugin rent, remaining live acquisition quotes, and per-action
+confirmations remain mandatory.

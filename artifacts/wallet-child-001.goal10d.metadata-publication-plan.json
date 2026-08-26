@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10D",
+  "network": "mainnet-beta",
+  "recordedAt": "2026-08-26T07:00:48.000Z",
+  "status": "READ_ONLY_PLAN_COMPLETE",
+  "frozenMetadata": {
+    "path": "metadata/wallet-child-001.mainnet-candidate.json",
+    "sha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+    "byteLength": 351,
+    "contentType": "application/json",
+    "publicationStatus": "NOT_PUBLISHED"
+  },
+  "officialIrysReview": {
+    "uploaderOrigin": "https://uploader.irys.xyz",
+    "gatewayOrigin": "https://gateway.irys.xyz",
+    "observedVersion": "0.2.0",
+    "solanaFundingAddress": "9NERQjLetzquGwdKt3X4gZ8fE8fPfSkj2xo2esmUjWsz",
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "ownerIrysBalanceLamports": "0",
+    "currentNodePackages": {
+      "@irys/upload": "0.0.15",
+      "@irys/upload-solana": "0.1.8",
+      "installedInLab": false
+    },
+    "reviewedFlow": ["getPrice", "fund", "uploadFile", "gateway retrieval"],
+    "fundingAndUploadAreSeparateActions": true,
+    "reviewedExactFundingOption": "disablePriorityFees: true",
+    "sdkIntegrationAttempted": false
+  },
+  "liveReadOnlySnapshot": {
+    "rpcOrigin": "https://mainnet.helius-rpc.com",
+    "finalizedOwnerBalanceSlot": 441813007,
+    "ownerBalanceLamports": "19985000",
+    "storageQuoteLamports": "3208",
+    "blockhashContextSlot": 441813009,
+    "feeContextSlot": 441813009,
+    "lastValidBlockHeight": 419861684,
+    "fundingMessageSha256": "916e8f4e97514dd179f41b2e7bef1a052f1f6bb73c3fd931097757498be4bbf9",
+    "fundingMessageSerializedBytesPublished": false,
+    "fundingTransferLamports": "3208",
+    "fundingFeeLamports": "5000",
+    "fundingMessageShape": {
+      "version": "legacy",
+      "requiredSignatures": 1,
+      "instructionCount": 1,
+      "instruction": "SYSTEM_TRANSFER",
+      "source": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+      "destination": "9NERQjLetzquGwdKt3X4gZ8fE8fPfSkj2xo2esmUjWsz"
+    },
+    "fixedRentQuotesLamports": {
+      "104Bytes": "1614720",
+      "40Bytes": "1169280",
+      "165Bytes": "2039280",
+      "knownFixedTotal": "8477280"
+    }
+  },
+  "budget": {
+    "metadataPublicationLamports": "8208",
+    "knownFixedRentLamports": "8477280",
+    "knownUriIndependentInternalFeesLamports": "40000",
+    "knownOwnerCostsAfterPublicationLamports": "8525488",
+    "ownerAfterKnownCostsLamports": "11459512",
+    "actualBootstrapTransferLamports": "19985000",
+    "actualBootstrapFeeLamports": "5001",
+    "futureDirectUsdcFundingFeeReserveLamports": "5000",
+    "actualAcquisitionAllocationLamports": "19995001",
+    "maximumExperimentSolAcquisitionLamports": "20000000",
+    "unallocatedAcquisitionBoundaryLamports": "4999",
+    "topUpAllowed": false
+  },
+  "remainingUnknowns": {
+    "coreAssetRentAndIdentityPluginTopUp": true,
+    "uriDependentAssetAndIdentityFees": true,
+    "liveSolRescueFeeAndAmount": true,
+    "sameSignedBytesSimulations": true
+  },
+  "checks": {
+    "mainnetGenesisVerified": true,
+    "frozenMetadataIntegrityVerified": true,
+    "ownerBootstrapBalanceUnchanged": true,
+    "exactUnsignedFundingMessageQuoted": true,
+    "transientMinimumContextLagHandledFailClosed": true,
+    "keyLoaded": false,
+    "messageSigned": false,
+    "fundingAttempted": false,
+    "uploadAttempted": false,
+    "transactionSubmitted": false,
+    "networkWrite": false,
+    "fundsMoved": false
+  },
+  "verification": {
+    "testFiles": 34,
+    "tests": 259,
+    "typecheckPassed": true,
+    "dependencyAuditClean": false,
+    "unchangedModerateUuidAdvisory": true,
+    "credentialScanPassed": true,
+    "diffCheckPassed": true
+  },
+  "nextGate": {
+    "nextFinancialActionAuthorized": false,
+    "treasuryActionAuthorized": false,
+    "treasuryActionVerdict": "NO_GO",
+    "requiredNextGoal": "10E_IRYS_SDK_INTEGRATION_AND_EXACT_ACTION_REVIEW",
+    "freshActionTimeConfirmationRequiredBeforeFunding": true,
+    "freshActionTimeConfirmationRequiredBeforeUpload": true
+  },
+  "verdict": "STOP_READY_FOR_GOAL_10E_IMPLEMENTATION_REVIEW"
+}

@@ -616,6 +616,27 @@ Review: [`reviews/goal-10c.md`](reviews/goal-10c.md)
 Artifact:
 [`wallet-child-001.goal10c.bootstrap-receipt.json`](../artifacts/wallet-child-001.goal10c.bootstrap-receipt.json)
 
+## Goal 10D — durable metadata publication plan
+
+Status: **complete — reviewed 2026-08-26; STOP before SDK integration or write**
+
+Expected result:
+
+- re-verify the exact frozen metadata and current official Irys Node workflow;
+- read current Irys version, funding address, owner balance, and storage quote;
+- refresh the finalized owner balance, fixed rents, and exact unsigned funding
+  message fee through the dedicated Mainnet RPC;
+- distinguish Irys funding from upload and fix the known remaining budget;
+- install no signer-capable uploader, load no key, sign nothing, fund nothing,
+  upload nothing, and submit no transaction;
+- preserve Core/plugin rent and state-dependent messages/simulations as
+  explicit blockers.
+
+Review: [`reviews/goal-10d.md`](reviews/goal-10d.md)
+
+Artifact:
+[`wallet-child-001.goal10d.metadata-publication-plan.json`](../artifacts/wallet-child-001.goal10d.metadata-publication-plan.json)
+
 ## Self-review format
 
 Every goal ends with:

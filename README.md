@@ -130,6 +130,12 @@ with a `0.000005001 SOL` fee. Finalized decoding proves that its only
 value-moving instruction is the exact System transfer; source USDC remains
 unchanged, the remaining nine Wallet Child accounts remain absent, and the
 `0.1 USDC` action remains **NO-GO**.
+Goal 10D then reviews the current official Irys Node flow and adds a read-only
+metadata publication planner. The exact 351-byte storage quote is `3,208`
+lamports and the exact one-instruction funding fee is `5,000`, for an `8,208`
+lamport publication total. It installs no uploader, loads no key, and does not
+sign, fund, or upload anything. Core/plugin rent and state-dependent simulations
+remain explicit blockers before another write.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -278,7 +284,7 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goals 10A–10C are complete and Goal 10 is active only as a phase-gated
+Goals 10A–10D are complete and Goal 10 is active only as a phase-gated
 remediation sequence. The owner bootstrap is finalized, and the final Mainnet
 treasury-action verdict remains **NO-GO**. The
 Executive Profile remains registered,

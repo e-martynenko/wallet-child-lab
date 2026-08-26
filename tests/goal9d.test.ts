@@ -22,9 +22,24 @@ describe('Goal 9D dependency-risk boundary', () => {
 
   it('finds only uuid.v4 use in the installed jayson package', async () => {
     const pnpmDirectory = join(projectRoot, 'node_modules', '.pnpm');
-    const matchingDirectories = (await readdir(pnpmDirectory)).filter((name) =>
+    const candidates = (await readdir(pnpmDirectory)).filter((name) =>
       name.startsWith('jayson@4.3.0_'),
     );
+    const matchingDirectories = (
+      await Promise.all(
+        candidates.map(async (name) => {
+          try {
+            await readFile(
+              join(pnpmDirectory, name, 'node_modules', 'jayson', 'package.json'),
+              'utf8',
+            );
+            return name;
+          } catch {
+            return null;
+          }
+        }),
+      )
+    ).filter((name): name is string => name !== null);
     expect(matchingDirectories).toHaveLength(1);
 
     const jaysonRoot = join(

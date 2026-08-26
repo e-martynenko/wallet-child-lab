@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10F",
+  "network": "mainnet-beta",
+  "recordedAt": "2026-08-26T11:29:46.427Z",
+  "status": "FINALIZED_IRYS_FUNDING_CREDITED",
+  "actionTimeConfirmation": {
+    "exactPhrase": "CONFIRM IRYS METADATA FUNDING 3208 LAMPORTS WITH FEE CAP 5000 LAMPORTS FROM 6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385 TO 9NERQjLetzquGwdKt3X4gZ8fE8fPfSkj2xo2esmUjWsz FOR SHA256 7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+    "received": true,
+    "scope": "ONE_EXACT_SOLANA_TRANSFER_AND_IRYS_CREDIT_REGISTRATION",
+    "uploadIncluded": false
+  },
+  "finalizedTransaction": {
+    "signature": "4zHdifUiB1jHxYGuVo5s3EkSkQAEvXeKKmyJkV6wsGqY5mZeuwMaz8LvPN77yKtH4eZPp385nQYTawSfeiECcFER",
+    "slot": "441857234",
+    "source": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "destination": "9NERQjLetzquGwdKt3X4gZ8fE8fPfSkj2xo2esmUjWsz",
+    "program": "11111111111111111111111111111111",
+    "instructionCount": 1,
+    "transferLamports": "3208",
+    "feeLamports": "5000",
+    "maximumApprovedFeeLamports": "5000",
+    "ownerPreLamports": "19985000",
+    "ownerPostLamports": "19976792",
+    "destinationPreLamports": "72890385335",
+    "destinationPostLamports": "72890388543",
+    "signedTransactionSha256": "07da35efe06f28a1ad034b9175d1ffa39b1e126092d0c10ca59996382006f559",
+    "fundingMessageSha256": "aa681777d04a2ea2879536f93ce3ddf04d21cf632b71975fc1c96f2a7323a627",
+    "confirmationStatus": "finalized",
+    "error": null
+  },
+  "irysCredit": {
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "token": "solana",
+    "creditedLamports": "3208",
+    "registered": true
+  },
+  "checks": {
+    "ownerKeyLoadedAfterPreflight": true,
+    "messageSigned": true,
+    "sameSignedBytesSimulationPassed": true,
+    "transactionSubmittedOnce": true,
+    "finalizedDecodePassed": true,
+    "finalizedBalanceReadbackPassed": true,
+    "irysCreditRegistered": true,
+    "sdkWalletInitialized": false,
+    "uploadAttempted": false,
+    "treasuryActionAuthorized": false,
+    "topUpAllowed": false
+  },
+  "verification": {
+    "testFiles": 36,
+    "tests": 273,
+    "testsPassedAfterWrite": true,
+    "typecheckPassedAfterWrite": true,
+    "codeReviewPassedAfterWrite": true,
+    "credentialScanPassedAfterWrite": true,
+    "diffCheckPassedAfterWrite": true,
+    "productionAuditClean": false,
+    "productionAuditFindings": 5,
+    "exactPathReachabilityGuardPassedBeforeKeyLoad": true,
+    "independentPublicSignatureStatus": "finalized",
+    "independentPublicSignatureError": null,
+    "independentIrysCreditLamports": "3208"
+  },
+  "nextGate": {
+    "nextFinancialActionAuthorized": false,
+    "uploadAuthorized": false,
+    "treasuryActionAuthorized": false,
+    "treasuryActionVerdict": "NO_GO",
+    "requiredNextGoal": "10G_IRYS_METADATA_UPLOAD_REVIEW"
+  },
+  "verdict": "IRYS_FUNDING_PASS_STOP_BEFORE_UPLOAD"
+}

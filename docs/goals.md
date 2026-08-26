@@ -660,6 +660,30 @@ Review: [`reviews/goal-10e.md`](reviews/goal-10e.md)
 Artifact:
 [`wallet-child-001.goal10e.irys-action-review.json`](../artifacts/wallet-child-001.goal10e.irys-action-review.json)
 
+## Goal 10F — finalized Irys metadata funding
+
+Status: **complete — reviewed 2026-08-26; STOP before metadata upload**
+
+Expected result:
+
+- receive only the exact Goal 10E funding phrase and exclude upload;
+- repeat the five-finding production audit, exact-path reachability guard,
+  installed-source hashes, metadata hash, owner/Irys balances, quote, funding
+  address, and exact `5,000` lamport fee before key load;
+- load only the existing isolated owner key and build one legacy System
+  transfer for exactly `3,208` lamports;
+- simulate the same signed bytes, submit once, wait for finalized status, and
+  decode the exact instruction, fee, and balance deltas;
+- register only the finalized transaction ID with Irys and verify exactly
+  `3,208` lamports of owner credit;
+- initialize no Irys SDK wallet, upload no bytes, authorize no treasury action,
+  and STOP.
+
+Review: [`reviews/goal-10f.md`](reviews/goal-10f.md)
+
+Artifact:
+[`wallet-child-001.goal10f.irys-funding-receipt.json`](../artifacts/wallet-child-001.goal10f.irys-funding-receipt.json)
+
 ## Self-review format
 
 Every goal ends with:

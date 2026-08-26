@@ -124,3 +124,16 @@ export async function loadOrCreateIsolatedSigner(
     throw errorFactory(`Could not create the isolated ${label} key file.`);
   }
 }
+
+export async function loadExistingIsolatedSigner(
+  umi: Pick<Umi, 'eddsa'>,
+  keyPath: string,
+  label: string,
+  errorFactory: ErrorFactory,
+): Promise<KeypairSigner> {
+  const signer = await loadSigner(umi, keyPath, label, errorFactory);
+  if (!signer) {
+    throw errorFactory(`The ${label} key file does not exist.`);
+  }
+  return signer;
+}

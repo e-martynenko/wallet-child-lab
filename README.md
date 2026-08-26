@@ -144,6 +144,13 @@ mandatory. No SDK wallet was initialized and no key, signature, funding,
 upload, or submission occurred. The next bounded candidate is exactly `3,208`
 lamports of Irys funding with a `5,000` lamport fee cap; upload remains a
 separate unapproved action.
+Goal 10F then receives that exact funding-only confirmation and completes the
+single bounded write. The exact signed one-instruction System transfer
+simulates and finalizes at slot `441,857,234`, moving `3,208` lamports with an
+exact `5,000` lamport fee and leaving the owner at `19,976,792` lamports. Irys
+credits exactly `3,208` lamports to the owner. The SDK never receives the
+wallet, metadata upload is not attempted, and the treasury action remains
+**NO-GO**.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -306,7 +313,7 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goals 10A–10E are complete and Goal 10 is active only as a phase-gated
+Goals 10A–10F are complete and Goal 10 is active only as a phase-gated
 remediation sequence. The owner bootstrap is finalized, and the final Mainnet
 treasury-action verdict remains **NO-GO**. The
 Executive Profile remains registered,
@@ -320,4 +327,6 @@ only local readiness keys and performed read-only RPC calls. Goal 10C then
 records the lab's first Mainnet write: one finalized `19,985,000` lamport
 source-to-owner bootstrap with a `5,001` lamport fee. No real USDC has entered
 Wallet Child; executive, recovery, Asset Signer, and all other final accounts
-remain unfunded or absent.
+remain unfunded or absent. Goal 10F additionally finalizes one `3,208` lamport
+owner-to-Irys funding transfer with a `5,000` lamport fee and verifies an exact
+`3,208` lamport Irys credit. No metadata bytes have been uploaded.

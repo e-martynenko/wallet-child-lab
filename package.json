@@ -21,6 +21,7 @@
     "fund:devnet": "tsx src/cli/fund-devnet.ts",
     "lifecycle:devnet": "tsx src/cli/lifecycle-devnet.ts",
     "metadata:check": "tsx src/cli/check-metadata.ts",
+    "metadata:fund:mainnet": "tsx src/cli/fund-irys-mainnet.ts",
     "metadata:plan:mainnet": "tsx src/cli/plan-metadata-mainnet.ts",
     "metadata:quote:irys": "tsx src/cli/quote-irys-metadata.ts",
     "metadata:review-action:mainnet": "tsx src/cli/review-irys-action-mainnet.ts",

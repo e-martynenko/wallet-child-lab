@@ -1,0 +1,99 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10H",
+  "network": "mainnet",
+  "recordedAt": "2026-08-26T13:25:40.541Z",
+  "status": "IRYS_METADATA_UPLOAD_VERIFIED",
+  "actionTimeConfirmation": {
+    "exactPhrase": "CONFIRM PERMANENT PUBLIC IRYS METADATA UPLOAD 351 BYTES WITH SHA256 7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c FROM OWNER 6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385 USING AT MOST 3208 LAMPORTS OF EXISTING IRYS CREDIT WITH CONTENT-TYPE application/json",
+    "received": true,
+    "scope": "ONE_EXACT_PUBLIC_IRYS_METADATA_UPLOAD",
+    "topUpIncluded": false,
+    "solanaTransactionIncluded": false,
+    "treasuryActionIncluded": false
+  },
+  "metadata": {
+    "sha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+    "byteLength": 351,
+    "contentType": "application/json",
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385"
+  },
+  "upload": {
+    "id": "2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "durableUri": "ar://2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "gatewayUrl": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "uploadCalls": 1,
+    "exactGatewayBytesVerified": true,
+    "retrievals": [
+      {
+        "requestedUrl": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+        "requestedOrigin": "https://gateway.irys.xyz",
+        "finalUrl": "https://dsnvlzl6rtnfuonqwfw4lwe5c3gvrfpjrkvxu2widmrmuuem6vdq.mainnet-1.datasprite-cdn.com/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL/",
+        "finalOrigin": "https://dsnvlzl6rtnfuonqwfw4lwe5c3gvrfpjrkvxu2widmrmuuem6vdq.mainnet-1.datasprite-cdn.com",
+        "sha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+        "byteLength": 351
+      },
+      {
+        "requestedUrl": "https://uploader.irys.xyz/tx/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL/data",
+        "requestedOrigin": "https://uploader.irys.xyz",
+        "finalUrl": "https://dsnvlzl6rtnfuonqwfw4lwe5c3gvrfpjrkvxu2widmrmuuem6vdq-data.mainnet-1.datasprite-cdn.com/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+        "finalOrigin": "https://dsnvlzl6rtnfuonqwfw4lwe5c3gvrfpjrkvxu2widmrmuuem6vdq-data.mainnet-1.datasprite-cdn.com",
+        "sha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+        "byteLength": 351
+      }
+    ],
+    "twoOriginExactBytesVerified": true
+  },
+  "irysCredit": {
+    "quoteLamports": "3208",
+    "beforeLamports": "3208",
+    "afterLamports": "3208",
+    "spentLamports": "0",
+    "topUpAttempted": false
+  },
+  "receipt": {
+    "public": "mJ9InRYCcuqNFk2A51B-Y3qo0PiUk1mgTPkhaMJZXFqQ_Q78uzaMJLjOh2S8DTFk3Bqe5bLrlkaJTRbZZc5hOX3MLZBWbxyIwJX6OedPPaUXYZ636Pcs_Hm8GgtLqg1I0_fDHptdNcKwWCVgcL-xshJmp05QWX4HJnU2vprHAtJ_UMlkGVY-cSmpgd6xoCK0jRK2THjTM2VwHpr6KOOgxJgZz8kcHn3MgvvLAO2plCqvQLYXD3eUt0BYDOMylTPIvqU2geVV38seC3wghQLsJw7VjERuBJRtvvmigQ4U8sLsdbVwU2BL0X1Dm9vhfUqZtRvc3uqEwTqTLW0ZYLM2ndsVlnVE5Rg0jbVwb_e1MPjLZ_hbIu_WmItZs17tBnpTlXDZdJHvk3FD4WQE4ok3bs0LUnr-Uv6-zZmhy2n1T8APCkpbIZYmvvvwTXYtlhcLHfiiC6bXSUTj8QwtuFoAn4DWSTDr1s2Ijexs-d6utES4FHWsQHci0dlNeqk4iLoS_3W2hFrhXXWjjVLedopt1N9BL1vAktvdtbH2DkzuPfxBg9jDKqVTd41mbr48gxVnAI_QYGB7-zA5nbZSuYEoYcZcfIZMbePuHWdt32lzcma9RTIFROOplCS6LWmPL_SrZX4972KyTFJO2ieWLdGoG_IKeKBW0ENKaQzy79PDyT8",
+    "signature": "gOCA4utIL5cxV-6Q_Gjxeai5S66KX9z6YFoWVpZPqfqSgB0IQofsIbIU_0_xl8iC8gl_fR-DKFByvEDQHU9mRDr9FBFg2mtVf3PIVTPIRSA1ljavov1TfAa4K0Y2LB4920vpESsTlDz_SQEm4u3PA6BkUBaG-cq40iyNzaZ4hsBMbypqLGsLHJ7rPrdYjQeDAM5Me95y3ZXqepv5qtSNOk0SazpXCnJVZbxKIqz15NDrNEQuvOk6rz-KJX-kjPWxLKb4YXbC4XzY-V_JAGJSii5veefAsGXP6vGVFqagkI1kdhjCxyZQrIONGO1NJFNoOUXl5Ctwwdy9Jg7iP2QmjzUCPAdvX39q_dJhDkEg9d7T03yvVrkkcLK_oTPMIpVs_YUSrwVPU4a1QPshlg7YH7QC-wo2Lxo0JUyQjVoEgEYkF2bnnCek9ydcQuMGXgyTkm1gN0W95whSBcQlGRjOwnFQSY5s6XNWQ6q0yKZADZA4JWotOpMs9o1KUAppj9hG0xlnmACTdI03z0HPyto4qzCXtVkDvcIwPemywlNV9GLbss7uSaZRaVzLAaInO4YnzGYH_2sJ6nsQuiJuljqD511-TUwMlTzYwIo4-tjdrbzd1WaOeHozqELoDpLGBaAatt8H1j1MU_twkp4k3XSIv-i1sXYHPXETQSWM46lkHRg",
+    "deadlineHeight": 0,
+    "timestamp": 1787750529972,
+    "version": "1.0.0",
+    "signatureVerified": true
+  },
+  "checks": {
+    "preKeyReviewPassed": true,
+    "existingOwnerKeyLoadedAfterPreflight": true,
+    "sdkWalletAddressVerified": true,
+    "receiptSignatureVerified": true,
+    "exactGatewayBytesVerified": true,
+    "uploadSubmittedOnce": true,
+    "twoOriginExactBytesVerified": true,
+    "solanaTransactionSubmitted": false,
+    "treasuryActionAuthorized": false
+  },
+  "recovery": {
+    "used": true,
+    "reason": "Initial executor stopped after acceptance because receipt ID length and zero deadlineHeight were more permissive than the reviewed validator.",
+    "secondUploadAttempted": false
+  },
+  "verification": {
+    "testFiles": 38,
+    "tests": 285,
+    "testsPassedAfterWrite": true,
+    "typecheckPassedAfterWrite": true,
+    "codeReviewPassedAfterWrite": true,
+    "credentialScanPassedAfterWrite": true,
+    "diffCheckPassedAfterWrite": true,
+    "twoOriginExactRetrievalPassed": true,
+    "arweaveSettlementVerified": false
+  },
+  "nextGate": {
+    "uploadAuthorized": false,
+    "topUpAuthorized": false,
+    "onChainBindingAuthorized": false,
+    "identityCreationAuthorized": false,
+    "treasuryActionAuthorized": false,
+    "requiredNextGoal": "10I_ARWEAVE_SETTLEMENT_VERIFICATION"
+  },
+  "verdict": "UPLOAD_PASS_STOP_BEFORE_ON_CHAIN_BINDING"
+}

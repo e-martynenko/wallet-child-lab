@@ -16,6 +16,8 @@ export const EIP_8004_REGISTRATION_V1 =
   'https://eips.ethereum.org/EIPS/eip-8004#registration-v1';
 export const GOAL_9C_DESCRIPTION =
   'A minimal experimental agent identity for testing bounded wallet execution under explicit owner control.';
+export const GOAL_9C_DURABLE_URI =
+  'ar://2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL';
 
 export const Goal9CMetadataSchema = z
   .object({
@@ -44,8 +46,8 @@ export const Goal9CIntegrityManifestSchema = z
     ),
     sha256: z.string().regex(/^[a-f0-9]{64}$/),
     byteLength: z.number().int().positive(),
-    publicationStatus: z.literal('NOT_PUBLISHED'),
-    durableUri: z.null(),
+    publicationStatus: z.literal('PUBLISHED'),
+    durableUri: z.literal(GOAL_9C_DURABLE_URI),
     onChainUriUpdated: z.literal(false),
   })
   .strict();

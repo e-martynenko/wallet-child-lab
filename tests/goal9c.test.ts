@@ -56,8 +56,8 @@ describe('Goal 9C fixed metadata contract', () => {
       await readFile(GOAL_9C_METADATA_PATH, 'utf8'),
     );
     expect(evidence.manifest).toMatchObject({
-      publicationStatus: 'NOT_PUBLISHED',
-      durableUri: null,
+      publicationStatus: 'PUBLISHED',
+      durableUri: 'ar://2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL',
       onChainUriUpdated: false,
     });
   });

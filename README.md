@@ -157,6 +157,14 @@ transaction is needed. The direct-buffer and receipt-verification paths are
 pinned, but no key is loaded, no SDK wallet is initialized, and no bytes are
 uploaded. The public, intended-permanent upload now waits for its own exact
 confirmation.
+Goal 10H receives that exact phrase and performs one upload. Irys ID
+`2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL` has a verified receipt and
+returns the exact `351` bytes from two distinct Irys/CDN origins. The first
+strict receipt validator stopped after acceptance because Irys returned a
+44-character ID and zero deadline height; the private attempt marker prevented
+a duplicate, and public recovery verified the original upload without loading
+the owner key again. Credit remains `3,208` lamports, so actual upload spend was
+`0`. Arweave settlement and every on-chain action remain pending.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -329,7 +337,7 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goals 10A–10G are complete and Goal 10 is active only as a phase-gated
+Goals 10A–10H are complete and Goal 10 is active only as a phase-gated
 remediation sequence. The owner bootstrap is finalized, and the final Mainnet
 treasury-action verdict remains **NO-GO**. The
 Executive Profile remains registered,
@@ -345,6 +353,7 @@ source-to-owner bootstrap with a `5,001` lamport fee. No real USDC has entered
 Wallet Child; executive, recovery, Asset Signer, and all other final accounts
 remain unfunded or absent. Goal 10F additionally finalizes one `3,208` lamport
 owner-to-Irys funding transfer with a `5,000` lamport fee and verifies an exact
-`3,208` lamport Irys credit. No metadata bytes have been uploaded.
-Goal 10G verifies that the exact credit still covers the exact tagged upload
-quote and stops at a separate permanent-upload confirmation gate.
+`3,208` lamport Irys credit. Goal 10G verifies that the credit still covers the
+exact tagged upload quote and fixes a separate permanent-upload confirmation
+gate. Goal 10H then uploads the exact metadata once, verifies its receipt and
+two-origin bytes, and spends `0` additional lamports.

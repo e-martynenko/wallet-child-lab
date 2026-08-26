@@ -705,6 +705,27 @@ Review: [`reviews/goal-10g.md`](reviews/goal-10g.md)
 Artifact:
 [`wallet-child-001.goal10g.metadata-upload-review.json`](../artifacts/wallet-child-001.goal10g.metadata-upload-review.json)
 
+## Goal 10H — verified permanent Irys metadata upload
+
+Status: **complete — one upload verified 2026-08-26; STOP before on-chain binding**
+
+Expected result:
+
+- receive only the exact Goal 10G permanent-upload phrase;
+- repeat the full source/audit/metadata/quote/credit checks before key load;
+- load only the existing owner key, initialize one native-SOL Irys wallet, and
+  submit exactly one `351`-byte data item with the exact content-type tag;
+- never retry an ambiguous upload and recover accepted evidence by public ID;
+- verify the signed receipt, fixed owner/tag, exact bytes through two origins,
+  and actual credit spend;
+- perform no top-up, Solana transaction, on-chain binding, identity creation,
+  or treasury action, and STOP.
+
+Review: [`reviews/goal-10h.md`](reviews/goal-10h.md)
+
+Artifact:
+[`wallet-child-001.goal10h.metadata-upload-receipt.json`](../artifacts/wallet-child-001.goal10h.metadata-upload-receipt.json)
+
 ## Self-review format
 
 Every goal ends with:

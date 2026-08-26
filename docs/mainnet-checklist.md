@@ -2,7 +2,7 @@
 
 Review date: **2026-08-26**
 
-Verdict: **NO-GO for the `0.1 USDC` action; bootstrap awaits confirmation**
+Verdict: **NO-GO for the `0.1 USDC` action; reworked bootstrap awaits confirmation**
 
 This checklist is evidence for a future decision. It is not permission to fund
 a wallet or submit a Mainnet transaction. The exact project phrase
@@ -72,7 +72,8 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Fixed rents and phase order | PARTIAL, exact known slice | Goal 9Q quotes `8,477,280` lamports for Identity, Profile, Delegate Record, and two USDC ATAs at finalized slot `441,646,119`; Core/plugin rent and remaining fees stay explicit blockers |
 | URI-independent internal messages | PASS, expired quotes | Goal 9R compiles final ATA/Profile/delegate/action/revoke/USDC-rescue messages and quotes exactly `40,000` lamports total at fee slot `441,647,590`; URI-dependent Asset/Identity and live-balance SOL rescue remain blocked |
 | Final pre-approval audit | PASS, STOP | Goal 9S confirms the source balances are stable and all ten final Wallet Child accounts remain absent at finalized slot `441,648,274`; Irys remains unintegrated and every approval/write/spend flag is false |
-| Project gate and bootstrap preview | PASS, awaiting confirmation | Goal 10A records the exact project phrase, repeats the stable preflight at slot `441,794,729`, and simulates the exact first `19,990,000` lamport transfer plus `5,000` lamport fee at monotonic finalized slot `441,796,096`; no action-time confirmation, signature, or submission exists |
+| Project gate and bootstrap preview | PASS, superseded | Goal 10A records the exact project phrase, repeats the stable preflight at slot `441,794,729`, and simulates the exact first `19,990,000` lamport transfer plus `5,000` lamport fee at monotonic finalized slot `441,796,096`; its later action-time phrase was invalidated by the live Goal 10B fee mismatch, with no signature or submission |
+| Jupiter live-fee stop and rework | PASS, awaiting new confirmation | After the exact Goal 10A phrase arrived, the official Send preview showed a dynamic `5,001–5,003` lamport fee. Goal 10B stopped before Send and reworks the transfer to `19,985,000` lamports with a `10,000` lamport fee cap plus the retained `5,000` lamport future-USDC fee reserve, totaling at most `20,000,000`; no prompt, signature, submission, or movement occurred |
 | Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and returned Mainnet genesis plus health `ok`; final-asset audit remains unavailable |
 
 Public key evidence:
@@ -173,10 +174,11 @@ simulation, or send function.
 
 ## Final decision
 
-**NO-GO for the bounded treasury action.** Goals 9A–10A close the safe local,
-quote-only, external-route, approval, and first-action review slice. The exact
-project phrase has been received, but the bootstrap still lacks its separate
-action-time confirmation and no Mainnet write has occurred. Durable
+**NO-GO for the bounded treasury action.** Goals 9A–10B close the safe local,
+quote-only, external-route, approval, and first-action review/rework slice. The
+exact project phrase and the superseded first bootstrap phrase have been
+received, but the reworked bootstrap still lacks its new action-time
+confirmation and no Mainnet write has occurred. Durable
 publication, exact Asset/Identity messages, live audits and same-bytes
 simulations, Core/plugin rent and metadata funding fee, remaining live
 acquisition quotes, and per-action confirmations remain mandatory.

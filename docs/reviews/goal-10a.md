@@ -1,6 +1,10 @@
 # Goal 10A review — Mainnet activation and bootstrap preview
 
-Status: **PASS — exact gate received; bootstrap awaits action-time confirmation**
+Status: **PASS at review — superseded by the Goal 10B live-fee stop**
+
+Post-review outcome: the exact Goal 10A action-time phrase was later received,
+but Jupiter displayed `5,001–5,003` lamports instead of the reviewed exact
+`5,000`. The lab stopped before Send; Goal 10B is the current contract.
 
 ## Built
 
@@ -81,9 +85,10 @@ Status: **PASS — exact gate received; bootstrap awaits action-time confirmatio
 - the exact bootstrap fee also remains `5,000` lamports;
 - the production advisory graph remains unchanged.
 
-## Remaining uncertainty
+## Remaining uncertainty at review time
 
-1. Action-time confirmation has not been provided.
+1. Action-time confirmation had not yet been provided. It was later received
+   and invalidated by the live mismatch recorded in Goal 10B.
 2. The external wallet's final transaction preview must prove there is no
    priority or additional fee and no extra instruction.
 3. Durable metadata, URI-dependent Core/Identity rent and fees, live delegate
@@ -91,7 +96,8 @@ Status: **PASS — exact gate received; bootstrap awaits action-time confirmatio
 
 ## Recommendation
 
-**PASS Goal 10A and request action-time confirmation.** After receiving the
+**Historical recommendation: PASS Goal 10A and request action-time
+confirmation.** After receiving the
 exact confirmation phrase, repeat the preflight and quote. If every value and
 message invariant is unchanged, repeat the unsigned simulation, have the
 external experimental wallet sign only those exact message bytes, then wait for

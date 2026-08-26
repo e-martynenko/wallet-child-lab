@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10B",
+  "network": "mainnet-beta",
+  "recordedAt": "2026-08-26T05:33:10.000Z",
+  "status": "AWAITING_REWORKED_ACTION_TIME_CONFIRMATION",
+  "originalActionTimeConfirmation": {
+    "exactPhrase": "CONFIRM BOOTSTRAP 0.01999 SOL TO 6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "received": true,
+    "authorizedOnlyReviewedExactContract": true,
+    "invalidatedByLiveFeeMismatch": true,
+    "submissionAuthorized": false
+  },
+  "liveJupiterPreview": {
+    "site": "https://jup.ag/send",
+    "source": "8W7sQKSRuYAdev3qcZCm9rrs4DDKbnEgD4fA8kvENvxt",
+    "destination": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "transferLamports": "19990000",
+    "observedFeeLamports": ["5001", "5003"],
+    "feeWasDynamic": true,
+    "expectedExactFeeLamports": "5000",
+    "stopReason": "LIVE_FEE_DID_NOT_MATCH_CONFIRMED_EXACT_CONTRACT",
+    "sendClicked": false,
+    "walletPromptOpened": false,
+    "messageSigned": false,
+    "transactionSubmitted": false,
+    "fundsMoved": false
+  },
+  "reworkedBootstrap": {
+    "source": "8W7sQKSRuYAdev3qcZCm9rrs4DDKbnEgD4fA8kvENvxt",
+    "destination": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "transferLamports": "19985000",
+    "minimumExpectedBootstrapFeeLamports": "5000",
+    "maximumAllowedBootstrapFeeLamports": "10000",
+    "maximumBootstrapOutflowLamports": "19995000",
+    "futureUsdcFundingFeeReserveLamports": "5000",
+    "totalExperimentSolBoundaryLamports": "20000000",
+    "sourceSolBeforeLamports": "88698606",
+    "sourceSolAfterAtMinimumFeeLamports": "68708606",
+    "sourceSolAfterAtMaximumFeeLamports": "68703606",
+    "ownerSolBeforeLamports": "0",
+    "ownerSolAfterLamports": "19985000",
+    "sourceUsdcBeforeBaseUnits": "1078695",
+    "sourceUsdcAfterBaseUnits": "1078695",
+    "topUpAllowed": false
+  },
+  "executionBoundary": {
+    "mode": "OFFICIAL_JUPITER_SEND_UI",
+    "limitedToExternalSourceToOwnerBootstrap": true,
+    "allowedForTreasuryOrDelegateActions": false,
+    "closedSourcePreSignMessageBytesInspectable": false,
+    "requireOfficialJupiterOrigin": true,
+    "requireExactVisibleDestination": true,
+    "requireExactVisibleTransferLamports": true,
+    "requireVisibleFeeAtOrBelowCap": true,
+    "requireFreshFinalizedBalancePreflight": true,
+    "requireFinalizedGetTransactionDecodeAfterSubmission": true,
+    "stopIfSourceBalanceChanges": true,
+    "stopIfDestinationBalanceChanges": true,
+    "stopIfSourceUsdcChanges": true,
+    "stopIfVisibleFeeExceedsCapOrCannotBeRead": true,
+    "stopIfOriginAmountOrDestinationChanges": true
+  },
+  "actionTimeGate": {
+    "requiredPhrase": "CONFIRM BOOTSTRAP 0.019985 SOL WITH FEE CAP 0.00001 SOL TO 6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "received": false,
+    "submissionAuthorized": false
+  },
+  "verification": {
+    "testFiles": 32,
+    "tests": 248,
+    "typecheckPassed": true,
+    "dependencyAuditClean": false,
+    "unchangedModerateUuidAdvisory": true,
+    "keyLoaded": false,
+    "messageSigned": false,
+    "transactionSubmitted": false,
+    "networkWrite": false,
+    "fundsMoved": false
+  },
+  "verdict": "REWORKED_READY_FOR_NEW_CONFIRMATION_NOT_SUBMISSION"
+}

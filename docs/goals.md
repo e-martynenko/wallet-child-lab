@@ -553,7 +553,7 @@ action remains `NO_GO` until every preceding blocker is closed.
 
 ## Goal 10A — Mainnet activation and bootstrap preview
 
-Status: **complete — reviewed 2026-08-26; awaiting action-time confirmation**
+Status: **complete — reviewed 2026-08-26; live preview superseded by Goal 10B**
 
 Expected result:
 
@@ -572,6 +572,28 @@ Review: [`reviews/goal-10a.md`](reviews/goal-10a.md)
 
 Artifact:
 [`wallet-child-001.goal10a.bootstrap-review.json`](../artifacts/wallet-child-001.goal10a.bootstrap-review.json)
+
+## Goal 10B — Jupiter live-fee stop and bounded bootstrap rework
+
+Status: **complete — reviewed 2026-08-26; awaiting new action-time confirmation**
+
+Expected result:
+
+- record the received Goal 10A action phrase without expanding its scope;
+- stop before Send when Jupiter's live fee differs from the exact contract;
+- prove no prompt, signature, submission, write, or fund movement occurred;
+- reduce the transfer to `19,985,000` lamports and cap its live fee at `10,000`
+  lamports while retaining the `5,000` lamport future USDC-fee reserve inside
+  the absolute `20,000,000` lamport boundary;
+- limit the closed-source official Jupiter UI exception to this external
+  source-to-owner bootstrap;
+- require a new exact confirmation and finalized transaction decoding before
+  progression.
+
+Review: [`reviews/goal-10b.md`](reviews/goal-10b.md)
+
+Artifact:
+[`wallet-child-001.goal10b.jupiter-fee-rework.json`](../artifacts/wallet-child-001.goal10b.jupiter-fee-rework.json)
 
 ## Self-review format
 

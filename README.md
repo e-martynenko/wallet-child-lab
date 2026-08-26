@@ -115,8 +115,14 @@ external experimental source to the isolated owner with an exact `0.000005
 SOL` fee. Its exact unsigned message simulated successfully with both predicted
 SOL balances reconciled. The official `jup.ag` session is connected to the exact
 source and exposes its built-in Send flow, but no transaction data was entered.
-It remains unsigned and unsubmitted pending a separate action-time confirmation;
-the later `0.1 USDC` action is still **NO-GO**.
+At that review point it remained unsigned and unsubmitted pending a separate
+action-time confirmation; the later `0.1 USDC` action stayed **NO-GO**.
+Goal 10B records what happened after that exact confirmation: the official
+Jupiter Send preview displayed a dynamic `5,001–5,003` lamport fee, so the lab
+stopped before Send and invalidated the narrower approval. The reworked
+bootstrap is `0.019985 SOL` with a `0.00001 SOL` live-fee cap. Together with the
+future `0.000005 SOL` direct-USDC funding fee reserve, the absolute acquisition
+boundary remains exactly `0.02 SOL`. No transaction has been submitted.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -265,8 +271,9 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goal 10A is complete and Goal 10 is active only as a phase-gated remediation
-sequence. The final Mainnet treasury-action verdict remains **NO-GO**. The
+Goals 10A–10B are complete and Goal 10 is active only as a phase-gated
+remediation sequence. The reworked bootstrap awaits a new exact confirmation,
+and the final Mainnet treasury-action verdict remains **NO-GO**. The
 Executive Profile remains registered,
 but its per-asset Execution Delegate Record is closed. The Asset Signer holds
 exactly `9,900,000` lamports after spending the approved `100,000` Devnet

@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10E",
+  "network": "mainnet-beta",
+  "recordedAt": "2026-08-26T07:21:07.000Z",
+  "status": "READ_ONLY_ACTION_REVIEW_COMPLETE",
+  "packages": {
+    "direct": {
+      "@irys/upload": {
+        "version": "0.0.15",
+        "integrity": "sha512-VS1ieI8Hipv7F/odL2rDfn0S9VCwj3GFhROI8el0RjzpcaXCobezP0V4yuvppyB+E4Oiu6xQTXooaIBh/S7xPA=="
+      },
+      "@irys/upload-solana": {
+        "version": "0.1.8",
+        "integrity": "sha512-pJyG8uJ3NIpbIGDA9hYRHij5xF1DrU0QMa4i2mVJlYwbSdQfNdcJ8SdT4ZsrTh1g/+OWMzbo2l/ziMY1Js9HGA=="
+      }
+    },
+    "productionPackagesAdded": 204,
+    "exactVersionsPinned": true,
+    "registryIntegrityVerified": true,
+    "completeLockfileSha256": "25cfa944c94962b4d39a2c9ecbc7de1d5fc57dbc05ffff104ce27da5f1da50f6",
+    "completeLockfileHashVerified": true,
+    "reviewedSourceHashesVerified": true,
+    "ignoredNativeBuildScripts": [
+      "bigint-buffer@1.1.5",
+      "keccak@3.0.4",
+      "secp256k1@5.0.2"
+    ],
+    "buildScriptsApproved": false,
+    "sdkImportedByLab": false,
+    "walletProvidedToSdk": false
+  },
+  "sourceContract": {
+    "mainnetDefault": true,
+    "finalizedDefault": true,
+    "nativeSolanaEntrypointExcludesSplAdapter": true,
+    "fundingUsesSystemTransfer": true,
+    "priorityFeesCanBeDisabled": true,
+    "uploadFileAvailable": true,
+    "fundingAndUploadRemainSeparateActions": true
+  },
+  "productionAudit": {
+    "clean": false,
+    "findings": 5,
+    "severity": {
+      "high": 2,
+      "moderate": 2,
+      "low": 1
+    },
+    "dispositions": [
+      {
+        "advisory": "GHSA-3gc7-fjrx-p6mg",
+        "package": "bigint-buffer@1.1.5",
+        "severity": "high",
+        "patchedVersionAvailable": false,
+        "reviewedPath": "@irys/upload-solana -> @solana/spl-token -> @solana/buffer-layout-utils",
+        "runtimeProbeLoaded": false,
+        "boundary": "SPL_ADAPTER_FORBIDDEN"
+      },
+      {
+        "advisory": "GHSA-96hv-2xvq-fx4p",
+        "package": "ws@8.18.0",
+        "severity": "high",
+        "patchedVersionAvailable": true,
+        "runtimeProbeLoaded": false,
+        "loadedAlternative": "ws@8.21.3",
+        "boundary": "NO_ETHEREUM_PROVIDER_OR_VULNERABLE_WS_PATH"
+      },
+      {
+        "advisory": "GHSA-58qx-3vcg-4xpx",
+        "package": "ws@8.18.0",
+        "severity": "moderate",
+        "patchedVersionAvailable": true,
+        "runtimeProbeLoaded": false,
+        "loadedAlternative": "ws@8.21.3",
+        "boundary": "NO_ETHEREUM_PROVIDER_OR_VULNERABLE_WS_PATH"
+      },
+      {
+        "advisory": "GHSA-w5hq-g745-h8pq",
+        "package": "uuid@8.3.2",
+        "severity": "moderate",
+        "runtimeProbeLoaded": true,
+        "reviewedUse": "jayson requires uuid.v4 only",
+        "boundary": "NO_UUID_V3_V5_V6_OR_CALLER_BUFFER"
+      },
+      {
+        "advisory": "GHSA-848j-6mx2-7j84",
+        "package": "elliptic@6.6.1",
+        "severity": "low",
+        "patchedVersionAvailable": false,
+        "runtimeProbeLoaded": true,
+        "reviewedUse": "Solana signer uses @noble/ed25519, not elliptic ECDSA",
+        "boundary": "NO_ETHEREUM_OR_OTHER_ECDSA_SIGNER"
+      }
+    ],
+    "unsupportedOverrideUsed": false,
+    "acceptance": "BOUNDED_TO_EXACT_SOLANA_PATH_RECHECK_BEFORE_KEY_LOAD"
+  },
+  "liveReadOnlySnapshot": {
+    "rpcOrigin": "https://mainnet.helius-rpc.com",
+    "finalizedOwnerBalanceSlot": 441816360,
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "ownerBalanceLamports": "19985000",
+    "irysFundingAddress": "9NERQjLetzquGwdKt3X4gZ8fE8fPfSkj2xo2esmUjWsz",
+    "irysOwnerBalanceLamports": "0",
+    "storageQuoteLamports": "3208",
+    "fundingFeeLamports": "5000",
+    "fundingMessageSha256": "f8ddc253f8881b82d875d06c33fcb0340d2d64c3925d26c0f69a4f556ec9a778",
+    "fundingMessageSerializedBytesPublished": false,
+    "blockhashContextSlot": 441816361,
+    "feeContextSlot": 441816361,
+    "lastValidBlockHeight": 419865036
+  },
+  "fundingActionReview": {
+    "scope": "ONE_EXACT_SOLANA_TRANSFER_AND_IRYS_CREDIT_REGISTRATION",
+    "fundingLamports": "3208",
+    "feeCapLamports": "5000",
+    "maximumOwnerOutflowLamports": "8208",
+    "metadataSha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+    "metadataByteLength": 351,
+    "exactConfirmationPhrase": "CONFIRM IRYS METADATA FUNDING 3208 LAMPORTS WITH FEE CAP 5000 LAMPORTS FROM 6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385 TO 9NERQjLetzquGwdKt3X4gZ8fE8fPfSkj2xo2esmUjWsz FOR SHA256 7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+    "confirmationReceived": false,
+    "uploadIncluded": false,
+    "uploadConfirmationDeferred": true
+  },
+  "checks": {
+    "ownerKeyLoaded": false,
+    "sdkWalletInitialized": false,
+    "messageSigned": false,
+    "simulationAttempted": false,
+    "fundingAttempted": false,
+    "uploadAttempted": false,
+    "transactionSubmitted": false,
+    "networkWrite": false,
+    "fundsMoved": false
+  },
+  "verification": {
+    "testFiles": 35,
+    "tests": 265,
+    "typecheckPassed": true,
+    "productionAuditClean": false,
+    "exactPathReachabilityGuardPassed": true,
+    "credentialScanPassed": true,
+    "diffCheckPassed": true
+  },
+  "nextGate": {
+    "nextFinancialActionAuthorized": false,
+    "treasuryActionAuthorized": false,
+    "treasuryActionVerdict": "NO_GO",
+    "requiredNextGoal": "10F_EXACT_IRYS_FUNDING_EXECUTION",
+    "requiredExactPhrase": "CONFIRM IRYS METADATA FUNDING 3208 LAMPORTS WITH FEE CAP 5000 LAMPORTS FROM 6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385 TO 9NERQjLetzquGwdKt3X4gZ8fE8fPfSkj2xo2esmUjWsz FOR SHA256 7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+    "repeatAuditAndReachabilityGuardBeforeKeyLoad": true,
+    "freshPreflightAndSameBytesSimulationRequired": true
+  },
+  "verdict": "STOP_AWAITING_EXACT_IRYS_FUNDING_CONFIRMATION"
+}

@@ -1,17 +1,36 @@
-# Goal 9D — production dependency advisory decision
+# Production dependency advisory decisions
+
+## Goal 10E — current expanded graph
+
+Review date: **2026-08-26**
+
+Decision: **BOUNDED TO THE EXACT NATIVE-SOL PATH; RECHECK BEFORE KEY LOAD**
+
+Installing the latest official pinned Irys packages expanded the current
+production audit to five findings: two high, two moderate, and one low. The
+audit is not clean. The exact findings and runtime-path dispositions are in
+[`reviews/goal-10e.md`](reviews/goal-10e.md) and the Goal 10E artifact.
+
+The acceptance is narrow: no SPL adapter, Ethereum provider, ECDSA signer,
+UUID buffer API, unsupported override, or approved native build script. Exact
+registry integrity, package-source hashes, and runtime import reachability must
+all be rechecked before the isolated owner key is loaded. Any drift returns the
+metadata funding action to `NO_GO`.
+
+## Goal 9D — historical pre-Irys baseline
 
 Review date: **2026-08-25**
 
 Decision: **ACCEPTED WITH NARROW BOUNDS; RECHECK BEFORE MAINNET**
 
-This is a documented residual-risk decision, not a claim that the production
-dependency audit is clean. `pnpm audit --prod` still exits non-zero with one
-moderate advisory, and Goal 10 remains locked by other blockers and the missing
-exact approval phrase.
+This section records the dependency graph before Goal 10E installed Irys. It
+was a documented residual-risk decision, not a claim that the production audit
+was clean. At that time `pnpm audit --prod` exited non-zero with one moderate
+advisory.
 
 ## Exact finding
 
-The only reported production advisory is
+The only production advisory reported in that historical graph was
 [`GHSA-w5hq-g745-h8pq`](https://github.com/advisories/GHSA-w5hq-g745-h8pq):
 `uuid` does not bounds-check caller-supplied output buffers in the `v3()`,
 `v5()`, and `v6()` API methods. The project currently receives the affected
@@ -75,5 +94,6 @@ pnpm view @solana/web3.js version dependencies
 pnpm view jayson version dependencies
 ```
 
-The first command is expected to report exactly one moderate advisory and exit
-with status `1`; that expected result must never be relabelled as a clean audit.
+For the historical pre-Irys lockfile, the first command reported exactly one
+moderate advisory. The current Goal 10E graph must instead match the expanded
+five-finding decision above.

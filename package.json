@@ -23,6 +23,7 @@
     "metadata:check": "tsx src/cli/check-metadata.ts",
     "metadata:plan:mainnet": "tsx src/cli/plan-metadata-mainnet.ts",
     "metadata:quote:irys": "tsx src/cli/quote-irys-metadata.ts",
+    "metadata:review-action:mainnet": "tsx src/cli/review-irys-action-mainnet.ts",
     "metadata:verify-durable": "tsx src/cli/verify-durable-metadata.ts",
     "messages:quote:mainnet": "tsx src/cli/quote-internal-mainnet.ts",
     "policy:check": "tsx src/cli/check-policy.ts",
@@ -38,6 +39,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@irys/upload": "0.0.15",
+    "@irys/upload-solana": "0.1.8",
     "@metaplex-foundation/mpl-agent-registry": "0.2.6",
     "@metaplex-foundation/mpl-core": "1.8.0",
     "@metaplex-foundation/mpl-toolbox": "0.10.0",

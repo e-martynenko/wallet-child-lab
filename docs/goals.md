@@ -637,6 +637,29 @@ Review: [`reviews/goal-10d.md`](reviews/goal-10d.md)
 Artifact:
 [`wallet-child-001.goal10d.metadata-publication-plan.json`](../artifacts/wallet-child-001.goal10d.metadata-publication-plan.json)
 
+## Goal 10E — Irys SDK integration and exact action gate
+
+Status: **complete — reviewed 2026-08-26; STOP awaiting exact funding confirmation**
+
+Expected result:
+
+- install only exact current official Irys Node/Solana packages and lock their
+  registry integrity;
+- verify the reviewed Mainnet/finalized/native-SOL source contract and package
+  source hashes without initializing the SDK with a wallet;
+- audit the expanded production graph and preserve every advisory rather than
+  claiming a clean result;
+- prove the high-risk SPL and vulnerable WebSocket paths are not loaded by the
+  exact native-SOL import, while recording the remaining loaded dependencies;
+- refresh owner/Irys balances, storage quote, and exact funding fee;
+- publish one exact funding-only confirmation phrase that excludes upload;
+- load no key, sign/simulate/fund/upload/submit nothing, and STOP.
+
+Review: [`reviews/goal-10e.md`](reviews/goal-10e.md)
+
+Artifact:
+[`wallet-child-001.goal10e.irys-action-review.json`](../artifacts/wallet-child-001.goal10e.irys-action-review.json)
+
 ## Self-review format
 
 Every goal ends with:

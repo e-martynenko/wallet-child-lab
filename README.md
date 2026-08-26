@@ -136,6 +136,14 @@ lamports and the exact one-instruction funding fee is `5,000`, for an `8,208`
 lamport publication total. It installs no uploader, loads no key, and does not
 sign, fund, or upload anything. Core/plugin rent and state-dependent simulations
 remain explicit blockers before another write.
+Goal 10E pins and installs the two current official Irys packages, verifies
+their registry integrity and exact reviewed source, and performs a new live
+funding-only review. The install adds 204 production packages and expands the
+audit to five findings, so a fail-closed native-SOL reachability guard is now
+mandatory. No SDK wallet was initialized and no key, signature, funding,
+upload, or submission occurred. The next bounded candidate is exactly `3,208`
+lamports of Irys funding with a `5,000` lamport fee cap; upload remains a
+separate unapproved action.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -230,8 +238,10 @@ storage and is not referenced on-chain.
 
 Goal 9D's dependency decision is documented in
 [`docs/dependency-decision.md`](docs/dependency-decision.md). The production
-audit deliberately remains non-clean with one moderate advisory; its exact
-unreachable path and the conditions that expire the acceptance are explicit.
+audit deliberately remains non-clean. Goal 9D's historical graph had one
+moderate advisory; Goal 10E's current Irys-expanded graph has five findings.
+Their exact paths and the conditions that expire the narrow acceptance are
+explicit.
 
 Goal 9E's public offline policy evidence is in
 [`artifacts/wallet-child-001.goal9e.mainnet-policy.json`](artifacts/wallet-child-001.goal9e.mainnet-policy.json).
@@ -271,6 +281,18 @@ The command makes one fixed Mainnet `GET` request for `351` tagged bytes. It
 loads no key and cannot fund, upload, sign, or submit a transaction. The quote
 does not include the future Solana funding-transaction fee.
 
+Review the pinned Irys dependency/source contract and refresh the exact
+funding-only confirmation gate with:
+
+```sh
+WALLET_CHILD_MAINNET_RPC_URL=https://your-dedicated-provider.example/path \
+  pnpm run metadata:review-action:mainnet
+```
+
+This command reads public Irys/Mainnet state, verifies the complete lockfile
+and reviewed source hashes, and prints the exact confirmation phrase. It does
+not import the SDK into lab runtime, load a wallet, sign, fund, or upload.
+
 Quote the exact unsigned SOL-only bootstrap message with a dedicated Mainnet
 RPC:
 
@@ -284,7 +306,7 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goals 10A–10D are complete and Goal 10 is active only as a phase-gated
+Goals 10A–10E are complete and Goal 10 is active only as a phase-gated
 remediation sequence. The owner bootstrap is finalized, and the final Mainnet
 treasury-action verdict remains **NO-GO**. The
 Executive Profile remains registered,

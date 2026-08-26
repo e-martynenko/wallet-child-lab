@@ -1,13 +1,14 @@
 # Wallet Child #001 — Mainnet readiness checklist
 
-Review date: **2026-08-25**
+Review date: **2026-08-26**
 
-Verdict: **NO-GO**
+Verdict: **NO-GO for the `0.1 USDC` action; bootstrap awaits confirmation**
 
 This checklist is evidence for a future decision. It is not permission to fund
-a wallet or submit a Mainnet transaction. Mainnet writes still require the
-exact separate phrase `ENABLE MAINNET EXPERIMENT` and a new review after every
-blocker below is closed.
+a wallet or submit a Mainnet transaction. The exact project phrase
+`ENABLE MAINNET EXPERIMENT` was received on 2026-08-26, opening only the phased
+remediation sequence. Every individual write still requires a current review,
+separate action-time confirmation, and finalized read-back.
 
 ## Hard loss boundary
 
@@ -71,6 +72,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Fixed rents and phase order | PARTIAL, exact known slice | Goal 9Q quotes `8,477,280` lamports for Identity, Profile, Delegate Record, and two USDC ATAs at finalized slot `441,646,119`; Core/plugin rent and remaining fees stay explicit blockers |
 | URI-independent internal messages | PASS, expired quotes | Goal 9R compiles final ATA/Profile/delegate/action/revoke/USDC-rescue messages and quotes exactly `40,000` lamports total at fee slot `441,647,590`; URI-dependent Asset/Identity and live-balance SOL rescue remain blocked |
 | Final pre-approval audit | PASS, STOP | Goal 9S confirms the source balances are stable and all ten final Wallet Child accounts remain absent at finalized slot `441,648,274`; Irys remains unintegrated and every approval/write/spend flag is false |
+| Project gate and bootstrap preview | PASS, awaiting confirmation | Goal 10A records the exact project phrase, repeats the stable preflight at slot `441,794,729`, and simulates the exact first `19,990,000` lamport transfer plus `5,000` lamport fee at monotonic finalized slot `441,796,096`; no action-time confirmation, signature, or submission exists |
 | Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and returned Mainnet genesis plus health `ok`; final-asset audit remains unavailable |
 
 Public key evidence:
@@ -171,12 +173,10 @@ simulation, or send function.
 
 ## Final decision
 
-**NO-GO for Goal 10.** Goals 9A–9S now close the safe local, quote-only, and
-external-route remediation slice available before external choices: the
-real-token policy, recovery, USDC ATA setup, aggregate budget, Mainnet delegate
-scanner, metadata integrity, durable retrieval verifier, private RPC, bounded
-Irys storage quote, and final pre-approval state audit all exist and pass. This
-is still not a claim that Mainnet execution is safe. Durable publication, exact
-Asset/Identity messages, live audits and same-bytes simulations, Core/plugin
-rent and metadata funding fee, remaining live acquisition quotes, and the exact
-approval phrase remain mandatory.
+**NO-GO for the bounded treasury action.** Goals 9A–10A close the safe local,
+quote-only, external-route, approval, and first-action review slice. The exact
+project phrase has been received, but the bootstrap still lacks its separate
+action-time confirmation and no Mainnet write has occurred. Durable
+publication, exact Asset/Identity messages, live audits and same-bytes
+simulations, Core/plugin rent and metadata funding fee, remaining live
+acquisition quotes, and per-action confirmations remain mandatory.

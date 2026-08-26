@@ -543,11 +543,35 @@ Artifact:
 
 ## Goal 10 — one-dollar Mainnet experiment
 
-Status: **locked**
+Status: **active, phase-gated — exact Mainnet phrase received 2026-08-26**
 
-This goal is blocked by the Goal 9 `NO-GO` findings and also requires the exact
-separate approval phrase from Goal 0. The phrase cannot override unresolved
-readiness blockers.
+The exact phrase opens the phased work required to close the live-only Goal 9
+blockers. It is not blanket transaction authorization. Every write requires a
+fresh preflight, a fixed maximum outflow, separate action-time confirmation,
+and finalized read-back before the next phase. The bounded `0.1 USDC` treasury
+action remains `NO_GO` until every preceding blocker is closed.
+
+## Goal 10A — Mainnet activation and bootstrap preview
+
+Status: **complete — reviewed 2026-08-26; awaiting action-time confirmation**
+
+Expected result:
+
+- exact Mainnet project phrase recorded as received;
+- fresh finalized source, USDC, RPC, and ten-account absence preflight;
+- exact `19,990,000` lamport owner bootstrap with `5,000` lamport fee cap;
+- exact predicted balances and hard-boundary reconciliation;
+- exact unsigned Mainnet simulation with monotonic finalized context and both
+  post-balances reconciled;
+- verified official Jupiter Send/manual-confirmation boundary and one exact
+  confirmation phrase;
+- no key load, signature, transaction submission, network write, or moved
+  funds.
+
+Review: [`reviews/goal-10a.md`](reviews/goal-10a.md)
+
+Artifact:
+[`wallet-child-001.goal10a.bootstrap-review.json`](../artifacts/wallet-child-001.goal10a.bootstrap-review.json)
 
 ## Self-review format
 

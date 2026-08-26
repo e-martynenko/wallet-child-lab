@@ -109,6 +109,14 @@ official USDC, while all ten final Wallet Child accounts remained absent. The
 current official Irys `getPrice → fund → upload` flow is now explicit, but no
 uploader dependency, key, signature, upload, or transaction was added. Safe
 pre-gate preparation is complete and the verdict remains **NO-GO**.
+Goal 10A records receipt of the exact Mainnet project phrase and performs a
+fresh first-action review. The only candidate is `0.01999 SOL` from the
+external experimental source to the isolated owner with an exact `0.000005
+SOL` fee. Its exact unsigned message simulated successfully with both predicted
+SOL balances reconciled. The official `jup.ag` session is connected to the exact
+source and exposes its built-in Send flow, but no transaction data was entered.
+It remains unsigned and unsubmitted pending a separate action-time confirmation;
+the later `0.1 USDC` action is still **NO-GO**.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -257,8 +265,9 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goal 9S is complete, but the Mainnet verdict remains **NO-GO** and Goal 10
-remains locked. The Executive Profile remains registered,
+Goal 10A is complete and Goal 10 is active only as a phase-gated remediation
+sequence. The final Mainnet treasury-action verdict remains **NO-GO**. The
+Executive Profile remains registered,
 but its per-asset Execution Delegate Record is closed. The Asset Signer holds
 exactly `9,900,000` lamports after spending the approved `100,000` Devnet
 lamports in Goal 7. Its Goal 9A TEST-token ATA now holds `0`; the isolated test

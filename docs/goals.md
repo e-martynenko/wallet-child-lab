@@ -374,7 +374,7 @@ Review: [`reviews/goal-9k.md`](reviews/goal-9k.md)
 
 ## Goal 9L — isolated Mainnet funding route
 
-Status: **complete — reviewed 2026-08-25; assets remain staged outside Wallet Child**
+Status: **complete — reviewed 2026-08-25; SOL bootstrap later finalized in Goal 10C**
 
 Expected result:
 
@@ -575,7 +575,7 @@ Artifact:
 
 ## Goal 10B — Jupiter live-fee stop and bounded bootstrap rework
 
-Status: **complete — reviewed 2026-08-26; awaiting new action-time confirmation**
+Status: **complete — reviewed 2026-08-26; executed and verified by Goal 10C**
 
 Expected result:
 
@@ -594,6 +594,27 @@ Review: [`reviews/goal-10b.md`](reviews/goal-10b.md)
 
 Artifact:
 [`wallet-child-001.goal10b.jupiter-fee-rework.json`](../artifacts/wallet-child-001.goal10b.jupiter-fee-rework.json)
+
+## Goal 10C — finalized Mainnet owner bootstrap
+
+Status: **complete — reviewed 2026-08-26; STOP before the next write**
+
+Expected result:
+
+- receive the exact Goal 10B action-time phrase and repeat a drift-free
+  finalized preflight;
+- submit only the exact `19,985,000` lamport source-to-owner transfer through
+  official Jupiter with a visible fee no greater than `10,000` lamports;
+- wait for finalized status, then decode every actual account and instruction;
+- reconcile source, owner, fee, source USDC, and all remaining Wallet Child
+  accounts at a later finalized slot;
+- retain the future USDC-fee reserve inside the `20,000,000` lamport boundary;
+- publish only the public receipt and STOP before another write.
+
+Review: [`reviews/goal-10c.md`](reviews/goal-10c.md)
+
+Artifact:
+[`wallet-child-001.goal10c.bootstrap-receipt.json`](../artifacts/wallet-child-001.goal10c.bootstrap-receipt.json)
 
 ## Self-review format
 

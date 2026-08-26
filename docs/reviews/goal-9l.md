@@ -1,6 +1,9 @@
 # Goal 9L review — isolated Mainnet funding route
 
-Status: **PASS — route boundary fixed; Wallet Child remains unfunded**
+Status: **PASS at review — route fixed; SOL bootstrap later completed in Goal 10C**
+
+Post-review outcome: Goal 10C later finalized only the capped owner SOL
+bootstrap. Source USDC remains staged outside Wallet Child.
 
 ## Built
 

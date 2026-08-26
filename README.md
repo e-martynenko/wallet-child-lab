@@ -37,8 +37,8 @@ executed one bounded action, and added one isolated minimal-brain contract:
 - finalized confirmation and resumable, duplicate-resistant writes.
 
 Goal 9 then performed a separate read-only Mainnet-readiness audit. It created
-two isolated unfunded readiness wallets, verified the current Circle-listed
-Solana USDC mint and Metaplex Agent Tools program on Mainnet, fixed a maximum
+two isolated, initially unfunded readiness wallets, verified the current
+Circle-listed Solana USDC mint and Metaplex Agent Tools program on Mainnet, fixed a maximum
 loss boundary, and returned **NO-GO**. Goal 9A then completed a Devnet-only,
 USDC-shaped safety test using an explicitly labelled TEST token: exact
 `TransferChecked`, bounded delegation, revoke, post-revoke denial, direct-owner
@@ -122,7 +122,14 @@ Jupiter Send preview displayed a dynamic `5,001–5,003` lamport fee, so the lab
 stopped before Send and invalidated the narrower approval. The reworked
 bootstrap is `0.019985 SOL` with a `0.00001 SOL` live-fee cap. Together with the
 future `0.000005 SOL` direct-USDC funding fee reserve, the absolute acquisition
-boundary remains exactly `0.02 SOL`. No transaction has been submitted.
+boundary remains exactly `0.02 SOL`. At the end of Goal 10B, no transaction had
+been submitted.
+Goal 10C receives the reworked confirmation and completes that one bootstrap.
+The finalized transaction moves exactly `0.019985 SOL` to the isolated owner
+with a `0.000005001 SOL` fee. Finalized decoding proves that its only
+value-moving instruction is the exact System transfer; source USDC remains
+unchanged, the remaining nine Wallet Child accounts remain absent, and the
+`0.1 USDC` action remains **NO-GO**.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.
@@ -271,9 +278,9 @@ It loads no key and cannot sign, simulate, or submit the expiring message.
 
 ## Safety boundary
 
-Goals 10A–10B are complete and Goal 10 is active only as a phase-gated
-remediation sequence. The reworked bootstrap awaits a new exact confirmation,
-and the final Mainnet treasury-action verdict remains **NO-GO**. The
+Goals 10A–10C are complete and Goal 10 is active only as a phase-gated
+remediation sequence. The owner bootstrap is finalized, and the final Mainnet
+treasury-action verdict remains **NO-GO**. The
 Executive Profile remains registered,
 but its per-asset Execution Delegate Record is closed. The Asset Signer holds
 exactly `9,900,000` lamports after spending the approved `100,000` Devnet
@@ -281,7 +288,8 @@ lamports in Goal 7. Its Goal 9A TEST-token ATA now holds `0`; the isolated test
 receiver holds `100,000` base units, and the owner recovery ATA holds the other
 `1,900,000`. Mint and freeze authorities are absent, token delegates and close
 authorities are absent, and the execution delegation is revoked. Goal 9 created
-only local, unfunded readiness keys and performed read-only RPC calls. No
-Mainnet write by the lab has occurred. The operator performed one real Jupiter
-swap in the separate experimental source wallet, but no real SOL or USDC has
-entered the Wallet Child owner, executive, recovery, or Asset Signer.
+only local readiness keys and performed read-only RPC calls. Goal 10C then
+records the lab's first Mainnet write: one finalized `19,985,000` lamport
+source-to-owner bootstrap with a `5,001` lamport fee. No real USDC has entered
+Wallet Child; executive, recovery, Asset Signer, and all other final accounts
+remain unfunded or absent.

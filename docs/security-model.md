@@ -1,11 +1,12 @@
 # Wallet Child security model
 
-Status: Goals 0–9C complete. The Asset Signer holds exactly 0.0099 Devnet SOL;
+Status: Goals 0–10C complete. The Asset Signer holds exactly 0.0099 Devnet SOL;
 the Executive Profile exists, its per-asset delegation is revoked, ownership
 is restored to the original owner, the local policy firewall is implemented,
 bounded SOL and TEST-token Devnet actions are reconciled, the TEST-token owner
-rescue is proven, the minimal brain is isolated from wallet capabilities, and
-the Mainnet-readiness verdict is `NO-GO`. No Mainnet transaction path exists.
+rescue is proven, and the minimal brain is isolated from wallet capabilities.
+One external-wallet Mainnet owner bootstrap is finalized and reconciled; the
+treasury-action verdict remains `NO-GO`, with no general Mainnet send path.
 
 ## Security objective
 
@@ -152,13 +153,15 @@ It is not the token mint authority after setup: the initial mint authority was
 permanently revoked in the same transaction that created the fixed supply, and
 no freeze authority was ever configured.
 
-Goal 9 also created two fresh, unfunded, gitignored readiness key files:
+Goal 9 also created two fresh, then-unfunded, gitignored readiness key files:
 
 - `.wallet-child/mainnet-readiness/owner.json`;
 - `.wallet-child/mainnet-readiness/executive.json`.
 
 Their public keys are distinct from each other and every known Devnet
-principal. Their existence does not authorize funding or use.
+principal. Goal 10C later funded only the owner with `19,985,000` lamports
+under its separate exact confirmation; the executive remains unfunded. Their
+existence and that bootstrap do not authorize further funding or use.
 
 The following rules remain mandatory:
 
@@ -176,7 +179,7 @@ production custody design.
 
 ## Mainnet loss boundary and verdict
 
-Any future first experiment must satisfy all three limits simultaneously:
+The active first experiment must satisfy all three limits simultaneously:
 
 - no more than `1,000,000` USDC base units (`1 USDC`);
 - no more than `20,000,000` lamports (`0.02 SOL`);
@@ -187,12 +190,13 @@ fees, rent, account creation, cleanup, and operational error. If the simulated
 full lifecycle cannot fit the smaller of the unit caps and the dollar cap, the
 experiment stops rather than increasing the budget.
 
-The current verdict is `NO-GO`: native-SOL and USDC-shaped TEST-token fixed
-builders have passed Devnet, but official USDC is deliberately excluded. A
-Mainnet-USDC policy and final message simulation, durable metadata, reliable
-delegate discovery, fixed USDC/SOL evacuation to a reviewed recovery wallet,
-funding route, and dedicated RPC remain blockers. See
-`docs/mainnet-checklist.md`.
+The current treasury-action verdict is `NO-GO`. Goal 10C used `19,990,001`
+lamports for the finalized owner transfer plus fee; with the future `5,000`
+lamport direct-USDC funding fee reserve, `4,999` lamports remain unallocated
+inside the fixed boundary and no top-up is allowed. Official USDC remains
+outside Wallet Child. Durable metadata, exact Asset/Identity creation,
+remaining rent/fee reconciliation, immediate live delegate discovery, and
+same-signed-bytes simulations remain blockers. See `docs/mainnet-checklist.md`.
 
 ## Delegation threat model
 

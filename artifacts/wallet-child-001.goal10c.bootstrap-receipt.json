@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10C",
+  "network": "mainnet-beta",
+  "recordedAt": "2026-08-26T05:46:18.000Z",
+  "status": "FINALIZED_RECONCILED",
+  "actionTimeConfirmation": {
+    "exactPhrase": "CONFIRM BOOTSTRAP 0.019985 SOL WITH FEE CAP 0.00001 SOL TO 6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "received": true,
+    "matchedReworkedContract": true,
+    "scope": "ONE_EXTERNAL_SOURCE_TO_OWNER_SOL_BOOTSTRAP"
+  },
+  "finalizedPreflight": {
+    "slot": 441800275,
+    "source": "8W7sQKSRuYAdev3qcZCm9rrs4DDKbnEgD4fA8kvENvxt",
+    "sourceSolLamports": "88698606",
+    "sourceUsdcAta": "2RETLnM6iGVayfXP9ynTLmgk5oB5gqHpY8BbVuG1oVyQ",
+    "sourceUsdcBaseUnits": "1078695",
+    "sourceUsdcMint": "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v",
+    "sourceUsdcDecimals": 6,
+    "sourceUsdcOwnerMatches": true,
+    "ownerSolLamports": "0",
+    "walletChildAccountsChecked": 10,
+    "allWalletChildAccountsAbsent": true
+  },
+  "liveJupiterPreview": {
+    "origin": "https://jup.ag",
+    "path": "/send",
+    "sourceMatchesConnectedWallet": true,
+    "destination": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "transferLamports": "19985000",
+    "visibleFeeLamports": "5001",
+    "maximumAllowedFeeLamports": "10000",
+    "previewPassed": true
+  },
+  "finalizedTransaction": {
+    "signature": "5sB41GfGqTbPjiz4FZKia3TnoicCDTEW81yDCZeW7AoEZSKxTsDriYzjeTcaXjdw2Xx9p3pRgWEZtSRmwvih8sVq",
+    "explorerUrl": "https://solscan.io/tx/5sB41GfGqTbPjiz4FZKia3TnoicCDTEW81yDCZeW7AoEZSKxTsDriYzjeTcaXjdw2Xx9p3pRgWEZtSRmwvih8sVq",
+    "slot": 441800468,
+    "blockTime": 1787723076,
+    "blockTimeIso": "2026-08-26T05:44:36.000Z",
+    "confirmationStatus": "finalized",
+    "error": null,
+    "version": "legacy",
+    "requiredSignatures": 1,
+    "addressTableLookups": 0,
+    "feeLamports": "5001",
+    "baseFeeLamports": "5000",
+    "priorityFeeLamports": "1",
+    "computeUnitsConsumed": 450,
+    "accounts": [
+      {
+        "pubkey": "8W7sQKSRuYAdev3qcZCm9rrs4DDKbnEgD4fA8kvENvxt",
+        "signer": true,
+        "writable": true
+      },
+      {
+        "pubkey": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+        "signer": false,
+        "writable": true
+      },
+      {
+        "pubkey": "11111111111111111111111111111111",
+        "signer": false,
+        "writable": false
+      },
+      {
+        "pubkey": "ComputeBudget111111111111111111111111111111",
+        "signer": false,
+        "writable": false
+      }
+    ],
+    "instructions": [
+      {
+        "index": 0,
+        "program": "ComputeBudget111111111111111111111111111111",
+        "type": "SET_COMPUTE_UNIT_LIMIT",
+        "units": 500,
+        "accounts": []
+      },
+      {
+        "index": 1,
+        "program": "ComputeBudget111111111111111111111111111111",
+        "type": "SET_COMPUTE_UNIT_PRICE",
+        "microLamports": "1602",
+        "accounts": []
+      },
+      {
+        "index": 2,
+        "program": "11111111111111111111111111111111",
+        "type": "SYSTEM_TRANSFER",
+        "source": "8W7sQKSRuYAdev3qcZCm9rrs4DDKbnEgD4fA8kvENvxt",
+        "destination": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+        "lamports": "19985000"
+      }
+    ],
+    "preBalancesLamports": ["88698606", "0", "1", "1"],
+    "postBalancesLamports": ["68708605", "19985000", "1", "1"]
+  },
+  "finalizedReadback": {
+    "slot": 441800651,
+    "sourceSolLamports": "68708605",
+    "ownerSolLamports": "19985000",
+    "ownerProgram": "11111111111111111111111111111111",
+    "sourceUsdcBaseUnits": "1078695",
+    "sourceUsdcChanged": false,
+    "remainingWalletChildAccountsChecked": 9,
+    "allRemainingWalletChildAccountsAbsent": true
+  },
+  "reconciliation": {
+    "sourceSolDeltaLamports": "19990001",
+    "ownerSolDeltaLamports": "19985000",
+    "transactionFeeLamports": "5001",
+    "sourceUsdcDeltaBaseUnits": "0",
+    "futureUsdcFundingFeeReserveLamports": "5000",
+    "actualBootstrapPlusFutureReserveLamports": "19995001",
+    "maximumExperimentSolBoundaryLamports": "20000000",
+    "unallocatedBoundaryLamports": "4999",
+    "topUpAllowed": false,
+    "passed": true
+  },
+  "verification": {
+    "testFiles": 33,
+    "tests": 253,
+    "typecheckPassed": true,
+    "dependencyAuditClean": false,
+    "unchangedModerateUuidAdvisory": true,
+    "sourceKeyLoadedByLab": false,
+    "externalWalletSignatureObserved": true,
+    "transactionSubmitted": true,
+    "networkWrite": true,
+    "fundsMoved": true,
+    "finalizedDecodePassed": true,
+    "finalizedBalanceReconciliationPassed": true
+  },
+  "nextGate": {
+    "nextFinancialActionAuthorized": false,
+    "treasuryActionAuthorized": false,
+    "treasuryActionVerdict": "NO_GO",
+    "requiredNextStep": "REVIEW_DURABLE_METADATA_PUBLICATION_AND_REMAINING_BUDGET"
+  },
+  "verdict": "BOOTSTRAP_PASS_STOP_BEFORE_NEXT_WRITE"
+}

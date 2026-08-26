@@ -781,3 +781,45 @@ Signer nor recovery wallet needs to sign ATA creation. Goal 9G signs nothing.
 - [Solana SPL Token basics](https://solana.com/docs/tokens/basics)
 - [Solana payment address verification](https://solana.com/docs/payments/send-payments/verify-address)
 - [SPL Associated Token Account program](https://github.com/solana-program/associated-token-account)
+
+## Goal 10C finalized Mainnet owner bootstrap — 2026-08-26
+
+### In plain English
+
+The separate experimental source sent exactly `0.019985 SOL` to the isolated
+Mainnet owner. The transfer finalized with a `0.000005001 SOL` fee and was
+decoded and balance-checked before any next step.
+
+### Why we need it
+
+The future owner-paid setup, metadata, creation, audit, and rescue steps need a
+strictly bounded SOL source. This bootstrap establishes that source without
+moving USDC into Wallet Child or giving the lab the external wallet key.
+
+### What exists on-chain
+
+- owner balance: `19,985,000` lamports;
+- source balance: `68,708,605` lamports;
+- source USDC: unchanged at `1,078,695` base units;
+- one finalized legacy transaction with two Compute Budget instructions and
+  one exact System transfer;
+- all other nine final Wallet Child accounts remain absent.
+
+### What signed the transaction
+
+The connected external Jupiter Wallet signed through the official Send page.
+The lab loaded no source key. The isolated owner did not sign the incoming
+transfer.
+
+### What can go wrong next
+
+- treating the bootstrap confirmation as permission for a later write;
+- topping up beyond the fixed `0.02 SOL` acquisition boundary;
+- moving staged USDC before the Asset Signer exists and passes its live audit;
+- uploading metadata or creating accounts before exact remaining-budget and
+  same-bytes review;
+- relying on a merely confirmed result instead of finalized decoded evidence.
+
+### Public receipt
+
+- [Solscan transaction](https://solscan.io/tx/5sB41GfGqTbPjiz4FZKia3TnoicCDTEW81yDCZeW7AoEZSKxTsDriYzjeTcaXjdw2Xx9p3pRgWEZtSRmwvih8sVq)

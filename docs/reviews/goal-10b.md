@@ -1,6 +1,10 @@
 # Goal 10B review — Jupiter live-fee stop and bounded rework
 
-Status: **PASS — STOP worked; reworked bootstrap awaits new confirmation**
+Status: **PASS at review — superseded by finalized Goal 10C execution**
+
+Post-review outcome: the exact reworked phrase was received. The live fee was
+`5,001` lamports, the transaction finalized, and Goal 10C reconciles its actual
+instructions and balances.
 
 ## Built
 

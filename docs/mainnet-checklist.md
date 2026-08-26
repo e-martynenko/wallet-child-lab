@@ -2,10 +2,10 @@
 
 Review date: **2026-08-26**
 
-Verdict: **NO-GO for the `0.1 USDC` action; reworked bootstrap awaits confirmation**
+Verdict: **NO-GO for the `0.1 USDC` action; owner bootstrap finalized**
 
-This checklist is evidence for a future decision. It is not permission to fund
-a wallet or submit a Mainnet transaction. The exact project phrase
+This checklist is evidence for a future decision. It is not permission to
+submit another Mainnet transaction. The exact project phrase
 `ENABLE MAINNET EXPERIMENT` was received on 2026-08-26, opening only the phased
 remediation sequence. Every individual write still requires a current review,
 separate action-time confirmation, and finalized read-back.
@@ -42,7 +42,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Complete Devnet identity lifecycle | PASS | Goals 3–5 artifacts and reviews |
 | Bounded Devnet execution and accounting | PASS | Goal 7 finalized transfer and reconciliation |
 | Known delegation revoked | PASS | Live Goal 8 read-back: `REVOKED` |
-| Fresh isolated Mainnet owner | PASS | `6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385`, finalized balance `0` lamports |
+| Fresh isolated Mainnet owner | PASS, bootstrapped | `6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385`, finalized balance `19,985,000` lamports at Goal 10C read-back slot `441,800,651` |
 | Fresh isolated Mainnet executive | PASS | `EJQcuD9FtJ33c2wA7GM6HzvmJJJbPsYnmH5ZjTDdhbjF`, finalized balance `0` lamports |
 | Owner/executive/Devnet separation | PASS | generated independently; mode-`0600` key files; tested inequality |
 | No main-wallet runtime involvement | PASS so far | Goal 9L fixes the operator-designated experimental wallet as an external source; the lab never loads its key, while upstream on-chain linkage cannot be disproved |
@@ -50,7 +50,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Authoritative Solana USDC mint | PASS, read-only | Circle address and live initialized 6-decimal SPL mint agree |
 | Agent Tools deployed | PASS, read-only | expected program is executable on Mainnet |
 | Maximum possible funded loss | PASS | three simultaneous caps above |
-| Live Mainnet execution path | ABSENT | Goals 9E–9R contain final-address offline builders/readers and expired fee quotes only; no signer, same-bytes simulation, or send command exists |
+| Live Mainnet execution path | PARTIAL, bootstrap only | Goal 10C records one finalized external Jupiter bootstrap. The lab still has no source signer/send command, and no Wallet Child treasury/delegate action is live |
 | USDC-shaped Devnet lifecycle | PASS | Goal 9A exact TEST-token transfer, revoke, denial, owner rescue, and finalized reconciliation |
 | Goal 9A rerun safety | PASS | completed rerun submitted zero transactions after live-state validation |
 | Complete Devnet delegate discovery | PASS | Goal 9B full Agent Tools scan, closed-world layout check, all-record PDA/profile validation, and independent filter comparison found zero for the asset |
@@ -64,7 +64,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Mainnet delegate-audit implementation | PASS | Goal 9I requires dedicated HTTPS RPC, verifies Mainnet genesis/owner, repeats full closed-world scan plus independent filter, and hard-fails funding on any record; the final address is frozen but its account is absent |
 | Durable metadata verifier | PASS | Goal 9J requires exact frozen bytes from two independent HTTPS origins and the reviewed digest; upload, durable URI, and on-chain binding remain unavailable |
 | Irys storage quote | PASS, read-only | Goal 9K fixes the tagged `351`-byte Mainnet quote request; live result on 2026-08-25 was `3,208` lamports; no key, funding, upload, or transaction path exists |
-| Isolated funding route | PARTIAL, staged only | Goal 9L records `1.078695 USDC` and `0.088698606 SOL` in the external experimental source at finalized slot `441,631,349`; later read-back at slot `441,632,634` confirms Wallet Child remains empty, bootstrap permits only capped SOL to owner, and USDC stays blocked until the final Asset Signer audit |
+| Isolated funding route | PARTIAL, SOL bootstrap complete | Goal 10C finalizes `19,985,000` lamports to the owner with a `5,001` lamport fee. Source read-back is `68,708,605` lamports plus unchanged `1.078695 USDC`; USDC stays blocked until the final Asset Signer audit |
 | Exact unsigned bootstrap fee | PASS, expired quote | Goal 9M fixes `19,990,000` lamports source-to-owner, quotes an exact-message `5,000` lamport fee at slot `441,634,604`, reserves another `5,000` for future USDC funding, and keeps their sum at `0.02 SOL`; no key, signing, simulation, or submission |
 | Final standalone identity addresses | PASS, absent | Goal 9N fixes Core Asset `HPaGuh…1Uty`, Agent Identity `EDT4…eXf8`, Asset Signer `5Snge…YWyu`, and both canonical USDC ATAs; all five were absent at finalized slot `441,642,028` |
 | Exact unsigned USDC funding fee | PASS, expired quote | Goal 9O fixes direct `1.000000 USDC` source-ATA-to-Asset-Signer-ATA `TransferChecked` and quotes the exact reserved `5,000` lamport fee at slot `441,643,866`; no key, signing, simulation, or submission |
@@ -73,7 +73,8 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | URI-independent internal messages | PASS, expired quotes | Goal 9R compiles final ATA/Profile/delegate/action/revoke/USDC-rescue messages and quotes exactly `40,000` lamports total at fee slot `441,647,590`; URI-dependent Asset/Identity and live-balance SOL rescue remain blocked |
 | Final pre-approval audit | PASS, STOP | Goal 9S confirms the source balances are stable and all ten final Wallet Child accounts remain absent at finalized slot `441,648,274`; Irys remains unintegrated and every approval/write/spend flag is false |
 | Project gate and bootstrap preview | PASS, superseded | Goal 10A records the exact project phrase, repeats the stable preflight at slot `441,794,729`, and simulates the exact first `19,990,000` lamport transfer plus `5,000` lamport fee at monotonic finalized slot `441,796,096`; its later action-time phrase was invalidated by the live Goal 10B fee mismatch, with no signature or submission |
-| Jupiter live-fee stop and rework | PASS, awaiting new confirmation | After the exact Goal 10A phrase arrived, the official Send preview showed a dynamic `5,001–5,003` lamport fee. Goal 10B stopped before Send and reworks the transfer to `19,985,000` lamports with a `10,000` lamport fee cap plus the retained `5,000` lamport future-USDC fee reserve, totaling at most `20,000,000`; no prompt, signature, submission, or movement occurred |
+| Jupiter live-fee stop and rework | PASS, superseded | Goal 10B stopped the mismatched first preview and capped the reworked transfer; its new exact phrase was later received and executed by Goal 10C |
+| Finalized owner bootstrap | PASS, STOP | Goal 10C finalizes signature `5sB41…8sVq` at slot `441,800,468`: two bounded Compute Budget instructions plus one exact `19,985,000` lamport System transfer, `5,001` fee, reconciled source `68,708,605`, owner `19,985,000`, unchanged source USDC, and no next-write authorization |
 | Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and returned Mainnet genesis plus health `ok`; final-asset audit remains unavailable |
 
 Public key evidence:
@@ -89,12 +90,12 @@ artifacts, or normal runtime configuration.
 | USDC-specific fixed intent and builder | PARTIAL | Goal 9E fixes official USDC and exactly `0.1 USDC` to isolated recovery; Goals 9P/9R compile and quote its final-address standalone message, but same-bytes funded-state simulation does not exist |
 | USDC-shaped Devnet test | PASS | TEST mint/ATAs, fixed supply, bounded transfer, denial, revoke, rescue, accounting, and idempotency all finalized |
 | Exact allowed programs/accounts | PARTIAL | Goals 9E–9G assert exact Core/Token/System/ATA programs, bytes, and metas; Goals 9N/9P/9R freeze all final addresses and six static exact messages, while URI-dependent and live-balance messages remain unavailable |
-| Hard limits enforced in code | PARTIAL | Goals 9E–9R enforce action, treasury, setup, rescue, total-SOL, total-USD, storage quote, exact external/internal funding fees, and the fixed-rent slice; Core/plugin rent, simulations, and final acquisition reconciliation remain |
+| Hard limits enforced in code | PARTIAL | Goals 9E–9R enforce action, treasury, setup, rescue, total-SOL, total-USD, storage quote, exact external/internal funding fees, and the fixed-rent slice; Goal 10C reconciles the actual bootstrap, leaving `4,999` lamports unallocated, while Core/plugin rent and simulations remain |
 | Exact Mainnet transaction simulation | BLOCKED | Build only after the USDC path passes Devnet; simulate the same signed bytes intended for submission |
 | Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes; Goal 9J implements two-origin exact retrieval verification; Goal 9K obtains a bounded Irys storage quote; permanent upload, live retrieval verification, on-chain binding, and immutability decision remain undone |
 | Reliable delegate enumeration | PARTIAL | Goal 9I implements the Mainnet-capable keyless path, Goal 9N fixes the final asset address, and the private Helius RPC is verified; the asset does not exist, so the required immediate post-create/pre-funding scan remains unavailable |
 | Emergency rescue implementation | PARTIAL | Goals 9F/9P provide final-address owner-only capped USDC/SOL builders and Goal 9G provides recovery ATA setup; exact-message simulations remain absent |
-| Funding route without main-wallet runtime | PARTIAL, operator-attested | Goals 9L–9O fix a separate experimental source plus exact SOL and USDC destinations/messages/fees without loading the source key; live preflights, simulations, action-time confirmations, and the public upstream-linkage caveat remain |
+| Funding route without main-wallet runtime | PARTIAL, bootstrap verified | Goal 10C proves the experimental source-to-owner SOL bootstrap without loading its key into the lab. Direct USDC funding, its fresh preflight/simulation/confirmation, and the public upstream-linkage caveat remain |
 | Dedicated Mainnet RPC | PASS | private Helius HTTPS RPC is locally configured, secret-safe, healthy, and Mainnet genesis verified; rerun health immediately before the final asset audit |
 | Dependency advisory decision | ACCEPTED, RECHECK | Goal 9D accepts one real moderate advisory only while the exact graph and unreachable `v3/v5/v6` buffer path remain unchanged; repeat the audit and guard immediately before signing review |
 
@@ -174,11 +175,10 @@ simulation, or send function.
 
 ## Final decision
 
-**NO-GO for the bounded treasury action.** Goals 9A–10B close the safe local,
-quote-only, external-route, approval, and first-action review/rework slice. The
-exact project phrase and the superseded first bootstrap phrase have been
-received, but the reworked bootstrap still lacks its new action-time
-confirmation and no Mainnet write has occurred. Durable
+**NO-GO for the bounded treasury action.** Goals 9A–10C close the safe local,
+quote-only, external-route, approval, bootstrap execution, and finalized
+read-back slice. Exactly one Mainnet write has occurred: the reviewed owner
+bootstrap. It does not authorize another write. Durable
 publication, exact Asset/Identity messages, live audits and same-bytes
 simulations, Core/plugin rent and metadata funding fee, remaining live
 acquisition quotes, and per-action confirmations remain mandatory.

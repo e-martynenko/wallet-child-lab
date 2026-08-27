@@ -753,6 +753,30 @@ Review: [`reviews/goal-10i.md`](reviews/goal-10i.md)
 Artifact:
 [`wallet-child-001.goal10i.irys-transaction-verification.json`](../artifacts/wallet-child-001.goal10i.irys-transaction-verification.json)
 
+## Goal 10J — read-only Mainnet birth preflight
+
+Status: **partial — live preflight passed; waiting for Goal 10I settlement**
+
+Expected result:
+
+- repeat Goal 10I before evaluating birth readiness;
+- verify current Mainnet genesis and the executable Core, Agent Identity, and
+  Agent Tools programs at finalized commitment;
+- re-derive the frozen standalone identity contract and require all seven
+  future accounts to remain absent;
+- require the isolated owner balance and known fixed rent quotes to match the
+  finalized public record;
+- verify the installed Metaplex package graph matches the current Agent
+  Registry contract;
+- load no wallet key, build no transaction, sign nothing, and submit nothing;
+- remain blocked while settlement is pending and require a new write-specific
+  review even after settlement succeeds.
+
+Review: [`reviews/goal-10j.md`](reviews/goal-10j.md)
+
+Artifact:
+[`wallet-child-001.goal10j.mainnet-birth-preflight.json`](../artifacts/wallet-child-001.goal10j.mainnet-birth-preflight.json)
+
 ## Self-review format
 
 Every goal ends with:

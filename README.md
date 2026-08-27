@@ -174,6 +174,14 @@ receipt signature. It also found uploader status `CONFIRMED` with
 `seededTo: []`, while Arweave has no indexed bundle, `0/50` confirmations, and
 `arweave.net/<id>` still returns `404`. The accepted item is therefore not yet
 proven settled/permanent. No upload retry or on-chain action is allowed.
+Goal 10J now uses that waiting period for a strictly read-only Mainnet birth
+preflight. At finalized slot `442,082,093`, all three required Metaplex
+programs are executable, all seven frozen future accounts are absent, the
+isolated owner still holds exactly `19,976,792` lamports, and known fixed rent
+is unchanged at `8,477,280` lamports. The latest Agent Registry dependency
+graph is internally consistent with the pinned Core/Toolbox versions. The
+result remains **BLOCKED** on Irys/Arweave settlement; no identity key,
+transaction builder, signature, or network write was used.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.

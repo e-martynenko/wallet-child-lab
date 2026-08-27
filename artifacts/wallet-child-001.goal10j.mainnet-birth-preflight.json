@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10J",
+  "network": "mainnet-beta",
+  "recordedAt": "2026-08-27T10:20:36Z",
+  "status": "READ_ONLY_PREFLIGHT_BLOCKED_ON_METADATA_SETTLEMENT",
+  "metadata": {
+    "id": "2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "canonicalUri": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "sha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+    "byteLength": 351,
+    "settlement": "PENDING",
+    "bindingAuthorized": false
+  },
+  "liveReadOnlySnapshot": {
+    "rpcOrigin": "https://mainnet.helius-rpc.com",
+    "finalizedSlot": 442082093,
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "ownerBalanceLamports": "19976792",
+    "requiredPrograms": {
+      "core": "CoREENxT6tW1HoK8ypY1SxRMZTcVPm7R94rH4PZNhX7d",
+      "identity": "1DREGFgysWYxLnRnKQnwrxnJQeSMk2HmGaC6whw2B2p",
+      "tools": "TLREGni9ZEyGC3vnPZtqUh95xQ8oPqJSvNjvB7FGK8S",
+      "allExecutable": true
+    },
+    "futureAccounts": {
+      "checkedCount": 7,
+      "allAbsent": true,
+      "addresses": {
+        "coreAsset": "HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty",
+        "agentIdentity": "EDT4DguQoQgUcEWP7h9z7F4Z5N75oinW6r9PhhuReXf8",
+        "assetSigner": "5Snge43iBczUT16b4ndffdgB4xxR2Bev9vxvLRe5YWyu",
+        "assetSignerUsdcAta": "hCmisMZFRL7SWKvgdtFWXMTDW3PY858Kmvg6dQ8GQMU",
+        "recoveryUsdcAta": "8dbJMqCGAMTuJZ5ZZZeQMT43WqkkrwmBiyEJRH8szAd",
+        "executiveProfile": "3Uy4XhPJLAdFRyFLAfJM7ruNc3Td5Ld1258Gx5z2WYXo",
+        "executionDelegateRecord": "Fr2yQyG7gEQYjL6Sr8sYXrS2n21bfjod5rKQDdo7bgcm"
+      }
+    },
+    "fixedRentQuotesLamports": {
+      "agentIdentity104Bytes": "1614720",
+      "executiveProfile40Bytes": "1169280",
+      "executionDelegateRecord104Bytes": "1614720",
+      "tokenAccount165BytesEach": "2039280",
+      "tokenAccountCount": 2,
+      "knownFixedTotal": "8477280"
+    }
+  },
+  "packageCompatibility": {
+    "agentRegistry": "0.2.6",
+    "core": "1.8.0",
+    "toolbox": "0.10.0",
+    "umi": "1.5.1",
+    "umiBundleDefaults": "1.5.1",
+    "agentRegistryDeclaredCore": "1.8.0",
+    "agentRegistryDeclaredToolbox": "^0.10.0",
+    "latestStandaloneCoreObserved": "1.10.0",
+    "latestStandaloneToolboxObserved": "0.11.4",
+    "decision": "KEEP_AGENT_REGISTRY_COMPATIBILITY_GRAPH",
+    "reason": "Do not mix newer standalone Core or Toolbox releases into the current latest Agent Registry dependency contract before a reviewed registry release supports them."
+  },
+  "unresolvedBeforeAnyIdentityWrite": [
+    "IRYS_ARWEAVE_SETTLEMENT",
+    "CORE_ASSET_RENT_AND_IDENTITY_PLUGIN_TOP_UP",
+    "EXACT_ASSET_AND_IDENTITY_MESSAGE_FEES",
+    "SAME_BYTES_SIMULATIONS",
+    "ACTION_TIME_HUMAN_CONFIRMATION"
+  ],
+  "actions": {
+    "primaryWalletAccessed": false,
+    "fundingSourceAccessed": false,
+    "ownerKeyLoaded": false,
+    "coreAssetKeyLoaded": false,
+    "transactionBuilt": false,
+    "messageSigned": false,
+    "transactionSubmitted": false,
+    "networkWrite": false,
+    "identityCreationAuthorized": false,
+    "treasuryActionAuthorized": false
+  },
+  "verification": {
+    "focusedTests": 8,
+    "focusedTestsPassed": true,
+    "typecheckPassed": true,
+    "fullTestFiles": 40,
+    "fullTests": 299,
+    "fullTestsPassed": true,
+    "securityReviewPassed": true,
+    "credentialScanPassed": true,
+    "diffCheckPassed": true,
+    "productionAuditClean": false,
+    "productionAuditFindings": 5,
+    "productionAuditFindingsUnchangedFromGoal10I": true
+  },
+  "nextGate": {
+    "required": "GOAL_10I_SETTLED",
+    "afterSettlement": "FRESH_SIGNER_CAPABLE_MAINNET_BIRTH_WRITE_REVIEW",
+    "writeAutomaticallyAuthorizedAfterSettlement": false
+  },
+  "verdict": "BLOCKED_WAITING_FOR_IRYS_SETTLEMENT"
+}

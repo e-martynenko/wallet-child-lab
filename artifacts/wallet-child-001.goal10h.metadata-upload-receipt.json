@@ -21,7 +21,7 @@
   },
   "upload": {
     "id": "2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
-    "durableUri": "ar://2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "durableUri": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
     "gatewayUrl": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
     "uploadCalls": 1,
     "exactGatewayBytesVerified": true,
@@ -93,7 +93,7 @@
     "onChainBindingAuthorized": false,
     "identityCreationAuthorized": false,
     "treasuryActionAuthorized": false,
-    "requiredNextGoal": "10I_ARWEAVE_SETTLEMENT_VERIFICATION"
+    "requiredNextGoal": "10I_CANONICAL_IRYS_TRANSACTION_VERIFICATION"
   },
   "verdict": "UPLOAD_PASS_STOP_BEFORE_ON_CHAIN_BINDING"
 }

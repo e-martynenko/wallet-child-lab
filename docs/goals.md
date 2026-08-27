@@ -726,6 +726,33 @@ Review: [`reviews/goal-10h.md`](reviews/goal-10h.md)
 Artifact:
 [`wallet-child-001.goal10h.metadata-upload-receipt.json`](../artifacts/wallet-child-001.goal10h.metadata-upload-receipt.json)
 
+## Goal 10I — canonical Irys transaction verification
+
+Status: **active — accepted Irys transaction verified; settlement pending**
+
+Expected result:
+
+- re-verify the exact frozen bytes through the canonical Irys gateway and the
+  fixed uploader data route;
+- query exactly one indexed transaction and match its owner, token, timestamp,
+  size, fee, tag, and receipt to Goal 10H;
+- fetch the Irys node public key and verify the receipt signature again without
+  loading the owner key;
+- correct the unsupported local `ar://<Irys ID>` interpretation to the
+  officially documented `https://gateway.irys.xyz/:transactionId` URI;
+- query the public uploader status and distinguish node `CONFIRMED` from
+  Arweave settlement;
+- require exact Arweave bytes, an indexed bundle, at least 50 confirmations,
+  and at least five seeded miners before declaring settlement complete, while
+  never repeating the already accepted upload;
+- perform no upload, top-up, key load, Solana transaction, on-chain binding,
+  identity creation, or treasury action.
+
+Review: [`reviews/goal-10i.md`](reviews/goal-10i.md)
+
+Artifact:
+[`wallet-child-001.goal10i.irys-transaction-verification.json`](../artifacts/wallet-child-001.goal10i.irys-transaction-verification.json)
+
 ## Self-review format
 
 Every goal ends with:

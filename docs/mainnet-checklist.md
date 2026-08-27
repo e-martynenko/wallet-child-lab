@@ -1,8 +1,8 @@
 # Wallet Child #001 — Mainnet readiness checklist
 
-Review date: **2026-08-26**
+Review date: **2026-08-27**
 
-Verdict: **NO-GO for the `0.1 USDC` action; metadata uploaded, Arweave settlement pending**
+Verdict: **NO-GO for the `0.1 USDC` action; Irys settlement pending**
 
 This checklist is evidence for a future decision. It is not permission to
 submit another Mainnet transaction. The exact project phrase
@@ -79,7 +79,8 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Irys SDK and funding action gate | PASS, confirmation STOP | Goal 10E pins the two official packages, verifies their registry/source contract, records all five audit findings and exact native-SOL reachability, refreshes the `3,208 + 5,000` lamport contract, and publishes a funding-only phrase; no SDK wallet, key, signature, funding, upload, or write occurred |
 | Finalized Irys metadata funding | PASS, upload STOP | Goal 10F repeats the audit/reachability and live contract before key load, simulates and finalizes one exact `3,208` lamport System transfer with a `5,000` fee at slot `441,857,234`, reconciles owner `19,976,792`, and verifies exact `3,208` Irys credit; SDK wallet and upload remain unused |
 | Permanent Irys metadata upload gate | PASS, confirmation STOP | Goal 10G pins the exact direct-buffer upload and receipt contract, refreshes the tagged quote and exact `3,208` credit, and proves no top-up or Solana transaction is needed; no key, SDK wallet, upload, or write occurred |
-| Verified Irys metadata upload | PASS, binding STOP | Goal 10H submits exactly one `351`-byte item, recovers its accepted ID without retry, verifies the signed receipt plus exact bytes through two distinct Irys/CDN origins, and records `3,208 → 3,208` credit (`0` spent); Arweave settlement and on-chain URI binding remain pending |
+| Verified Irys metadata upload | PASS, binding STOP | Goal 10H submits exactly one `351`-byte item, recovers its accepted ID without retry, verifies the signed receipt plus exact bytes through two distinct Irys/CDN origins, and records `3,208 → 3,208` credit (`0` spent); Goal 10I corrects its URI label, while on-chain binding remains pending |
+| Canonical Irys transaction verification | PARTIAL, settlement STOP | Goal 10I corrects the premature `ar://<Irys ID>` reference to the documented Irys HTTPS URI and re-verifies exact bytes, indexed owner/token/tag/fee, live node public key, and receipt signature without any key or write. Uploader status is `CONFIRMED`, but `seededTo: []`, Arweave has no indexed bundle, confirmations are `0/50`, and retrieval is `404`, so settlement remains pending |
 | Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and returned Mainnet genesis plus health `ok`; final-asset audit remains unavailable |
 
 Public key evidence:
@@ -97,7 +98,7 @@ artifacts, or normal runtime configuration.
 | Exact allowed programs/accounts | PARTIAL | Goals 9E–9G assert exact Core/Token/System/ATA programs, bytes, and metas; Goals 9N/9P/9R freeze all final addresses and six static exact messages, while URI-dependent and live-balance messages remain unavailable |
 | Hard limits enforced in code | PARTIAL | Goals 9E–9R enforce action, treasury, setup, rescue, total-SOL, total-USD, storage quote, exact external/internal funding fees, and the fixed-rent slice; Goal 10C reconciles the bootstrap boundary and Goal 10F enforces and reconciles the exact `8,208` lamport metadata-funding outflow, while Core/plugin rent and later simulations remain |
 | Exact Mainnet transaction simulation | BLOCKED | Build only after the USDC path passes Devnet; simulate the same signed bytes intended for submission |
-| Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes, Goal 9J implements the verifier, Goals 10D–10G complete funding and the upload gate, and Goal 10H verifies the one upload plus two-origin exact bytes; `arweave.net` settlement and on-chain binding remain undone |
+| Metadata finalized and durable | PARTIAL | Goal 9C freezes bytes and Goal 10H verifies one signed Irys upload plus current exact Irys retrieval. Goal 10I verifies the canonical URI and receipt but finds `CONFIRMED`, zero seeded miners, and no Arweave copy; wait for settlement before binding |
 | Reliable delegate enumeration | PARTIAL | Goal 9I implements the Mainnet-capable keyless path, Goal 9N fixes the final asset address, and the private Helius RPC is verified; the asset does not exist, so the required immediate post-create/pre-funding scan remains unavailable |
 | Emergency rescue implementation | PARTIAL | Goals 9F/9P provide final-address owner-only capped USDC/SOL builders and Goal 9G provides recovery ATA setup; exact-message simulations remain absent |
 | Funding route without main-wallet runtime | PARTIAL, bootstrap verified | Goal 10C proves the experimental source-to-owner SOL bootstrap without loading its key into the lab. Direct USDC funding, its fresh preflight/simulation/confirmation, and the public upstream-linkage caveat remain |
@@ -184,8 +185,8 @@ simulation, or send function.
 quote-only, external-route, approval, bootstrap execution, and finalized
 read-back slice. Exactly two Solana Mainnet transactions and one Irys data
 upload have occurred: the reviewed owner bootstrap, exact Irys funding
-transfer, and exact metadata item. None authorizes another write. Arweave
-settlement verification,
-exact Asset/Identity messages, live audits and same-bytes simulations,
+transfer, and exact metadata item. Goal 10I remains active because the Irys
+status is confirmed but not seeded or available from Arweave. None authorizes
+another write. Settlement, exact Asset/Identity messages, live audits and same-bytes simulations,
 Core/plugin rent, remaining live acquisition quotes, and per-action
 confirmations remain mandatory.

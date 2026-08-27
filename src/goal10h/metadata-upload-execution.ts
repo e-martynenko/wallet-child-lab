@@ -478,7 +478,7 @@ export async function executeGoal10HIrysMetadataUpload(
 
   return Object.freeze({
     id: uploaded.id,
-    durableUri: `ar://${uploaded.id}`,
+    durableUri: `${GOAL_10H_GATEWAY_ORIGIN}/${uploaded.id}`,
     gatewayUrl: retrievals[0].requestedUrl,
     metadataSha256: GOAL_10G_METADATA_SHA256,
     metadataByteLength: GOAL_10G_METADATA_BYTE_LENGTH,
@@ -620,7 +620,7 @@ export async function recoverGoal10HAcceptedUpload(
 
   return Object.freeze({
     id,
-    durableUri: `ar://${id}`,
+    durableUri: `${GOAL_10H_GATEWAY_ORIGIN}/${id}`,
     gatewayUrl: retrievals[0].requestedUrl,
     metadataSha256: GOAL_10G_METADATA_SHA256,
     metadataByteLength: GOAL_10G_METADATA_BYTE_LENGTH,

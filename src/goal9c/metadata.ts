@@ -17,7 +17,7 @@ export const EIP_8004_REGISTRATION_V1 =
 export const GOAL_9C_DESCRIPTION =
   'A minimal experimental agent identity for testing bounded wallet execution under explicit owner control.';
 export const GOAL_9C_DURABLE_URI =
-  'ar://2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL';
+  'https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL';
 
 export const Goal9CMetadataSchema = z
   .object({

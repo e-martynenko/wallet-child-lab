@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10I",
+  "network": "mainnet",
+  "recordedAt": "2026-08-27T09:06:55Z",
+  "status": "IRYS_TRANSACTION_CONFIRMED_SETTLEMENT_PENDING",
+  "transaction": {
+    "id": "2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "canonicalUri": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "token": "solana",
+    "timestamp": 1787750529972,
+    "dataItemSize": "531",
+    "indexedFeeLamports": "3208",
+    "contentType": "application/json"
+  },
+  "metadata": {
+    "sha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+    "byteLength": 351,
+    "exactBytesVerified": true
+  },
+  "retrievals": [
+    {
+      "requestedUrl": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+      "finalUrl": "https://dsnvlzl6rtnfuonqwfw4lwe5c3gvrfpjrkvxu2widmrmuuem6vdq.mainnet-1.datasprite-cdn.com/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL/",
+      "httpStatus": 200,
+      "contentType": "application/json",
+      "sha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+      "byteLength": 351
+    },
+    {
+      "requestedUrl": "https://uploader.irys.xyz/tx/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL/data",
+      "finalUrl": "https://dsnvlzl6rtnfuonqwfw4lwe5c3gvrfpjrkvxu2widmrmuuem6vdq-data.mainnet-1.datasprite-cdn.com/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+      "httpStatus": 200,
+      "contentType": "application/json",
+      "sha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+      "byteLength": 351
+    }
+  ],
+  "receipt": {
+    "version": "1.0.0",
+    "timestamp": 1787750529972,
+    "deadlineHeight": 0,
+    "nodePublicKeyMatchesGoal10H": true,
+    "indexedSignatureMatchesGoal10H": true,
+    "signatureVerifiedAgain": true
+  },
+  "uriCorrection": {
+    "incorrectLocalAlias": "ar://2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "canonicalIrysPattern": "https://gateway.irys.xyz/:transactionId",
+    "canonicalUriRecordedInManifest": true,
+    "arweaveProbeUrl": "https://arweave.net/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "arweaveProbeHttpStatus": 404,
+    "arweaveProbeSha256": "2fa33a34e1ad20fc69c804532cb26b974805882da0f1c48a45150111a88fe3fa",
+    "canonicalUriCorrectionVerified": true,
+    "underlyingArweaveSettlementExpectedForBundlerFlow": true,
+    "reason": "Official Irys documentation defines the canonical retrieval URL on gateway.irys.xyz. The official Irys Whistleblower separately defines finalized Arweave inclusion and seeding to at least five miners as the permanence evidence for this bundler flow."
+  },
+  "settlement": {
+    "uploaderStatusUrl": "https://uploader.irys.xyz/tx/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL/status",
+    "uploaderStatus": "CONFIRMED",
+    "seededTo": [],
+    "seededMinerCount": 0,
+    "requiredSeededMinerCount": 5,
+    "arweaveBundleId": null,
+    "arweaveBlockHeight": null,
+    "arweaveNetworkHeight": 1988517,
+    "arweaveConfirmations": 0,
+    "requiredArweaveConfirmations": 50,
+    "arweaveExactBytesAvailable": false,
+    "state": "PENDING"
+  },
+  "officialDocumentation": [
+    "https://docs.irys.xyz/build/d/features/txids",
+    "https://docs.irys.xyz/build/d/quickstart",
+    "https://docs.irys.xyz/build/d/guides/uploading-nfts",
+    "https://docs.irys.xyz/build/d/networks",
+    "https://github.com/Irys-xyz/Whistleblower"
+  ],
+  "caveat": "The verifier proves the accepted signed Irys transaction, current indexed identity, and exact current Irys retrieval bytes. CONFIRMED with seededTo: [], no indexed Arweave bundle, and 0/50 confirmations is not finalized settlement, so permanence is not yet verified.",
+  "actions": {
+    "ownerKeyLoaded": false,
+    "uploadAttempted": false,
+    "topUpAttempted": false,
+    "solanaTransactionSubmitted": false,
+    "onChainBindingAttempted": false,
+    "treasuryActionAuthorized": false
+  },
+  "verification": {
+    "testFiles": 39,
+    "tests": 291,
+    "testsPassedAfterWrite": true,
+    "typecheckPassedAfterWrite": true,
+    "codeReviewPassedAfterWrite": true,
+    "credentialScanPassedAfterWrite": true,
+    "diffCheckPassedAfterWrite": true,
+    "productionAuditClean": false,
+    "productionAuditFindings": 5
+  },
+  "nextGate": {
+    "uploadAuthorized": false,
+    "onChainBindingAuthorized": false,
+    "identityCreationAuthorized": false,
+    "treasuryActionAuthorized": false,
+    "requiredNextGoal": "10I_ARWEAVE_SETTLEMENT_VERIFICATION"
+  },
+  "verdict": "PARTIAL_CONFIRMED_NOT_SETTLED_STOP_BEFORE_ON_CHAIN_WRITE"
+}

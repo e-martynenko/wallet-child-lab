@@ -57,7 +57,8 @@ describe('Goal 9C fixed metadata contract', () => {
     );
     expect(evidence.manifest).toMatchObject({
       publicationStatus: 'PUBLISHED',
-      durableUri: 'ar://2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL',
+      durableUri:
+        'https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL',
       onChainUriUpdated: false,
     });
   });

@@ -134,7 +134,7 @@ describe('Goal 10H exact Irys metadata upload', () => {
     expect(context.upload).toHaveBeenCalledTimes(1);
     expect(result).toMatchObject({
       id: ID,
-      durableUri: `ar://${ID}`,
+      durableUri: `https://gateway.irys.xyz/${ID}`,
       gatewayUrl: `https://gateway.irys.xyz/${ID}`,
       metadataByteLength: 351,
       quoteLamports: 3_208n,

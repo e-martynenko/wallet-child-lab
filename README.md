@@ -164,7 +164,16 @@ strict receipt validator stopped after acceptance because Irys returned a
 44-character ID and zero deadline height; the private attempt marker prevented
 a duplicate, and public recovery verified the original upload without loading
 the owner key again. Credit remains `3,208` lamports, so actual upload spend was
-`0`. Arweave settlement and every on-chain action remain pending.
+`0`.
+Goal 10I then corrects one lab-side interpretation: that Base58 value is an
+Irys transaction ID, and its documented canonical reference is
+`https://gateway.irys.xyz/:transactionId`; using `ar://<Irys ID>` before
+settlement was premature. A new keyless live check reverified both exact Irys
+retrievals, the indexed owner/token/tag, the Irys node public key, and the
+receipt signature. It also found uploader status `CONFIRMED` with
+`seededTo: []`, while Arweave has no indexed bundle, `0/50` confirmations, and
+`arweave.net/<id>` still returns `404`. The accepted item is therefore not yet
+proven settled/permanent. No upload retry or on-chain action is allowed.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.

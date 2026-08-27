@@ -92,7 +92,7 @@ async function main(): Promise<void> {
       onChainBindingAuthorized: false,
       identityCreationAuthorized: false,
       treasuryActionAuthorized: false,
-      requiredNextGoal: '10I_ARWEAVE_SETTLEMENT_VERIFICATION',
+      requiredNextGoal: '10I_CANONICAL_IRYS_TRANSACTION_VERIFICATION',
     },
     verdict: 'UPLOAD_PASS_STOP_BEFORE_ON_CHAIN_BINDING',
   };

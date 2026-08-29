@@ -778,6 +778,25 @@ Review: [`reviews/goal-10j.md`](reviews/goal-10j.md)
 Artifact:
 [`wallet-child-001.goal10j.mainnet-birth-preflight.json`](../artifacts/wallet-child-001.goal10j.mainnet-birth-preflight.json)
 
+## Goal 10K — keyless Mainnet birth write review
+
+Status: **pass — exact birth transaction reviewed; confirmation pending**
+
+Expected result:
+
+- build one atomic transaction containing only standalone Core Asset creation
+  and Agent Identity registration;
+- pin the exact owner, asset, identity, metadata URI, programs, signers,
+  transaction size, rents, fee, and total debit;
+- simulate with zero signatures and `sigVerify: false` without loading a key;
+- exclude collection, funding, ATA, executive, delegation, and USDC actions;
+- publish one exact action-time phrase and stop before key load or signing.
+
+Review: [`reviews/goal-10k.md`](reviews/goal-10k.md)
+
+Artifact:
+[`wallet-child-001.goal10k.mainnet-birth-write-review.json`](../artifacts/wallet-child-001.goal10k.mainnet-birth-write-review.json)
+
 ## Self-review format
 
 Every goal ends with:

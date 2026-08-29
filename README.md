@@ -184,6 +184,12 @@ graph is internally consistent with the pinned Core/Toolbox versions. The
 result is `STOP_READY_FOR_MAINNET_BIRTH_WRITE_REVIEW`: metadata no longer
 creates a false blocker, but no identity key, transaction builder, signature,
 or network write was used or authorized.
+Goal 10K then builds the exact keyless birth candidate: one `566`-byte atomic
+transaction containing only standalone Core Asset creation and Agent Identity
+registration. A zero-signature Mainnet simulation passed at slot `442,646,200`
+with exact `5,989,200` lamport rent, `10,000` lamport fee, and `5,999,200`
+lamport total owner debit. The result stops before both isolated keys and
+requires a new exact action-time phrase.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.

@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10K",
+  "network": "mainnet-beta",
+  "recordedAt": "2026-08-29T15:57:53Z",
+  "status": "KEYLESS_MAINNET_BIRTH_WRITE_REVIEW_PASSED",
+  "birth": {
+    "atomicTransactionCount": 1,
+    "instructionCount": 2,
+    "instructions": [
+      "CREATE_STANDALONE_CORE_ASSET",
+      "REGISTER_METAPLEX_AGENT_IDENTITY"
+    ],
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "coreAsset": "HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty",
+    "agentIdentity": "EDT4DguQoQgUcEWP7h9z7F4Z5N75oinW6r9PhhuReXf8",
+    "assetSigner": "5Snge43iBczUT16b4ndffdgB4xxR2Bev9vxvLRe5YWyu",
+    "collection": null,
+    "metadataUri": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "metadataSha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
+    "requiredSigners": [
+      "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+      "HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty"
+    ]
+  },
+  "liveReview": {
+    "rpcOrigin": "https://mainnet.helius-rpc.com",
+    "blockhashContextSlot": 442646200,
+    "simulationSlot": 442646200,
+    "ephemeralMessageSha256": "d067650216258febe158fb70a0103f42185a3bfa9dae90e93ed4dbd2f56e5bcf",
+    "transactionByteLength": 566,
+    "quotedFeeLamports": "10000",
+    "coreAssetRentLamports": "4374480",
+    "agentIdentityRentLamports": "1614720",
+    "totalBirthRentLamports": "5989200",
+    "simulatedOwnerDebitLamports": "5999200",
+    "simulationPostBalanceIncludesFee": true,
+    "computeUnitsConsumed": 44039,
+    "simulationPassed": true
+  },
+  "caps": {
+    "feeLamports": "10000",
+    "totalBirthDebitLamports": "5999200",
+    "maximumExperimentSolLamports": "20000000"
+  },
+  "actionTimeConfirmation": {
+    "received": false,
+    "requiredExactPhrase": "CONFIRM MAINNET BIRTH WALLET CHILD #001 IN ONE ATOMIC TRANSACTION FROM OWNER 6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385 CREATING CORE ASSET HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty AND AGENT IDENTITY EDT4DguQoQgUcEWP7h9z7F4Z5N75oinW6r9PhhuReXf8 WITH METADATA URI https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL SHA256 7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c CORE RENT 4374480 LAMPORTS IDENTITY RENT 1614720 LAMPORTS TOTAL DEBIT CAP 5999200 LAMPORTS FEE CAP 10000 LAMPORTS NO COLLECTION NO FUNDING NO DELEGATION"
+  },
+  "checks": {
+    "goal10iDurabilityPassed": true,
+    "goal10jPreflightPassed": true,
+    "allSevenFutureAccountsAbsent": true,
+    "exactProgramsAndSignersVerified": true,
+    "exactFeeAndRentsPinned": true,
+    "zeroSignatureSimulationPassed": true,
+    "keyLoaded": false,
+    "messageSigned": false,
+    "transactionSubmitted": false,
+    "networkWrite": false
+  },
+  "excluded": {
+    "collection": true,
+    "funding": true,
+    "ataSetup": true,
+    "executiveRegistration": true,
+    "delegation": true,
+    "usdcAction": true
+  },
+  "verification": {
+    "testFiles": 41,
+    "tests": 308,
+    "testsPassed": true,
+    "typecheckPassed": true,
+    "diffCheckPassed": true,
+    "credentialScanPassed": true,
+    "productionAuditClean": false,
+    "productionAuditFindings": 5
+  },
+  "verdict": "STOP_READY_FOR_EXACT_BIRTH_CONFIRMATION"
+}

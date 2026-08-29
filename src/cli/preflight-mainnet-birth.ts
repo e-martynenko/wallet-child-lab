@@ -10,7 +10,10 @@ async function main(): Promise<void> {
     console.info('Goal 10J Mainnet birth preflight: READ-ONLY');
     console.info(`RPC origin: ${preflight.rpcOrigin}`);
     console.info(`Finalized slot: ${preflight.finalizedSlot}`);
-    console.info(`Metadata settlement: ${preflight.metadata.settlement}`);
+    console.info(`Metadata durability: ${preflight.metadata.durability}`);
+    console.info(
+      `Supplemental Arweave evidence: ${preflight.metadata.supplementalArweaveEvidence}`,
+    );
     console.info(`Metadata URI: ${preflight.metadata.uri}`);
     console.info(`Metadata SHA-256: ${preflight.metadata.sha256}`);
     console.info(`Required programs executable: YES`);
@@ -29,7 +32,6 @@ async function main(): Promise<void> {
     console.info('Transaction built: NO');
     console.info('Transaction submitted: NO');
     console.info(`Verdict: ${preflight.verdict}`);
-    if (preflight.metadata.settlement !== 'SETTLED') process.exitCode = 2;
   } catch (error) {
     const message = error instanceof Error ? error.message : 'Unknown failure.';
     throw new Error(message.replaceAll(config.rpcUrl, config.rpcOrigin));

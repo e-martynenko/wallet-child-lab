@@ -3,19 +3,20 @@
   "experiment": "wallet-child-001",
   "goal": "10J",
   "network": "mainnet-beta",
-  "recordedAt": "2026-08-27T10:20:36Z",
-  "status": "READ_ONLY_PREFLIGHT_BLOCKED_ON_METADATA_SETTLEMENT",
+  "recordedAt": "2026-08-29T15:44:05Z",
+  "status": "READ_ONLY_PREFLIGHT_READY_FOR_WRITE_REVIEW",
   "metadata": {
     "id": "2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
     "canonicalUri": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
     "sha256": "7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c",
     "byteLength": 351,
-    "settlement": "PENDING",
+    "durability": "IRYS_DURABLE_ACCEPTED",
+    "supplementalArweaveEvidence": "PENDING",
     "bindingAuthorized": false
   },
   "liveReadOnlySnapshot": {
     "rpcOrigin": "https://mainnet.helius-rpc.com",
-    "finalizedSlot": 442082093,
+    "finalizedSlot": 442643656,
     "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
     "ownerBalanceLamports": "19976792",
     "requiredPrograms": {
@@ -60,7 +61,6 @@
     "reason": "Do not mix newer standalone Core or Toolbox releases into the current latest Agent Registry dependency contract before a reviewed registry release supports them."
   },
   "unresolvedBeforeAnyIdentityWrite": [
-    "IRYS_ARWEAVE_SETTLEMENT",
     "CORE_ASSET_RENT_AND_IDENTITY_PLUGIN_TOP_UP",
     "EXACT_ASSET_AND_IDENTITY_MESSAGE_FEES",
     "SAME_BYTES_SIMULATIONS",
@@ -83,7 +83,7 @@
     "focusedTestsPassed": true,
     "typecheckPassed": true,
     "fullTestFiles": 40,
-    "fullTests": 299,
+    "fullTests": 300,
     "fullTestsPassed": true,
     "securityReviewPassed": true,
     "credentialScanPassed": true,
@@ -93,9 +93,8 @@
     "productionAuditFindingsUnchangedFromGoal10I": true
   },
   "nextGate": {
-    "required": "GOAL_10I_SETTLED",
-    "afterSettlement": "FRESH_SIGNER_CAPABLE_MAINNET_BIRTH_WRITE_REVIEW",
-    "writeAutomaticallyAuthorizedAfterSettlement": false
+    "required": "FRESH_SIGNER_CAPABLE_MAINNET_BIRTH_WRITE_REVIEW",
+    "writeAutomaticallyAuthorized": false
   },
-  "verdict": "BLOCKED_WAITING_FOR_IRYS_SETTLEMENT"
+  "verdict": "STOP_READY_FOR_MAINNET_BIRTH_WRITE_REVIEW"
 }

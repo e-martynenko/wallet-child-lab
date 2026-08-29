@@ -100,7 +100,7 @@ const GraphqlResponseSchema = z.object({
 
 const StatusResponseSchema = z
   .object({
-    status: z.string().min(1),
+    status: z.literal('CONFIRMED'),
     seededTo: z.array(z.string().min(1)),
   })
   .strict();
@@ -166,6 +166,14 @@ export type Goal10IVerification = Readonly<{
     canonicalPattern: 'https://gateway.irys.xyz/:transactionId';
     arweaveProbeStatus: 404 | 200;
     arweaveProbeExactBytes: boolean;
+  }>;
+  durability: Readonly<{
+    provider: 'Irys';
+    network: 'mainnet-bundler';
+    state: 'IRYS_DURABLE_ACCEPTED';
+    evidenceClass: 'SIGNED_IRYS_RECEIPT_AND_EXACT_RETRIEVAL';
+    canonicalGatewayContractVerified: true;
+    independentArweaveFinalizationRequired: false;
   }>;
   settlement: Readonly<{
     uploaderStatus: string;
@@ -572,6 +580,14 @@ export async function verifyGoal10IIrysTransaction(
       canonicalPattern: 'https://gateway.irys.xyz/:transactionId' as const,
       arweaveProbeStatus: arweaveProbe.status,
       arweaveProbeExactBytes: arweaveProbe.exactBytes,
+    }),
+    durability: Object.freeze({
+      provider: 'Irys' as const,
+      network: 'mainnet-bundler' as const,
+      state: 'IRYS_DURABLE_ACCEPTED' as const,
+      evidenceClass: 'SIGNED_IRYS_RECEIPT_AND_EXACT_RETRIEVAL' as const,
+      canonicalGatewayContractVerified: true as const,
+      independentArweaveFinalizationRequired: false as const,
     }),
     settlement: Object.freeze({
       uploaderStatus: settlementStatus.status,

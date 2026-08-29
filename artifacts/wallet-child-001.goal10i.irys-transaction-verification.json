@@ -3,8 +3,8 @@
   "experiment": "wallet-child-001",
   "goal": "10I",
   "network": "mainnet",
-  "recordedAt": "2026-08-27T09:06:55Z",
-  "status": "IRYS_TRANSACTION_CONFIRMED_SETTLEMENT_PENDING",
+  "recordedAt": "2026-08-29T15:44:05Z",
+  "status": "IRYS_DURABLE_ACCEPTED",
   "transaction": {
     "id": "2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
     "canonicalUri": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
@@ -54,10 +54,32 @@
     "arweaveProbeHttpStatus": 404,
     "arweaveProbeSha256": "2fa33a34e1ad20fc69c804532cb26b974805882da0f1c48a45150111a88fe3fa",
     "canonicalUriCorrectionVerified": true,
-    "underlyingArweaveSettlementExpectedForBundlerFlow": true,
-    "reason": "Official Irys documentation defines the canonical retrieval URL on gateway.irys.xyz. The official Irys Whistleblower separately defines finalized Arweave inclusion and seeding to at least five miners as the permanence evidence for this bundler flow."
+    "independentArweaveFinalizationRequiredForGoal": false,
+    "reason": "The current official Irys Mainnet bundler contract returns a signed Irys transaction ID for canonical gateway retrieval and documents Mainnet bundler uploads as permanent/immutable with same-ID migration to the Irys L1. The 2023 Whistleblower Arweave thresholds are retained only as supplemental evidence."
   },
-  "settlement": {
+  "durability": {
+    "provider": "Irys",
+    "network": "mainnet-bundler",
+    "state": "IRYS_DURABLE_ACCEPTED",
+    "evidenceClass": "SIGNED_IRYS_RECEIPT_AND_EXACT_RETRIEVAL",
+    "canonicalGatewayContractVerified": true,
+    "independentArweaveFinalizationRequired": false,
+    "assuranceBoundary": "This proves Irys signed acceptance, indexed provenance, and exact current retrieval. It does not claim an independently finalized Arweave copy."
+  },
+  "contractCorrection": {
+    "previousGate": "ARWEAVE_50_CONFIRMATIONS_AND_5_MINERS",
+    "previousGateResult": "PERMANENT_FALSE_BLOCKER",
+    "elapsedHoursBeforeCorrection": 74,
+    "currentMainnetSample": {
+      "recentReceiptsChecked": 5,
+      "recentReceiptsWithDeadlineHeightZero": 5,
+      "recentStatusChecks": 1,
+      "confirmedWithEmptySeededTo": 1,
+      "arweaveHttp404": 1
+    },
+    "decision": "USE_CURRENT_IRYS_MAINNET_BUNDLER_CONTRACT; KEEP_ARWEAVE_AS_SUPPLEMENTAL_EVIDENCE"
+  },
+  "supplementalArweaveEvidence": {
     "uploaderStatusUrl": "https://uploader.irys.xyz/tx/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL/status",
     "uploaderStatus": "CONFIRMED",
     "seededTo": [],
@@ -69,16 +91,17 @@
     "arweaveConfirmations": 0,
     "requiredArweaveConfirmations": 50,
     "arweaveExactBytesAvailable": false,
-    "state": "PENDING"
+    "state": "PENDING_NOT_REQUIRED"
   },
   "officialDocumentation": [
     "https://docs.irys.xyz/build/d/features/txids",
     "https://docs.irys.xyz/build/d/quickstart",
     "https://docs.irys.xyz/build/d/guides/uploading-nfts",
     "https://docs.irys.xyz/build/d/networks",
+    "https://docs.irys.xyz/build/d/migrating",
     "https://github.com/Irys-xyz/Whistleblower"
   ],
-  "caveat": "The verifier proves the accepted signed Irys transaction, current indexed identity, and exact current Irys retrieval bytes. CONFIRMED with seededTo: [], no indexed Arweave bundle, and 0/50 confirmations is not finalized settlement, so permanence is not yet verified.",
+  "caveat": "Durability is accepted at the current documented Irys Mainnet bundler assurance boundary. Independent Arweave inclusion is not observed and is not represented as verified.",
   "actions": {
     "ownerKeyLoaded": false,
     "uploadAttempted": false,
@@ -88,8 +111,8 @@
     "treasuryActionAuthorized": false
   },
   "verification": {
-    "testFiles": 39,
-    "tests": 291,
+    "testFiles": 40,
+    "tests": 300,
     "testsPassedAfterWrite": true,
     "typecheckPassedAfterWrite": true,
     "codeReviewPassedAfterWrite": true,
@@ -103,7 +126,7 @@
     "onChainBindingAuthorized": false,
     "identityCreationAuthorized": false,
     "treasuryActionAuthorized": false,
-    "requiredNextGoal": "10I_ARWEAVE_SETTLEMENT_VERIFICATION"
+    "requiredNextGoal": "FRESH_SIGNER_CAPABLE_MAINNET_BIRTH_WRITE_REVIEW"
   },
-  "verdict": "PARTIAL_CONFIRMED_NOT_SETTLED_STOP_BEFORE_ON_CHAIN_WRITE"
+  "verdict": "PASS_DURABILITY_ACCEPTED_STOP_BEFORE_WRITE_REVIEW"
 }

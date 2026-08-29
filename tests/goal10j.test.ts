@@ -67,6 +67,14 @@ function durability(state: 'PENDING' | 'SETTLED'): Goal10IVerification {
       arweaveProbeStatus: state === 'SETTLED' ? 200 : 404,
       arweaveProbeExactBytes: state === 'SETTLED',
     },
+    durability: {
+      provider: 'Irys',
+      network: 'mainnet-bundler',
+      state: 'IRYS_DURABLE_ACCEPTED',
+      evidenceClass: 'SIGNED_IRYS_RECEIPT_AND_EXACT_RETRIEVAL',
+      canonicalGatewayContractVerified: true,
+      independentArweaveFinalizationRequired: false,
+    },
     settlement: {
       uploaderStatus: 'CONFIRMED',
       seededTo: state === 'SETTLED' ? ['1', '2', '3', '4', '5'] : [],
@@ -137,16 +145,20 @@ function mockRpc(change?: 'occupied' | 'balance' | 'program') {
 }
 
 describe('Goal 10J read-only Mainnet birth preflight', () => {
-  it('records the live blocked result without secret or reusable transaction material', async () => {
+  it('records the live review-ready result without secret or reusable transaction material', async () => {
     const raw = await readFile(
       'artifacts/wallet-child-001.goal10j.mainnet-birth-preflight.json',
       'utf8',
     );
     expect(JSON.parse(raw)).toMatchObject({
-      status: 'READ_ONLY_PREFLIGHT_BLOCKED_ON_METADATA_SETTLEMENT',
-      metadata: { settlement: 'PENDING', bindingAuthorized: false },
+      status: 'READ_ONLY_PREFLIGHT_READY_FOR_WRITE_REVIEW',
+      metadata: {
+        durability: 'IRYS_DURABLE_ACCEPTED',
+        supplementalArweaveEvidence: 'PENDING',
+        bindingAuthorized: false,
+      },
       liveReadOnlySnapshot: {
-        finalizedSlot: 442_082_093,
+        finalizedSlot: 442_643_656,
         ownerBalanceLamports: '19976792',
         futureAccounts: { checkedCount: 7, allAbsent: true },
       },
@@ -159,14 +171,14 @@ describe('Goal 10J read-only Mainnet birth preflight', () => {
         transactionSubmitted: false,
         networkWrite: false,
       },
-      verdict: 'BLOCKED_WAITING_FOR_IRYS_SETTLEMENT',
+      verdict: 'STOP_READY_FOR_MAINNET_BIRTH_WRITE_REVIEW',
     });
     expect(raw).not.toMatch(
       /messageBase64|serializedMessage|secretKey|privateKey|mnemonic|api[_-]?key|rpcUrl/i,
     );
   });
 
-  it('keeps identity creation blocked while Irys settlement is pending', async () => {
+  it('reaches write review while keeping identity creation unauthorized', async () => {
     const evidence = await verifyMainnetBirthPreflight(
       config,
       durability('PENDING'),
@@ -174,7 +186,10 @@ describe('Goal 10J read-only Mainnet birth preflight', () => {
     );
     expect(evidence).toMatchObject({
       finalizedSlot: 503,
-      metadata: { settlement: 'PENDING' },
+      metadata: {
+        durability: 'IRYS_DURABLE_ACCEPTED',
+        supplementalArweaveEvidence: 'PENDING',
+      },
       packageContract: {
         agentRegistry: '0.2.6',
         core: '1.8.0',
@@ -196,15 +211,18 @@ describe('Goal 10J read-only Mainnet birth preflight', () => {
       messageSigned: false,
       transactionSubmitted: false,
       identityCreationAuthorized: false,
-      verdict: 'BLOCKED_WAITING_FOR_IRYS_SETTLEMENT',
+      verdict: 'STOP_READY_FOR_MAINNET_BIRTH_WRITE_REVIEW',
     });
   });
 
-  it('still stops for a write review after settlement instead of authorizing it', async () => {
+  it('records optional Arweave finalization without authorizing a write', async () => {
     await expect(
       verifyMainnetBirthPreflight(config, durability('SETTLED'), mockRpc()),
     ).resolves.toMatchObject({
-      metadata: { settlement: 'SETTLED' },
+      metadata: {
+        durability: 'IRYS_DURABLE_ACCEPTED',
+        supplementalArweaveEvidence: 'SETTLED',
+      },
       identityCreationAuthorized: false,
       verdict: 'STOP_READY_FOR_MAINNET_BIRTH_WRITE_REVIEW',
     });

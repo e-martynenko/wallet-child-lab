@@ -167,21 +167,23 @@ the owner key again. Credit remains `3,208` lamports, so actual upload spend was
 `0`.
 Goal 10I then corrects one lab-side interpretation: that Base58 value is an
 Irys transaction ID, and its documented canonical reference is
-`https://gateway.irys.xyz/:transactionId`; using `ar://<Irys ID>` before
-settlement was premature. A new keyless live check reverified both exact Irys
-retrievals, the indexed owner/token/tag, the Irys node public key, and the
-receipt signature. It also found uploader status `CONFIRMED` with
-`seededTo: []`, while Arweave has no indexed bundle, `0/50` confirmations, and
-`arweave.net/<id>` still returns `404`. The accepted item is therefore not yet
-proven settled/permanent. No upload retry or on-chain action is allowed.
-Goal 10J now uses that waiting period for a strictly read-only Mainnet birth
-preflight. At finalized slot `442,082,093`, all three required Metaplex
+`https://gateway.irys.xyz/:transactionId`. After 74 hours of unchanged
+Arweave polling, Goal 10I also corrects a second lab-side error: the old
+Whistleblower `50 confirmations / 5 miners` test is supplemental Arweave
+evidence, not the completion contract for current Irys Mainnet bundler
+receipts. The keyless verifier now accepts only a live `CONFIRMED` Irys status,
+the exact bytes through two distinct routes, the exact indexed provenance, and
+a freshly verified receipt signature. It records the still-missing Arweave
+copy without representing it as verified. No upload was repeated.
+Goal 10J repeats that corrected gate in a strictly read-only Mainnet birth
+preflight. At finalized slot `442,643,656`, all three required Metaplex
 programs are executable, all seven frozen future accounts are absent, the
 isolated owner still holds exactly `19,976,792` lamports, and known fixed rent
 is unchanged at `8,477,280` lamports. The latest Agent Registry dependency
 graph is internally consistent with the pinned Core/Toolbox versions. The
-result remains **BLOCKED** on Irys/Arweave settlement; no identity key,
-transaction builder, signature, or network write was used.
+result is `STOP_READY_FOR_MAINNET_BIRTH_WRITE_REVIEW`: metadata no longer
+creates a false blocker, but no identity key, transaction builder, signature,
+or network write was used or authorized.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.

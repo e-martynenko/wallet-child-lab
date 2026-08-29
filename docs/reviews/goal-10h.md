@@ -2,11 +2,12 @@
 
 Status: **PASS — one upload verified; STOP before on-chain binding**
 
-> Goal 10I correction (2026-08-27): the receipt value is an Irys transaction
+> Goal 10I corrections (2026-08-27 and 2026-08-29): the receipt value is an Irys transaction
 > ID whose documented canonical reference is the Irys gateway HTTPS URL. The
-> earlier `ar://<Irys ID>` reference was premature; the canonical URI is now
-> HTTPS while underlying Arweave settlement remains pending. This did not
-> repeat or alter the upload.
+> earlier `ar://<Irys ID>` reference was premature. The old Whistleblower
+> Arweave thresholds are supplemental evidence rather than the current Irys
+> Mainnet bundler completion contract. Neither correction repeated or altered
+> the upload.
 
 ## Built
 
@@ -75,8 +76,9 @@ Status: **PASS — one upload verified; STOP before on-chain binding**
 
 ## Remaining uncertainty
 
-1. Goal 10I later corrected the premature `ar://<Irys ID>` reference and found
-   uploader `CONFIRMED`, zero seeded miners, and `arweave.net/<id>` `404`.
+1. Independent Arweave inclusion is not observed; Goal 10I records this
+   assurance boundary without treating it as a blocker to signed Irys durable
+   acceptance.
 2. The URI has not been bound to a Metaplex Core Asset or Agent Identity.
 3. Asset creation, delegate audit, same-signed-bytes simulations, and the
    `0.1 USDC` treasury action remain blocked and separately gated.
@@ -84,6 +86,6 @@ Status: **PASS — one upload verified; STOP before on-chain binding**
 ## Recommendation
 
 **PASS Goal 10H and STOP.** Goal 10I reverified the accepted Irys transaction
-and corrected the canonical URI, but settlement remains pending. Do not upload
-again, top up Irys, create the identity, bind the URI on-chain, or fund the
-treasury.
+and corrected both the URI and durability contract. Do not upload again or top
+up Irys. Identity creation, URI binding, and treasury funding remain separate
+action-time gates.

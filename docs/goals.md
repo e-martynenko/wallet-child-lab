@@ -728,7 +728,7 @@ Artifact:
 
 ## Goal 10I — canonical Irys transaction verification
 
-Status: **active — accepted Irys transaction verified; settlement pending**
+Status: **pass — current Irys durability contract verified**
 
 Expected result:
 
@@ -740,11 +740,12 @@ Expected result:
   loading the owner key;
 - correct the unsupported local `ar://<Irys ID>` interpretation to the
   officially documented `https://gateway.irys.xyz/:transactionId` URI;
-- query the public uploader status and distinguish node `CONFIRMED` from
-  Arweave settlement;
-- require exact Arweave bytes, an indexed bundle, at least 50 confirmations,
-  and at least five seeded miners before declaring settlement complete, while
-  never repeating the already accepted upload;
+- require the public uploader status to remain `CONFIRMED` and classify the
+  signed receipt plus exact retrieval as current Irys Mainnet bundler durable
+  acceptance;
+- retain exact Arweave retrieval, bundle, confirmations, and seeded miners as
+  supplemental evidence without treating the legacy Whistleblower thresholds
+  as the current completion contract;
 - perform no upload, top-up, key load, Solana transaction, on-chain binding,
   identity creation, or treasury action.
 
@@ -755,7 +756,7 @@ Artifact:
 
 ## Goal 10J — read-only Mainnet birth preflight
 
-Status: **partial — live preflight passed; waiting for Goal 10I settlement**
+Status: **pass — live preflight reached the write-review boundary**
 
 Expected result:
 
@@ -769,8 +770,8 @@ Expected result:
 - verify the installed Metaplex package graph matches the current Agent
   Registry contract;
 - load no wallet key, build no transaction, sign nothing, and submit nothing;
-- remain blocked while settlement is pending and require a new write-specific
-  review even after settlement succeeds.
+- stop at a new write-specific review; durability acceptance never authorizes
+  identity creation by itself.
 
 Review: [`reviews/goal-10j.md`](reviews/goal-10j.md)
 

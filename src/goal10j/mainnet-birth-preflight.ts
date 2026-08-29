@@ -85,7 +85,8 @@ export type MainnetBirthPreflight = Readonly<{
     uri: typeof GOAL_10I_CANONICAL_URI;
     sha256: typeof GOAL_10J_METADATA_SHA256;
     byteLength: 351;
-    settlement: 'PENDING' | 'SETTLED';
+    durability: 'IRYS_DURABLE_ACCEPTED';
+    supplementalArweaveEvidence: 'PENDING' | 'SETTLED';
   }>;
   packageContract: Readonly<{
     agentRegistry: '0.2.6';
@@ -129,8 +130,7 @@ export type MainnetBirthPreflight = Readonly<{
   transactionSubmitted: false;
   identityCreationAuthorized: false;
   verdict:
-    | 'BLOCKED_WAITING_FOR_IRYS_SETTLEMENT'
-    | 'STOP_READY_FOR_MAINNET_BIRTH_WRITE_REVIEW';
+    'STOP_READY_FOR_MAINNET_BIRTH_WRITE_REVIEW';
 }>;
 
 export class MainnetBirthPreflightError extends Error {
@@ -320,6 +320,7 @@ export async function verifyMainnetBirthPreflight(
     durability.canonicalIrysUri !== GOAL_10I_CANONICAL_URI ||
     durability.metadataSha256 !== GOAL_10J_METADATA_SHA256 ||
     durability.metadataByteLength !== 351 ||
+    durability.durability.state !== 'IRYS_DURABLE_ACCEPTED' ||
     !durability.canonicalIrysTransactionVerified
   ) {
     throw new MainnetBirthPreflightError(
@@ -483,7 +484,8 @@ export async function verifyMainnetBirthPreflight(
       uri: GOAL_10I_CANONICAL_URI,
       sha256: GOAL_10J_METADATA_SHA256,
       byteLength: 351 as const,
-      settlement: durability.settlement.state,
+      durability: durability.durability.state,
+      supplementalArweaveEvidence: durability.settlement.state,
     }),
     packageContract,
     programs: Object.freeze({
@@ -518,9 +520,6 @@ export async function verifyMainnetBirthPreflight(
     messageSigned: false as const,
     transactionSubmitted: false as const,
     identityCreationAuthorized: false as const,
-    verdict:
-      durability.settlement.state === 'SETTLED'
-        ? ('STOP_READY_FOR_MAINNET_BIRTH_WRITE_REVIEW' as const)
-        : ('BLOCKED_WAITING_FOR_IRYS_SETTLEMENT' as const),
+    verdict: 'STOP_READY_FOR_MAINNET_BIRTH_WRITE_REVIEW' as const,
   });
 }

@@ -36,7 +36,12 @@ function responseAt(
 }
 
 async function context(
-  options: { driftData?: boolean; wrongOwner?: boolean; settled?: boolean } = {},
+  options: {
+    driftData?: boolean;
+    wrongOwner?: boolean;
+    settled?: boolean;
+    unconfirmed?: boolean;
+  } = {},
 ) {
   const [bytes, artifactRaw] = await Promise.all([
     readFile('metadata/wallet-child-001.mainnet-candidate.json'),
@@ -122,7 +127,7 @@ async function context(
     }
     if (url.toString() === GOAL_10I_STATUS_URL && method === 'GET') {
       return Response.json({
-        status: 'CONFIRMED',
+        status: options.unconfirmed ? 'PENDING' : 'CONFIRMED',
         seededTo: options.settled
           ? ['miner-1', 'miner-2', 'miner-3', 'miner-4', 'miner-5']
           : [],
@@ -163,7 +168,7 @@ async function context(
 }
 
 describe('Goal 10I canonical Irys transaction verification', () => {
-  it('verifies the accepted item but keeps settlement pending when it is not seeded', async () => {
+  it('accepts the signed Irys durability contract without pretending Arweave finalized', async () => {
     const test = await context();
     const evidence = await verifyGoal10IIrysTransaction(test.fetchImpl);
     expect(evidence).toMatchObject({
@@ -191,6 +196,14 @@ describe('Goal 10I canonical Irys transaction verification', () => {
         canonicalPattern: 'https://gateway.irys.xyz/:transactionId',
         arweaveProbeStatus: 404,
         arweaveProbeExactBytes: false,
+      },
+      durability: {
+        provider: 'Irys',
+        network: 'mainnet-bundler',
+        state: 'IRYS_DURABLE_ACCEPTED',
+        evidenceClass: 'SIGNED_IRYS_RECEIPT_AND_EXACT_RETRIEVAL',
+        canonicalGatewayContractVerified: true,
+        independentArweaveFinalizationRequired: false,
       },
       settlement: {
         uploaderStatus: 'CONFIRMED',
@@ -222,7 +235,7 @@ describe('Goal 10I canonical Irys transaction verification', () => {
     ]);
   });
 
-  it('settles only with exact Arweave bytes, a bundle, 50 blocks, and five miners', async () => {
+  it('records stronger supplemental Arweave evidence when it exists', async () => {
     const test = await context({ settled: true });
     const evidence = await verifyGoal10IIrysTransaction(test.fetchImpl);
     expect(evidence.settlement).toMatchObject({
@@ -254,6 +267,13 @@ describe('Goal 10I canonical Irys transaction verification', () => {
     const test = await context({ wrongOwner: true });
     await expect(verifyGoal10IIrysTransaction(test.fetchImpl)).rejects.toThrow(
       /owner, token, or content-type/i,
+    );
+  });
+
+  it('fails closed if the live Irys status is no longer confirmed', async () => {
+    const test = await context({ unconfirmed: true });
+    await expect(verifyGoal10IIrysTransaction(test.fetchImpl)).rejects.toThrow(
+      /status is malformed/i,
     );
   });
 

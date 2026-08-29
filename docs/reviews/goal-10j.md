@@ -1,6 +1,6 @@
 # Goal 10J review — read-only Mainnet birth preflight
 
-Status: **PARTIAL — live preflight passed; metadata settlement still blocks birth**
+Status: **PASS — live preflight reached the write-review boundary**
 
 ## Built
 
@@ -18,7 +18,7 @@ or submission path.
 
 ## Evidence
 
-At finalized slot `442,082,093`:
+At finalized slot `442,643,656`:
 
 - Core, Agent Identity, and Agent Tools are executable Mainnet programs;
 - all seven future Wallet Child accounts are absent;
@@ -26,7 +26,9 @@ At finalized slot `442,082,093`:
   10F;
 - known fixed rent remains `8,477,280` lamports;
 - the exact metadata URI, `351` bytes, and SHA-256 remain unchanged;
-- Irys/Arweave settlement remains `PENDING`.
+- metadata is `IRYS_DURABLE_ACCEPTED` at the signed Irys assurance boundary;
+- supplemental independent Arweave evidence remains `PENDING` and is not
+  represented as finalized.
 
 Public evidence is in
 [`wallet-child-001.goal10j.mainnet-birth-preflight.json`](../../artifacts/wallet-child-001.goal10j.mainnet-birth-preflight.json).
@@ -47,7 +49,7 @@ piecemeal update would create an unreviewed mixed SDK graph.
    key is loaded.
 3. **PASS:** a pre-existing account, balance drift, wrong cluster, missing
    program, package drift, or metadata drift fails closed.
-4. **PASS:** even a future `SETTLED` result changes the verdict only to
+4. **PASS:** durability acceptance changes the verdict only to
    `STOP_READY_FOR_MAINNET_BIRTH_WRITE_REVIEW`; it never authorizes a write.
 5. **OPEN:** Core Asset rent, Agent Identity plugin top-up, exact birth message
    fees, and same-bytes simulations do not yet exist.
@@ -61,16 +63,16 @@ piecemeal update would create an unreviewed mixed SDK graph.
 ```text
 GOAL REVIEW
 
-Status: PARTIAL
+Status: PASS
 Built: keyless Mainnet birth preflight
 Evidence: finalized programs/accounts/balance/rent plus package graph
-Tests: 40 files / 299 tests pass; typecheck, diff, and credential scan pass
+Tests: 40 files / 300 tests pass; typecheck, diff, and credential scan pass
 Security findings: no write path; broad future delegate remains a material risk
 Unexpected findings: standalone Core/Toolbox are newer, but latest Agent Registry pins the retained versions
-Remaining uncertainty: metadata settlement and all signer-capable birth costs/messages/simulations
-Recommendation: STOP
+Remaining uncertainty: all signer-capable birth costs/messages/simulations
+Recommendation: proceed only to a fresh write-specific review
 ```
 
 Do not load either identity key and do not construct or submit the birth
-transaction until Goal 10I reports `SETTLED` and a fresh write-specific review
-passes.
+transaction until a fresh write-specific review passes and an exact action-time
+confirmation is received.

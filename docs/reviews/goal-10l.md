@@ -7,6 +7,8 @@ Status: **PASS — implementation ready; literal confirmation still pending**
 - an exact-phrase gate before every network or key action;
 - a repeated Irys durability check, Mainnet birth preflight, keyless write review,
   cluster check, fresh blockhash, and exact fee quote before key loading;
+- one shared finalized `minContextSlot` baseline plus bounded read-only retries
+  when a Helius fee backend has not indexed the fresh blockhash yet;
 - loading of only the existing isolated owner and Core Asset signers, with both
   public keys pinned;
 - signature-verified simulation of the exact signed bytes;

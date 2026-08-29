@@ -94,6 +94,7 @@ const SimulationResponseSchema = z.object({
     }),
   }),
 });
+const FEE_READ_ATTEMPTS = 6;
 
 export type UnsignedMainnetBirth = Readonly<{
   transaction: Transaction;
@@ -266,6 +267,51 @@ async function rpcRequest(
   return payload;
 }
 
+async function readFreshFee(
+  config: BootstrapFeeConfig,
+  messageBase64: string,
+  minimumContextSlot: number,
+  fetchImpl: typeof fetch,
+): Promise<unknown> {
+  let lastPayload: unknown;
+  for (let attempt = 1; attempt <= FEE_READ_ATTEMPTS; attempt += 1) {
+    try {
+      lastPayload = await rpcRequest(
+        config,
+        3,
+        'getFeeForMessage',
+        [
+          messageBase64,
+          { commitment: 'finalized', minContextSlot: minimumContextSlot },
+        ],
+        fetchImpl,
+      );
+    } catch (error) {
+      if (
+        attempt === FEE_READ_ATTEMPTS ||
+        !(error instanceof MainnetBirthWriteReviewError) ||
+        !error.message.includes('code -32016')
+      ) {
+        throw error;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 200 * attempt));
+      continue;
+    }
+    const parsed = FeeResponseSchema.safeParse(lastPayload);
+    if (
+      !parsed.success ||
+      (parsed.data.result.value !== null &&
+        parsed.data.result.context.slot >= minimumContextSlot)
+    ) {
+      return lastPayload;
+    }
+    if (attempt < FEE_READ_ATTEMPTS) {
+      await new Promise((resolve) => setTimeout(resolve, 200 * attempt));
+    }
+  }
+  return lastPayload;
+}
+
 export async function reviewMainnetBirthWrite(
   config: BootstrapFeeConfig,
   preflight: MainnetBirthPreflight,
@@ -293,7 +339,12 @@ export async function reviewMainnetBirthWrite(
       config,
       2,
       'getLatestBlockhash',
-      [{ commitment: 'finalized' }],
+      [
+        {
+          commitment: 'finalized',
+          minContextSlot: preflight.finalizedSlot,
+        },
+      ],
       fetchImpl,
     ),
   );
@@ -306,27 +357,32 @@ export async function reviewMainnetBirthWrite(
     blockhash.data.result.value.blockhash,
   );
   const fee = FeeResponseSchema.safeParse(
-    await rpcRequest(
+    await readFreshFee(
       config,
-      3,
-      'getFeeForMessage',
-      [
-        unsigned.messageBase64,
-        {
-          commitment: 'finalized',
-          minContextSlot: blockhash.data.result.context.slot,
-        },
-      ],
+      unsigned.messageBase64,
+      preflight.finalizedSlot,
       fetchImpl,
     ),
   );
-  if (
-    !fee.success ||
-    fee.data.result.value === null ||
-    fee.data.result.context.slot < blockhash.data.result.context.slot ||
-    BigInt(fee.data.result.value) !== GOAL_10K_MAX_FEE_LAMPORTS
-  ) {
-    throw new MainnetBirthWriteReviewError('Mainnet birth fee quote changed.');
+  if (!fee.success) {
+    throw new MainnetBirthWriteReviewError(
+      'Mainnet birth fee quote is malformed.',
+    );
+  }
+  if (fee.data.result.value === null) {
+    throw new MainnetBirthWriteReviewError(
+      'Mainnet birth fee quote is unavailable for the fresh blockhash.',
+    );
+  }
+  if (fee.data.result.context.slot < preflight.finalizedSlot) {
+    throw new MainnetBirthWriteReviewError(
+      `Mainnet birth fee context ${fee.data.result.context.slot} is below finalized baseline ${preflight.finalizedSlot}.`,
+    );
+  }
+  if (BigInt(fee.data.result.value) !== GOAL_10K_MAX_FEE_LAMPORTS) {
+    throw new MainnetBirthWriteReviewError(
+      `Mainnet birth fee changed to ${fee.data.result.value} lamports.`,
+    );
   }
   const simulation = SimulationResponseSchema.safeParse(
     await rpcRequest(
@@ -340,7 +396,7 @@ export async function reviewMainnetBirthWrite(
           commitment: 'finalized',
           sigVerify: false,
           replaceRecentBlockhash: false,
-          minContextSlot: fee.data.result.context.slot,
+          minContextSlot: preflight.finalizedSlot,
           accounts: {
             encoding: 'base64',
             addresses: [GOAL_9P_OWNER, GOAL_9P_CORE_ASSET, GOAL_9P_AGENT_IDENTITY],
@@ -350,7 +406,10 @@ export async function reviewMainnetBirthWrite(
       fetchImpl,
     ),
   );
-  if (!simulation.success || simulation.data.result.context.slot < fee.data.result.context.slot) {
+  if (
+    !simulation.success ||
+    simulation.data.result.context.slot < preflight.finalizedSlot
+  ) {
     throw new MainnetBirthWriteReviewError('Mainnet birth simulation failed.');
   }
   const [ownerAfter, coreAssetAfter, agentIdentityAfter] =

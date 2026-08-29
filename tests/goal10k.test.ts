@@ -57,7 +57,8 @@ function simulatedAccount(lamports: number, owner: string) {
   };
 }
 
-function mockRpc(change?: 'fee' | 'owner' | 'rent' | 'stale') {
+function mockRpc(change?: 'fee' | 'owner' | 'rent' | 'stale' | 'feePending') {
+  let feeAttempts = 0;
   return vi.fn<typeof fetch>(async (_url, init) => {
     const request = JSON.parse(String(init?.body)) as {
       id: number;
@@ -68,18 +69,29 @@ function mockRpc(change?: 'fee' | 'owner' | 'rent' | 'stale') {
     if (request.method === 'getGenesisHash') {
       result = SOLANA_MAINNET_BETA_GENESIS_HASH;
     } else if (request.method === 'getLatestBlockhash') {
+      expect(request.params).toEqual([
+        { commitment: 'finalized', minContextSlot: 100 },
+      ]);
       result = {
         context: { slot: 200 },
         value: { blockhash: BLOCKHASH, lastValidBlockHeight: 900 },
       };
     } else if (request.method === 'getFeeForMessage') {
+      feeAttempts += 1;
+      expect(request.params[1]).toEqual({
+        commitment: 'finalized',
+        minContextSlot: 100,
+      });
       result = {
         context: { slot: 201 },
-        value: Number(
+        value:
+          change === 'feePending' && feeAttempts === 1
+            ? null
+            : Number(
           change === 'fee'
             ? GOAL_10K_MAX_FEE_LAMPORTS + 1n
             : GOAL_10K_MAX_FEE_LAMPORTS,
-        ),
+              ),
       };
     } else if (request.method === 'simulateTransaction') {
       const options = request.params[1] as {
@@ -87,13 +99,14 @@ function mockRpc(change?: 'fee' | 'owner' | 'rent' | 'stale') {
         accounts: { addresses: string[] };
       };
       expect(options.sigVerify).toBe(false);
+      expect(options).toMatchObject({ minContextSlot: 100 });
       expect(options.accounts.addresses).toEqual([
         GOAL_9P_OWNER,
         GOAL_9P_CORE_ASSET,
         GOAL_9P_AGENT_IDENTITY,
       ]);
       result = {
-        context: { slot: change === 'stale' ? 200 : 202 },
+        context: { slot: change === 'stale' ? 99 : 202 },
         value: {
           err: null,
           logs: ['simulation passed'],
@@ -173,6 +186,21 @@ describe('Goal 10K keyless Mainnet birth write review', () => {
       'getFeeForMessage',
       'simulateTransaction',
     ]);
+  });
+
+  it('retries a temporarily unavailable fee quote without changing the message', async () => {
+    const fetchMock = mockRpc('feePending');
+    await expect(
+      reviewMainnetBirthWrite(config, preflight(), fetchMock),
+    ).resolves.toMatchObject({
+      quotedFeeLamports: GOAL_10K_MAX_FEE_LAMPORTS,
+      verdict: 'STOP_READY_FOR_EXACT_BIRTH_CONFIRMATION',
+    });
+    expect(
+      vi.mocked(fetchMock).mock.calls.filter(([, init]) =>
+        String(init?.body).includes('getFeeForMessage'),
+      ),
+    ).toHaveLength(2);
   });
 
   it.each(['fee', 'owner', 'rent', 'stale'] as const)(

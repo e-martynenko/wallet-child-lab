@@ -87,6 +87,7 @@ const SendSchema = z.object({
   id: z.literal(23),
   result: z.string(),
 });
+const FEE_READ_ATTEMPTS = 6;
 
 type BirthTransactionWithMeta = TransactionWithMeta & {
   response: { slot: bigint };
@@ -210,6 +211,7 @@ async function rpcRequest(
 async function prepareExactBirthTransaction(
   config: BootstrapFeeConfig,
   fetchImpl: typeof fetch,
+  minimumContextSlot: number,
 ): Promise<
   Readonly<{
     transaction: Transaction;
@@ -224,11 +226,19 @@ async function prepareExactBirthTransaction(
       config,
       21,
       'getLatestBlockhash',
-      [{ commitment: 'finalized' }],
+      [
+        {
+          commitment: 'finalized',
+          minContextSlot: minimumContextSlot,
+        },
+      ],
       fetchImpl,
     ),
   );
-  if (!latest.success) {
+  if (
+    !latest.success ||
+    latest.data.result.context.slot < minimumContextSlot
+  ) {
     throw new MainnetBirthExecutionError(
       'Fresh Mainnet blockhash response is malformed.',
     );
@@ -236,25 +246,50 @@ async function prepareExactBirthTransaction(
   const built = buildUnsignedMainnetBirth(
     latest.data.result.value.blockhash,
   );
-  const fee = FeeSchema.safeParse(
-    await rpcRequest(
-      config,
-      22,
-      'getFeeForMessage',
-      [
-        built.messageBase64,
-        {
-          commitment: 'finalized',
-          minContextSlot: latest.data.result.context.slot,
-        },
-      ],
-      fetchImpl,
-    ),
-  );
+  let feePayload: unknown;
+  for (let attempt = 1; attempt <= FEE_READ_ATTEMPTS; attempt += 1) {
+    try {
+      feePayload = await rpcRequest(
+        config,
+        22,
+        'getFeeForMessage',
+        [
+          built.messageBase64,
+          {
+            commitment: 'finalized',
+            minContextSlot: minimumContextSlot,
+          },
+        ],
+        fetchImpl,
+      );
+    } catch (error) {
+      if (
+        attempt === FEE_READ_ATTEMPTS ||
+        !(error instanceof MainnetBirthExecutionError) ||
+        !error.message.includes('code -32016')
+      ) {
+        throw error;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 200 * attempt));
+      continue;
+    }
+    const candidate = FeeSchema.safeParse(feePayload);
+    if (
+      !candidate.success ||
+      (candidate.data.result.value !== null &&
+        candidate.data.result.context.slot >= minimumContextSlot)
+    ) {
+      break;
+    }
+    if (attempt < FEE_READ_ATTEMPTS) {
+      await new Promise((resolve) => setTimeout(resolve, 200 * attempt));
+    }
+  }
+  const fee = FeeSchema.safeParse(feePayload);
   if (
     !fee.success ||
     fee.data.result.value === null ||
-    fee.data.result.context.slot < latest.data.result.context.slot ||
+    fee.data.result.context.slot < minimumContextSlot ||
     BigInt(fee.data.result.value) !== GOAL_10K_MAX_FEE_LAMPORTS
   ) {
     throw new MainnetBirthExecutionError(
@@ -265,7 +300,7 @@ async function prepareExactBirthTransaction(
     transaction: built.transaction,
     blockhash: latest.data.result.value.blockhash,
     lastValidBlockHeight: latest.data.result.value.lastValidBlockHeight,
-    contextSlot: fee.data.result.context.slot,
+    contextSlot: minimumContextSlot,
     messageSha256: built.messageSha256,
   });
 }
@@ -541,7 +576,11 @@ export async function executeMainnetBirth(
   if ((await umi.rpc.getGenesisHash()) !== SOLANA_MAINNET_BETA_GENESIS_HASH) {
     throw new MainnetBirthExecutionError('RPC is not Solana Mainnet.');
   }
-  const prepared = await prepareExactBirthTransaction(config, fetchImpl);
+  const prepared = await prepareExactBirthTransaction(
+    config,
+    fetchImpl,
+    review.simulationSlot,
+  );
 
   // Keys are loaded only after all public checks and the fresh exact fee quote.
   const [owner, coreAsset] = await loadBirthSigners(

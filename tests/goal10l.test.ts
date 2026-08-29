@@ -171,4 +171,56 @@ describe('Goal 10L locked Mainnet birth execution', () => {
       /secretKey|privateKey|mnemonic|messageBase64|transactionBase64|rpcUrl:/i,
     );
   });
+
+  it('pins the finalized public birth receipt and zero-delegate audit', async () => {
+    const receipt = JSON.parse(
+      await readFile(
+        'artifacts/wallet-child-001.goal10l.mainnet-birth-receipt.json',
+        'utf8',
+      ),
+    ) as Record<string, any>;
+    const audit = JSON.parse(
+      await readFile(
+        'artifacts/wallet-child-001.goal10m.post-birth-permission-audit.json',
+        'utf8',
+      ),
+    ) as Record<string, any>;
+    expect(receipt).toMatchObject({
+      status: 'MAINNET_BIRTH_FINALIZED',
+      finalizedTransaction: {
+        signature:
+          '4fxnWscaLjEuZnvP4XE84NMVF88wiGfgTqCmz1uHMqpaiTLjVxWFARnBaYB8qBMxpfdFgW3XyXSMMjW6YcLjgAc3',
+        slot: '442657964',
+        feeLamports: '10000',
+        totalOwnerDebitLamports: '5999200',
+        ownerPostLamports: '13977592',
+        confirmationStatus: 'finalized',
+      },
+      identity: {
+        owner: GOAL_9P_OWNER,
+        coreAsset: GOAL_9P_CORE_ASSET,
+        agentIdentity: GOAL_9P_AGENT_IDENTITY,
+      },
+      checks: {
+        finalizedIdentityReadbackPassed: true,
+        fundingIncluded: false,
+        delegationIncluded: false,
+        usdcIncluded: false,
+      },
+    });
+    expect(audit).toMatchObject({
+      status: 'POST_BIRTH_PERMISSION_AUDIT_PASSED',
+      delegateAudit: {
+        matchingActiveDelegates: 0,
+        closedWorldLayoutCheckPassed: true,
+        fullAndFilteredScansMatched: true,
+      },
+      permissions: {
+        activeExecutionDelegate: null,
+        fundingPermissionActivated: false,
+        usdcAtaCreated: false,
+        usdcMoved: false,
+      },
+    });
+  });
 });

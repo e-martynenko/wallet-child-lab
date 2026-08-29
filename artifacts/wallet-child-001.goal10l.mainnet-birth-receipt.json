@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10L",
+  "network": "mainnet-beta",
+  "recordedAt": "2026-08-29T16:59:58.714Z",
+  "status": "MAINNET_BIRTH_FINALIZED",
+  "actionTimeConfirmation": {
+    "exactPhrase": "CONFIRM MAINNET BIRTH WALLET CHILD #001 IN ONE ATOMIC TRANSACTION FROM OWNER 6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385 CREATING CORE ASSET HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty AND AGENT IDENTITY EDT4DguQoQgUcEWP7h9z7F4Z5N75oinW6r9PhhuReXf8 WITH METADATA URI https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL SHA256 7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c CORE RENT 4374480 LAMPORTS IDENTITY RENT 1614720 LAMPORTS TOTAL DEBIT CAP 5999200 LAMPORTS FEE CAP 10000 LAMPORTS NO COLLECTION NO FUNDING NO DELEGATION",
+    "received": true,
+    "scope": "ONE_ATOMIC_CORE_ASSET_AND_AGENT_IDENTITY_BIRTH"
+  },
+  "finalizedTransaction": {
+    "signature": "4fxnWscaLjEuZnvP4XE84NMVF88wiGfgTqCmz1uHMqpaiTLjVxWFARnBaYB8qBMxpfdFgW3XyXSMMjW6YcLjgAc3",
+    "slot": "442657964",
+    "messageSha256": "1b77077deb8468af0408c36963663f9f3efed758f4896170a035116349ac3dbd",
+    "signedTransactionSha256": "e6d4a7df6f34bd6b49922becf9c9698f9cbbcf9815a2dc781819ddaa87b29c73",
+    "instructionCount": 2,
+    "feeLamports": "10000",
+    "coreAssetRentLamports": "4374480",
+    "agentIdentityRentLamports": "1614720",
+    "totalOwnerDebitLamports": "5999200",
+    "ownerPreLamports": "19976792",
+    "ownerPostLamports": "13977592",
+    "computeUnitsConsumed": 44039,
+    "confirmationStatus": "finalized",
+    "error": null
+  },
+  "identity": {
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "coreAsset": "HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty",
+    "agentIdentity": "EDT4DguQoQgUcEWP7h9z7F4Z5N75oinW6r9PhhuReXf8",
+    "assetSigner": "5Snge43iBczUT16b4ndffdgB4xxR2Bev9vxvLRe5YWyu",
+    "collection": null,
+    "metadataUri": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL"
+  },
+  "checks": {
+    "metadataDurabilityRecheckedBeforeKeyLoad": true,
+    "allFutureAccountsAbsentBeforeKeyLoad": true,
+    "exactFeeRecheckedBeforeKeyLoad": true,
+    "isolatedOwnerAndCoreKeysMatched": true,
+    "sameSignedBytesSimulationPassed": true,
+    "exactSerializedBytesSubmittedOnce": true,
+    "finalizedTransactionDecoded": true,
+    "finalizedIdentityReadbackPassed": true,
+    "fundingIncluded": false,
+    "delegationIncluded": false,
+    "usdcIncluded": false
+  },
+  "verification": {
+    "testsPassedAfterWrite": true,
+    "testFiles": 42,
+    "tests": 314,
+    "typecheckPassedAfterWrite": true,
+    "codeReviewPassedAfterWrite": true,
+    "credentialScanPassedAfterWrite": true,
+    "diffCheckPassedAfterWrite": true,
+    "productionAuditClean": false,
+    "productionAuditFindings": 5
+  },
+  "nextGate": {
+    "fundingAuthorized": false,
+    "delegationAuthorized": false,
+    "usdcTestAuthorized": false,
+    "requiredNextGoal": "10M_POST_BIRTH_PERMISSION_AUDIT"
+  },
+  "verdict": "BIRTH_PASS_STOP_BEFORE_PERMISSION_OR_FUNDING_ACTION"
+}

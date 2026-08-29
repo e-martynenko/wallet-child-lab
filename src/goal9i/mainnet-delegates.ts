@@ -5,7 +5,7 @@ import {
   mplAgentTools,
   tools as mplAgentToolsTypes,
 } from '@metaplex-foundation/mpl-agent-registry';
-import { fetchAsset, mplCore } from '@metaplex-foundation/mpl-core';
+import { fetchAssetV1, mplCore } from '@metaplex-foundation/mpl-core';
 import { publicKey } from '@metaplex-foundation/umi';
 import { createUmi } from '@metaplex-foundation/umi-bundle-defaults';
 
@@ -156,7 +156,7 @@ export async function auditMainnetDelegates(
   assertSameAccountSet(fullScanMatches, filtered.executionDelegateRecords);
   assertNoMainnetDelegates(fullScanMatches.length);
 
-  const asset = await fetchAsset(umi, assetAddress, {
+  const asset = await fetchAssetV1(umi, assetAddress, {
     commitment: 'finalized',
     minContextSlot: finalizedSlotFloor,
   });

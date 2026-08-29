@@ -1,6 +1,6 @@
 # Goal 10L review — locked Mainnet birth executor
 
-Status: **PASS — implementation ready; literal confirmation still pending**
+Status: **PASS — Mainnet birth finalized and independently audited**
 
 ## Built
 
@@ -17,18 +17,20 @@ Status: **PASS — implementation ready; literal confirmation still pending**
   metadata, PDA, and balance read-back;
 - a public receipt written with `flag: wx` only after all read-back checks pass.
 
-## Fail-closed boundary
+## Finalized result
 
-The received confirmation rendered its URI as Markdown rather than the literal
-URI in the reviewed phrase. The gate rejects that string. Consequently:
+- signature:
+  `4fxnWscaLjEuZnvP4XE84NMVF88wiGfgTqCmz1uHMqpaiTLjVxWFARnBaYB8qBMxpfdFgW3XyXSMMjW6YcLjgAc3`;
+- finalized slot: `442,657,964`;
+- exact fee: `10,000` lamports;
+- exact rents: `4,374,480` + `1,614,720` lamports;
+- exact owner debit: `5,999,200` lamports;
+- owner after: `13,977,592` lamports;
+- signed simulation: `44,039` compute units;
+- finalized identity, metadata, owner, permission, and balance read-back: PASS.
 
-- no key file was read;
-- no message was signed;
-- no Mainnet transaction was submitted;
-- no receipt was created.
-
-The correction is to resend the exact Goal 10K phrase as plain text or inside a
-code block. No cap or transaction field may change.
+The finalized receipt is
+[`wallet-child-001.goal10l.mainnet-birth-receipt.json`](../../artifacts/wallet-child-001.goal10l.mainnet-birth-receipt.json).
 
 ## Security review
 
@@ -46,5 +48,5 @@ code block. No cap or transaction field may change.
    (two high, two moderate, one low). Goal 10L adds no dependency and does not
    invoke Irys SDK upload code.
 
-Goal 10L currently authorizes no Mainnet write because its literal gate has not
-been satisfied.
+The independent finalized delegate scan found zero active delegates for this
+asset. Goal 10L authorizes no funding, delegation, ATA, or USDC follow-up.

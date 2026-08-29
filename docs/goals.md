@@ -799,7 +799,7 @@ Artifact:
 
 ## Goal 10L — locked Mainnet birth executor
 
-Status: **implementation pass — literal action-time confirmation pending**
+Status: **pass — Mainnet birth finalized; follow-up actions stopped**
 
 Expected result:
 
@@ -811,10 +811,33 @@ Expected result:
   resulting balance;
 - stop before funding, delegation, ATA creation, or USDC movement.
 
-The received Markdown-formatted URI does not equal the literal reviewed phrase,
-so no key, signature, transaction, or receipt exists yet.
+The exact atomic birth finalized at slot `442,657,964` with signature
+`4fxnWscaLjEuZnvP4XE84NMVF88wiGfgTqCmz1uHMqpaiTLjVxWFARnBaYB8qBMxpfdFgW3XyXSMMjW6YcLjgAc3`.
+The owner debit was exactly `5,999,200` lamports and the resulting balance is
+`13,977,592` lamports. No collection, funding, delegation, ATA, or USDC action
+was included.
 
 Review: [`reviews/goal-10l.md`](reviews/goal-10l.md)
+
+Artifact:
+[`wallet-child-001.goal10l.mainnet-birth-receipt.json`](../artifacts/wallet-child-001.goal10l.mainnet-birth-receipt.json)
+
+## Goal 10M — post-birth permission audit
+
+Status: **pass — zero active execution delegates**
+
+Expected result:
+
+- independently read the finalized Core Asset owner and Agent Identity linkage;
+- scan all documented Agent Tools account layouts and compare a filtered query;
+- require exactly zero active execution delegates for Wallet Child #001;
+- verify no funding, ATA, or USDC action occurred;
+- keep bounded spending/revoke/recovery code inactive pending a separate review.
+
+Review: [`reviews/goal-10m.md`](reviews/goal-10m.md)
+
+Artifact:
+[`wallet-child-001.goal10m.post-birth-permission-audit.json`](../artifacts/wallet-child-001.goal10m.post-birth-permission-audit.json)
 
 ## Self-review format
 

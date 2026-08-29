@@ -192,9 +192,10 @@ lamport total owner debit. The result stops before both isolated keys and
 requires a new exact action-time phrase.
 Goal 10L implements the locked execution path: it repeats every public gate
 before key loading, signature-verifies the exact bytes, submits those same bytes
-once, and requires finalized identity and balance read-back. Execution remains
-stopped because the received Markdown-formatted URI did not equal the literal
-reviewed phrase; no key, signature, or Mainnet write occurred.
+once, and requires finalized identity and balance read-back. The atomic birth
+finalized at slot `442,657,964` with exact `5,999,200` lamport debit. Goal 10M
+then independently scanned the finalized Agent Tools state and found zero active
+execution delegates. Funding, ATA creation, delegation, and USDC remain stopped.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10M",
+  "network": "mainnet-beta",
+  "recordedAt": "2026-08-29T17:01:36Z",
+  "status": "POST_BIRTH_PERMISSION_AUDIT_PASSED",
+  "birthReceipt": {
+    "signature": "4fxnWscaLjEuZnvP4XE84NMVF88wiGfgTqCmz1uHMqpaiTLjVxWFARnBaYB8qBMxpfdFgW3XyXSMMjW6YcLjgAc3",
+    "slot": "442657964",
+    "confirmationStatus": "finalized"
+  },
+  "identity": {
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "coreAsset": "HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty",
+    "agentIdentity": "EDT4DguQoQgUcEWP7h9z7F4Z5N75oinW6r9PhhuReXf8",
+    "assetSigner": "5Snge43iBczUT16b4ndffdgB4xxR2Bev9vxvLRe5YWyu",
+    "metadataUri": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "ownerReadbackPassed": true,
+    "identityLinkageReadbackPassed": true,
+    "assetSignerBalanceLamports": "0"
+  },
+  "delegateAudit": {
+    "finalizedSlotFloor": 442658164,
+    "agentToolsAccountsScanned": 363,
+    "executiveProfilesScanned": 98,
+    "executionDelegateRecordsScanned": 265,
+    "matchingActiveDelegates": 0,
+    "closedWorldLayoutCheckPassed": true,
+    "fullAndFilteredScansMatched": true,
+    "verdict": "NO_ACTIVE_EXECUTION_DELEGATES_AT_FINALIZED_MAINNET_AUDIT"
+  },
+  "permissions": {
+    "collection": null,
+    "activeExecutionDelegate": null,
+    "executiveRegistrationCreated": false,
+    "fundingPermissionActivated": false,
+    "usdcAtaCreated": false,
+    "usdcMoved": false,
+    "spendingPolicyStatus": "CODE_GATED_NOT_ACTIVATED",
+    "maximumExperimentExposureUsd": "10",
+    "maximumSolExposureLamports": "20000000",
+    "maximumUsdcBaseUnits": "1000000"
+  },
+  "recovery": {
+    "recoveryOwner": "ABZePapHbYaTg7GU4LGQNcYmfURvue5uVrrf4FUa4x3j",
+    "ownerOnlyRescueBuilderImplemented": true,
+    "recoveryAtaSetupImplemented": true,
+    "revokeAndRescueExecuted": false,
+    "status": "IMPLEMENTED_NOT_ACTIVATED"
+  },
+  "checks": {
+    "dedicatedMainnetRpc": true,
+    "finalizedCoreAssetFetch": true,
+    "finalizedAgentIdentityFetch": true,
+    "finalizedDelegateAudit": true,
+    "keyLoadedDuringAudit": false,
+    "transactionBuiltDuringAudit": false,
+    "transactionSubmittedDuringAudit": false
+  },
+  "remainingBoundary": {
+    "fundingAuthorized": false,
+    "delegationAuthorized": false,
+    "ataCreationAuthorized": false,
+    "usdcTestAuthorized": false,
+    "nextRequiredAction": "DESIGN_AND_REVIEW_POST_BIRTH_PERMISSION_ACTIVATION"
+  },
+  "verdict": "IDENTITY_PASS_ZERO_ACTIVE_DELEGATES_STOP_BEFORE_PERMISSION_OR_FUNDING_ACTION"
+}

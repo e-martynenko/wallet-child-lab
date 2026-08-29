@@ -31,6 +31,7 @@
     "metadata:verify-irys": "tsx src/cli/verify-irys-transaction.ts",
     "identity:preflight:mainnet": "tsx src/cli/preflight-mainnet-birth.ts",
     "identity:review-write:mainnet": "tsx src/cli/review-mainnet-birth-write.ts",
+    "identity:birth:mainnet": "tsx src/cli/birth-mainnet.ts",
     "messages:quote:mainnet": "tsx src/cli/quote-internal-mainnet.ts",
     "policy:check": "tsx src/cli/check-policy.ts",
     "prepare:mainnet-recovery": "tsx src/cli/prepare-mainnet-recovery.ts",

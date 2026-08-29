@@ -797,6 +797,25 @@ Review: [`reviews/goal-10k.md`](reviews/goal-10k.md)
 Artifact:
 [`wallet-child-001.goal10k.mainnet-birth-write-review.json`](../artifacts/wallet-child-001.goal10k.mainnet-birth-write-review.json)
 
+## Goal 10L — locked Mainnet birth executor
+
+Status: **implementation pass — literal action-time confirmation pending**
+
+Expected result:
+
+- repeat Goals 10I–10K and a fresh exact fee quote before key loading;
+- load only the isolated owner and Core Asset keys after every public gate;
+- sign and simulate the exact birth bytes with signature verification;
+- submit those same bytes once and wait for finalized read-back;
+- verify owner, metadata, identity linkage, absent delegates, rents, fee, and
+  resulting balance;
+- stop before funding, delegation, ATA creation, or USDC movement.
+
+The received Markdown-formatted URI does not equal the literal reviewed phrase,
+so no key, signature, transaction, or receipt exists yet.
+
+Review: [`reviews/goal-10l.md`](reviews/goal-10l.md)
+
 ## Self-review format
 
 Every goal ends with:

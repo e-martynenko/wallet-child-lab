@@ -190,6 +190,11 @@ registration. A zero-signature Mainnet simulation passed at slot `442,646,200`
 with exact `5,989,200` lamport rent, `10,000` lamport fee, and `5,999,200`
 lamport total owner debit. The result stops before both isolated keys and
 requires a new exact action-time phrase.
+Goal 10L implements the locked execution path: it repeats every public gate
+before key loading, signature-verifies the exact bytes, submits those same bytes
+once, and requires finalized identity and balance read-back. Execution remains
+stopped because the received Markdown-formatted URI did not equal the literal
+reviewed phrase; no key, signature, or Mainnet write occurred.
 
 See [the goal gates](docs/goals.md), [mental model](docs/mental-model.md), and
 [security model](docs/security-model.md) before changing the project.

@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10O",
+  "network": "mainnet-beta",
+  "recordedAt": "2026-08-30T06:08:36.966Z",
+  "status": "KEYLESS_MAINNET_ACTIVATION_WRITE_REVIEW_PASSED",
+  "rpcOrigin": "https://mainnet.helius-rpc.com",
+  "context": {
+    "preflightSlot": 442807190,
+    "blockhashContextSlot": 442807193,
+    "simulationSlot": 442807193,
+    "lastValidBlockHeight": 420855138
+  },
+  "activation": {
+    "atomicTransactionCount": 1,
+    "transactionByteLength": 697,
+    "instructionCount": 4,
+    "requiredSigners": [
+      "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+      "EJQcuD9FtJ33c2wA7GM6HzvmJJJbPsYnmH5ZjTDdhbjF"
+    ],
+    "assetSignerUsdcAta": "hCmisMZFRL7SWKvgdtFWXMTDW3PY858Kmvg6dQ8GQMU",
+    "recoveryUsdcAta": "8dbJMqCGAMTuJZ5ZZZeQMT43WqkkrwmBiyEJRH8szAd",
+    "executiveProfile": "3Uy4XhPJLAdFRyFLAfJM7ruNc3Td5Ld1258Gx5z2WYXo",
+    "executionDelegateRecord": "Fr2yQyG7gEQYjL6Sr8sYXrS2n21bfjod5rKQDdo7bgcm",
+    "messageSha256": "5fd600264769dd7b5ca9333ef65ef9f8c277172420191b42c54ea895f52e082c"
+  },
+  "caps": {
+    "feeLamports": "10000",
+    "totalRentLamports": "6862560",
+    "totalDebitLamports": "6872560",
+    "ownerAfterLamports": "7105032",
+    "computeUnitsConsumed": 58027
+  },
+  "checks": {
+    "createdAccountsEmpty": true,
+    "broadExecutionDelegateCreated": true,
+    "fundingIncluded": false,
+    "usdcTransferIncluded": false,
+    "externalActionIncluded": false,
+    "keyLoaded": false,
+    "messageSigned": false,
+    "simulationPassed": true,
+    "transactionSubmitted": false
+  },
+  "risk": {
+    "executionDelegateIsBroad": true,
+    "onchainAmountDestinationAndProgramCaps": false,
+    "offchainFixedBuilderAndIsolatedExecutiveRequired": true,
+    "ownerCanRevokeWithoutExecutive": true
+  },
+  "actionTimeConfirmation": {
+    "received": false,
+    "requiredExactPhrase": "CONFIRM MAINNET ACTIVATE WALLET CHILD #001 IN ONE ATOMIC TRANSACTION FROM OWNER 6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385 WITH EXECUTIVE EJQcuD9FtJ33c2wA7GM6HzvmJJJbPsYnmH5ZjTDdhbjF CREATING ASSET SIGNER USDC ATA hCmisMZFRL7SWKvgdtFWXMTDW3PY858Kmvg6dQ8GQMU RECOVERY USDC ATA 8dbJMqCGAMTuJZ5ZZZeQMT43WqkkrwmBiyEJRH8szAd EXECUTIVE PROFILE 3Uy4XhPJLAdFRyFLAfJM7ruNc3Td5Ld1258Gx5z2WYXo AND BROAD METAPLEX EXECUTION DELEGATE RECORD Fr2yQyG7gEQYjL6Sr8sYXrS2n21bfjod5rKQDdo7bgcm TOTAL RENT 6862560 LAMPORTS TOTAL DEBIT CAP 6872560 LAMPORTS FEE CAP 10000 LAMPORTS NO FUNDING NO USDC TRANSFER NO EXTERNAL ACTION"
+  },
+  "verdict": "STOP_READY_FOR_EXACT_UNFUNDED_ACTIVATION_CONFIRMATION"
+}

@@ -2,7 +2,7 @@
 
 Review date: **2026-08-30**
 
-Verdict: **NO-GO for the `0.1 USDC` action; identity is live, activation is not**
+Verdict: **NO-GO for the `0.1 USDC` action; unfunded activation awaits approval**
 
 This checklist is evidence for a future decision. It is not permission to
 submit another Mainnet transaction. The exact project phrase
@@ -86,6 +86,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Locked Mainnet birth executor | PASS, finalized STOP | Goal 10L repeated all public gates, loaded only the two isolated signers, signature-verified and submitted the same `566` bytes once, then finalized at slot `442,657,964`. Exact debit was `5,999,200` lamports; no funding, delegation, ATA, or USDC action occurred |
 | Post-birth permission audit | PASS, zero delegates | Goal 10M independently verified the finalized identity and owner, scanned `363` Agent Tools accounts through full and filtered queries, and found `0` active execution delegates for Wallet Child #001. Spending/revoke/recovery paths remain code-gated and inactive |
 | Post-birth activation preflight | PASS, write STOP | Goal 10N rechecks the live identity, zero delegates, absent ATAs/Profile/Record, exact rents, exact external/internal fees, and `0.02 SOL` boundary at finalized slot `442,804,933`; no key or write occurred |
+| Atomic activation write review | PASS, confirmation STOP | Goal 10O keylessly simulates one `697`-byte four-instruction ATA/Profile/broad-delegate transaction at slot `442,807,193`: `6,862,560` rent, `10,000` fee, `6,872,560` debit, empty ATAs, and no funding/USDC/external action |
 | Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and supports the finalized live-asset audits; an independent-provider cross-check remains preferable |
 
 Public key evidence:
@@ -102,7 +103,7 @@ artifacts, or normal runtime configuration.
 | USDC-shaped Devnet test | PASS | TEST mint/ATAs, fixed supply, bounded transfer, denial, revoke, rescue, accounting, and idempotency all finalized |
 | Exact allowed programs/accounts | PARTIAL | Goals 9E–9G and 9P/9R freeze the final programs, accounts, bytes, and metas; Goal 10N confirms their live prerequisites, while the new permission writes and funded-state messages still need same-bytes review |
 | Hard limits enforced in code | PASS for pre-funding boundary | Goal 10N closes the exact remaining rent/fee slice and conservative owner balance inside the existing `0.02 SOL` limit. It does not authorize the still-external `1 USDC` |
-| Exact Mainnet transaction simulation | PARTIAL | Goal 10L completed signed same-bytes simulation for birth. ATA/permission writes and the funded `0.1 USDC` action/revoke/rescue still require their own fresh signed same-bytes simulations |
+| Exact Mainnet transaction simulation | PARTIAL | Goal 10L completed signed same-bytes simulation for birth; Goal 10O passes a keyless exact activation simulation. Activation still needs signed same-bytes execution, while the funded action/revoke/rescue remain later blockers |
 | Metadata finalized and durable | PASS at Irys assurance boundary | Goal 9C freezes bytes, Goal 10H records one signed upload, and Goal 10I requires the exact bytes, fixed provenance, verified receipt, canonical URI, and live `CONFIRMED` status. Independent Arweave finalization is not observed and is explicitly supplemental rather than misreported |
 | Reliable delegate enumeration | PASS at current documented-layout boundary | Goals 10M/10N scan the live asset through full and independently filtered queries and find zero records; a single RPC and future unknown account layouts remain explicit limits |
 | Emergency rescue implementation | PARTIAL | Goals 9F/9P provide final-address owner-only capped USDC/SOL builders and Goal 9G provides recovery ATA setup; exact-message simulations remain absent |
@@ -190,6 +191,6 @@ simulation, or send function.
 10N closes the current read-only activation baseline. Exactly three Solana
 Mainnet transactions and one Irys data upload have occurred: owner bootstrap,
 Irys funding, atomic identity birth, and the metadata item. None authorizes
-another write. The next boundary is a separate exact ATA/Profile/delegate write
-review; USDC funding and the `0.1 USDC` action remain later, separately approved
-steps with funded-state same-bytes simulations.
+another write. Goal 10O is ready only for its exact unfunded atomic-activation
+confirmation; USDC funding and the `0.1 USDC` action remain later, separately
+approved steps with funded-state same-bytes simulations.

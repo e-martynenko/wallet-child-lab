@@ -197,9 +197,10 @@ inside the fixed boundary, and no top-up is allowed. Goal 10L has since spent
 only from the already-acquired owner balance to create the permanent identity.
 Goal 10N confirms a positive `7,075,032` lamport conservative owner balance
 after all remaining known activation rents and internal fees. Official USDC
-remains outside Wallet Child. Separate ATA/permission write review, finalized
-read-back, funding approval, and funded-state same-bytes simulations remain
-blockers. See `docs/mainnet-checklist.md`.
+remains outside Wallet Child. Goal 10O now closes the keyless atomic
+ATA/Profile/delegate write review, but exact approval, signed same-bytes
+simulation, finalized read-back, funding approval, and funded-state action
+simulations remain blockers. See `docs/mainnet-checklist.md`.
 
 ## Delegation threat model
 
@@ -403,10 +404,17 @@ Delegate Record are absent; the `1 USDC` treasury remains outside Wallet Child.
 The exact builders, fee ceilings, revoke, and owner-only rescue paths exist in
 code, but none is active onchain.
 
-This is sufficient to continue to a separate permission-write review, not to
-fund or execute. The broad onchain delegation model still relies on the
+This is sufficient only for a separately confirmed unfunded permission write,
+not to fund or execute. The broad onchain delegation model still relies on the
 isolated Executive signer and the offchain fixed builder for amount,
 destination, and program enforcement. A single RPC can omit data, unknown
 future Agent Tools layouts are outside the closed-world scan, and the five Irys
 dependency findings remain. Any state drift, partial account setup, new
 delegate, fee/rent change, or balance change returns the experiment to STOP.
+
+Goal 10O additionally proves that the two empty USDC ATAs, Executive Profile,
+and broad Execution Delegate Record fit one atomic `697`-byte transaction. Its
+keyless simulation reconciles exactly `6,862,560` lamports of rent, a `10,000`
+lamport fee, and zero token movement. This is review evidence only: no account
+or permission was created, and the broad delegation must be named explicitly
+in any action-time approval.

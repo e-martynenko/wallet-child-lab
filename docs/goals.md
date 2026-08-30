@@ -862,6 +862,31 @@ Review: [`reviews/goal-10n.md`](reviews/goal-10n.md)
 Artifact:
 [`wallet-child-001.goal10n.post-birth-activation-review.json`](../artifacts/wallet-child-001.goal10n.post-birth-activation-review.json)
 
+## Goal 10O — keyless Mainnet activation write review
+
+Status: **pass — exact unfunded activation reviewed; confirmation pending**
+
+Expected result:
+
+- combine only the two canonical USDC ATA creates, Executive Profile
+  registration, and broad Metaplex execution delegation into one atomic
+  transaction;
+- require only the isolated owner and isolated Executive signatures;
+- freeze the exact compiled accounts, programs, instruction data, size, fee,
+  rent, owner debit, and empty created-account state;
+- keylessly simulate the exact zero-signature transaction at a fresh finalized
+  Goal 10N baseline;
+- explicitly record that the onchain delegation has no amount, destination, or
+  program cap;
+- include no funding, USDC transfer, or external action;
+- load no key, sign and submit nothing, publish one exact action-time phrase,
+  and STOP.
+
+Review: [`reviews/goal-10o.md`](reviews/goal-10o.md)
+
+Artifact:
+[`wallet-child-001.goal10o.mainnet-activation-write-review.json`](../artifacts/wallet-child-001.goal10o.mainnet-activation-write-review.json)
+
 ## Self-review format
 
 Every goal ends with:

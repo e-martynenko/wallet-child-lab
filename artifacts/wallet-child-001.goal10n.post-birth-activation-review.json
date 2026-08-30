@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "experiment": "wallet-child-001",
+  "goal": "10N",
+  "network": "mainnet-beta",
+  "recordedAt": "2026-08-30T05:56:38.255Z",
+  "status": "POST_BIRTH_ACTIVATION_REVIEW_PASSED",
+  "rpcOrigin": "https://mainnet.helius-rpc.com",
+  "finalizedSlotFloor": 442804933,
+  "identity": {
+    "finalizedSlot": 442804934,
+    "coreAsset": "HPaGuhYf2qu8UQ7ofJsfjiEzhnoqVmTN9WrGWmuC1Uty",
+    "agentIdentity": "EDT4DguQoQgUcEWP7h9z7F4Z5N75oinW6r9PhhuReXf8",
+    "owner": "6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385",
+    "assetSigner": "5Snge43iBczUT16b4ndffdgB4xxR2Bev9vxvLRe5YWyu",
+    "metadataUri": "https://gateway.irys.xyz/2vfo7cjnaATRyjeBF2511Mqe2P2GkKHsVGDwAEn6c5PL",
+    "noDangerousCoreDelegate": true
+  },
+  "accounts": {
+    "ownerLamports": "13977592",
+    "fundingSourceSolSufficient": true,
+    "fundingSourceUsdcSufficient": true,
+    "childAccountsAbsent": true,
+    "activeExecutionDelegates": 0
+  },
+  "funding": {
+    "exactUsdcBaseUnits": "1000000",
+    "externalFeeLamports": "5000",
+    "actualAcquisitionAllocationLamports": "19995001",
+    "unallocatedAcquisitionLamports": "4999",
+    "totalExperimentSolBoundaryLamports": "20000000",
+    "boundaryStillClosed": true
+  },
+  "activation": {
+    "executiveProfileRentLamports": "1169280",
+    "executionDelegateRentLamports": "1614720",
+    "tokenAccountRentLamports": "2039280",
+    "tokenAccountCount": 2,
+    "totalRentLamports": "6862560",
+    "totalInternalFeesLamports": "40000",
+    "conservativeOwnerDebitLamports": "6902560",
+    "conservativeOwnerAfterLamports": "7075032"
+  },
+  "checks": {
+    "identityAndOwnerReadbackPassed": true,
+    "zeroActiveDelegates": true,
+    "sourceCanFundExactOneUsdc": true,
+    "childAtasAbsent": true,
+    "executiveProfileAbsent": true,
+    "executionDelegateRecordAbsent": true,
+    "freshExactFeesQuoted": true,
+    "keyLoaded": false,
+    "transactionSigned": false,
+    "simulationAttempted": false,
+    "transactionSubmitted": false
+  },
+  "nextRequiredAction": "SEPARATE_ATA_AND_PERMISSION_WRITE_REVIEW",
+  "verdict": "PASS_STOP_BEFORE_ATA_PERMISSION_OR_FUNDING_WRITE"
+}

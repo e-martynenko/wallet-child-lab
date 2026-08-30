@@ -1,8 +1,8 @@
 # Wallet Child #001 — Mainnet readiness checklist
 
-Review date: **2026-08-27**
+Review date: **2026-08-30**
 
-Verdict: **NO-GO for the `0.1 USDC` action; Irys settlement pending**
+Verdict: **NO-GO for the `0.1 USDC` action; identity is live, activation is not**
 
 This checklist is evidence for a future decision. It is not permission to
 submit another Mainnet transaction. The exact project phrase
@@ -42,7 +42,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Complete Devnet identity lifecycle | PASS | Goals 3–5 artifacts and reviews |
 | Bounded Devnet execution and accounting | PASS | Goal 7 finalized transfer and reconciliation |
 | Known delegation revoked | PASS | Live Goal 8 read-back: `REVOKED` |
-| Fresh isolated Mainnet owner | PASS, bootstrapped | `6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385`, finalized balance `19,976,792` lamports after Goal 10F at slot `441,857,234` |
+| Fresh isolated Mainnet owner | PASS, identity owner | `6M5uveNxXKNc7t1a36BpRr1ZuLRWgsUsXCS5U2NTR385`, finalized balance `13,977,592` lamports after Goal 10L |
 | Fresh isolated Mainnet executive | PASS | `EJQcuD9FtJ33c2wA7GM6HzvmJJJbPsYnmH5ZjTDdhbjF`, finalized balance `0` lamports |
 | Owner/executive/Devnet separation | PASS | generated independently; mode-`0600` key files; tested inequality |
 | No main-wallet runtime involvement | PASS so far | Goal 9L fixes the operator-designated experimental wallet as an external source; the lab never loads its key, while upstream on-chain linkage cannot be disproved |
@@ -50,7 +50,7 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Authoritative Solana USDC mint | PASS, read-only | Circle address and live initialized 6-decimal SPL mint agree |
 | Agent Tools deployed | PASS, read-only | expected program is executable on Mainnet |
 | Maximum possible funded loss | PASS | three simultaneous caps above |
-| Live Mainnet execution path | PARTIAL, bootstrap and metadata funding only | Goal 10C records the finalized external Jupiter bootstrap and Goal 10F records one exact owner-to-Irys funding write. No Wallet Child treasury/delegate action is live |
+| Live Mainnet execution path | PARTIAL, identity born | Goals 10C/10F record the bootstrap and Irys funding; Goal 10L records the atomic Core Asset + Agent Identity birth. No Wallet Child treasury/delegate action is live |
 | USDC-shaped Devnet lifecycle | PASS | Goal 9A exact TEST-token transfer, revoke, denial, owner rescue, and finalized reconciliation |
 | Goal 9A rerun safety | PASS | completed rerun submitted zero transactions after live-state validation |
 | Complete Devnet delegate discovery | PASS | Goal 9B full Agent Tools scan, closed-world layout check, all-record PDA/profile validation, and independent filter comparison found zero for the asset |
@@ -61,16 +61,16 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Offline owner-only rescue contract | PASS | Goals 9F/9P fix final-address capped USDC and SOL evacuation shapes to recovery with no delegate dependency; live-balance compilation and simulations remain unavailable |
 | Offline USDC ATA setup contract | PASS | Goals 9G/9P fix two regular Creates for the final canonical official-USDC ATAs, safe read-back, partial-state STOP, and ≤`5,000,000` lamport setup spend; simulation remains unavailable |
 | Aggregate lifecycle budget contract | PASS | Goal 9H sums metadata/rent/setup/reserve/action/revoke/emergency SOL under `0.02 SOL`, fixes `1 USDC`, and enforces ≤`$10` combined acquisition; final values unavailable |
-| Mainnet delegate-audit implementation | PASS | Goal 9I requires dedicated HTTPS RPC, verifies Mainnet genesis/owner, repeats full closed-world scan plus independent filter, and hard-fails funding on any record; the final address is frozen but its account is absent |
+| Mainnet delegate-audit implementation | PASS, live | Goals 10M/10N repeat the dedicated-RPC closed-world full and filtered scans for the live final asset and find `0` active execution delegates |
 | Durable metadata verifier | PASS | Goal 9J requires exact frozen bytes from two independent HTTPS origins and the reviewed digest; upload, durable URI, and on-chain binding remain unavailable |
 | Irys storage quote | PASS, read-only | Goal 9K fixes the tagged `351`-byte Mainnet quote request; live result on 2026-08-25 was `3,208` lamports; no key, funding, upload, or transaction path exists |
-| Isolated funding route | PARTIAL, SOL bootstrap complete | Goal 10C finalizes `19,985,000` lamports to the owner with a `5,001` lamport fee. Source read-back is `68,708,605` lamports plus unchanged `1.078695 USDC`; USDC stays blocked until the final Asset Signer audit |
+| Isolated funding route | PARTIAL, USDC still external | Goal 10C finalizes the bounded SOL bootstrap. Goal 10N verifies the source can cover the fixed `1 USDC` message and `5,000` lamport fee; funding remains unauthorized until permission setup is finalized |
 | Exact unsigned bootstrap fee | PASS, expired quote | Goal 9M fixes `19,990,000` lamports source-to-owner, quotes an exact-message `5,000` lamport fee at slot `441,634,604`, reserves another `5,000` for future USDC funding, and keeps their sum at `0.02 SOL`; no key, signing, simulation, or submission |
-| Final standalone identity addresses | PASS, absent | Goal 9N fixes Core Asset `HPaGuh…1Uty`, Agent Identity `EDT4…eXf8`, Asset Signer `5Snge…YWyu`, and both canonical USDC ATAs; all five were absent at finalized slot `441,642,028` |
-| Exact unsigned USDC funding fee | PASS, expired quote | Goal 9O fixes direct `1.000000 USDC` source-ATA-to-Asset-Signer-ATA `TransferChecked` and quotes the exact reserved `5,000` lamport fee at slot `441,643,866`; no key, signing, simulation, or submission |
+| Final standalone identity addresses | PASS, live identity | Goal 10L creates Core Asset `HPaGuh…1Uty` and Agent Identity `EDT4…eXf8`; Goal 10N verifies their linkage while Asset Signer `5Snge…YWyu` and both canonical USDC ATAs remain unfunded/absent |
+| Exact unsigned USDC funding fee | PASS, freshly quoted | Goal 9O fixes direct `1.000000 USDC` source-ATA-to-Asset-Signer-ATA `TransferChecked`; Goal 10N refreshes the exact `5,000` lamport fee with no source key, signature, simulation, or submission |
 | Final standalone policy contract | PASS, offline | Goal 9P derives final Profile/Delegate PDAs and compiles final ATA setup, delegated action, and both owner rescues with `collection: null`; Profile and Record were absent at slot `441,645,228` |
-| Fixed rents and phase order | PARTIAL, exact known slice | Goal 9Q quotes `8,477,280` lamports for Identity, Profile, Delegate Record, and two USDC ATAs at finalized slot `441,646,119`; Core/plugin rent and remaining fees stay explicit blockers |
-| URI-independent internal messages | PASS, expired quotes | Goal 9R compiles final ATA/Profile/delegate/action/revoke/USDC-rescue messages and quotes exactly `40,000` lamports total at fee slot `441,647,590`; URI-dependent Asset/Identity and live-balance SOL rescue remain blocked |
+| Fixed rents and phase order | PASS for remaining activation slice | Goal 10N quotes exactly `6,862,560` lamports for Profile, Delegate Record, and two USDC ATAs after birth, with a conservative owner balance of `7,075,032` after all remaining internal fees |
+| URI-independent internal messages | PASS, freshly quoted | Goal 9R compiles final ATA/Profile/delegate/action/revoke/USDC-rescue messages; Goal 10N refreshes their exact `40,000` lamport total. Funded-state simulations remain blocked by design |
 | Final pre-approval audit | PASS, STOP | Goal 9S confirms the source balances are stable and all ten final Wallet Child accounts remain absent at finalized slot `441,648,274`; Irys remains unintegrated and every approval/write/spend flag is false |
 | Project gate and bootstrap preview | PASS, superseded | Goal 10A records the exact project phrase, repeats the stable preflight at slot `441,794,729`, and simulates the exact first `19,990,000` lamport transfer plus `5,000` lamport fee at monotonic finalized slot `441,796,096`; its later action-time phrase was invalidated by the live Goal 10B fee mismatch, with no signature or submission |
 | Jupiter live-fee stop and rework | PASS, superseded | Goal 10B stopped the mismatched first preview and capped the reworked transfer; its new exact phrase was later received and executed by Goal 10C |
@@ -85,7 +85,8 @@ no real USDC, funded no Mainnet wallet, and submitted no Mainnet transaction.
 | Mainnet birth write review | PASS, confirmation STOP | Goal 10K builds one atomic `566`-byte Core Asset + Agent Identity transaction with the exact owner/asset/identity/URI and two zero signatures. Mainnet simulation passes with `5,989,200` rent, `10,000` fee, and `5,999,200` total debit; no key, signature, or submission occurred |
 | Locked Mainnet birth executor | PASS, finalized STOP | Goal 10L repeated all public gates, loaded only the two isolated signers, signature-verified and submitted the same `566` bytes once, then finalized at slot `442,657,964`. Exact debit was `5,999,200` lamports; no funding, delegation, ATA, or USDC action occurred |
 | Post-birth permission audit | PASS, zero delegates | Goal 10M independently verified the finalized identity and owner, scanned `363` Agent Tools accounts through full and filtered queries, and found `0` active execution delegates for Wallet Child #001. Spending/revoke/recovery paths remain code-gated and inactive |
-| Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and returned Mainnet genesis plus health `ok`; final-asset audit remains unavailable |
+| Post-birth activation preflight | PASS, write STOP | Goal 10N rechecks the live identity, zero delegates, absent ATAs/Profile/Record, exact rents, exact external/internal fees, and `0.02 SOL` boundary at finalized slot `442,804,933`; no key or write occurred |
+| Dedicated Mainnet RPC | PASS, read-only | private Helius HTTPS endpoint is stored mode-`0600`, gitignored, and supports the finalized live-asset audits; an independent-provider cross-check remains preferable |
 
 Public key evidence:
 [`artifacts/wallet-child-001.goal9.mainnet-readiness.json`](../artifacts/wallet-child-001.goal9.mainnet-readiness.json).
@@ -99,15 +100,15 @@ artifacts, or normal runtime configuration.
 |---|---|---|
 | USDC-specific fixed intent and builder | PARTIAL | Goal 9E fixes official USDC and exactly `0.1 USDC` to isolated recovery; Goals 9P/9R compile and quote its final-address standalone message, but same-bytes funded-state simulation does not exist |
 | USDC-shaped Devnet test | PASS | TEST mint/ATAs, fixed supply, bounded transfer, denial, revoke, rescue, accounting, and idempotency all finalized |
-| Exact allowed programs/accounts | PARTIAL | Goals 9E–9G assert exact Core/Token/System/ATA programs, bytes, and metas; Goals 9N/9P/9R freeze all final addresses and six static exact messages, while URI-dependent and live-balance messages remain unavailable |
-| Hard limits enforced in code | PARTIAL | Goals 9E–9R enforce action, treasury, setup, rescue, total-SOL, total-USD, storage quote, exact external/internal funding fees, and the fixed-rent slice; Goal 10C reconciles the bootstrap boundary and Goal 10F enforces and reconciles the exact `8,208` lamport metadata-funding outflow, while Core/plugin rent and later simulations remain |
-| Exact Mainnet transaction simulation | PARTIAL | Goal 10K keylessly simulates the exact two-instruction birth message with zero signatures; execution must still simulate the freshly signed bytes with signature verification and submit those identical bytes |
+| Exact allowed programs/accounts | PARTIAL | Goals 9E–9G and 9P/9R freeze the final programs, accounts, bytes, and metas; Goal 10N confirms their live prerequisites, while the new permission writes and funded-state messages still need same-bytes review |
+| Hard limits enforced in code | PASS for pre-funding boundary | Goal 10N closes the exact remaining rent/fee slice and conservative owner balance inside the existing `0.02 SOL` limit. It does not authorize the still-external `1 USDC` |
+| Exact Mainnet transaction simulation | PARTIAL | Goal 10L completed signed same-bytes simulation for birth. ATA/permission writes and the funded `0.1 USDC` action/revoke/rescue still require their own fresh signed same-bytes simulations |
 | Metadata finalized and durable | PASS at Irys assurance boundary | Goal 9C freezes bytes, Goal 10H records one signed upload, and Goal 10I requires the exact bytes, fixed provenance, verified receipt, canonical URI, and live `CONFIRMED` status. Independent Arweave finalization is not observed and is explicitly supplemental rather than misreported |
-| Reliable delegate enumeration | PARTIAL | Goal 9I implements the Mainnet-capable keyless path, Goal 9N fixes the final asset address, and the private Helius RPC is verified; the asset does not exist, so the required immediate post-create/pre-funding scan remains unavailable |
+| Reliable delegate enumeration | PASS at current documented-layout boundary | Goals 10M/10N scan the live asset through full and independently filtered queries and find zero records; a single RPC and future unknown account layouts remain explicit limits |
 | Emergency rescue implementation | PARTIAL | Goals 9F/9P provide final-address owner-only capped USDC/SOL builders and Goal 9G provides recovery ATA setup; exact-message simulations remain absent |
-| Funding route without main-wallet runtime | PARTIAL, bootstrap verified | Goal 10C proves the experimental source-to-owner SOL bootstrap without loading its key into the lab. Direct USDC funding, its fresh preflight/simulation/confirmation, and the public upstream-linkage caveat remain |
+| Funding route without main-wallet runtime | PARTIAL, exact funding still blocked | Goal 10N refreshes the fixed `1 USDC` message and `5,000` lamport fee without loading the source key. ATA/permission finalization and a separate user-approved external signing step remain mandatory |
 | Dedicated Mainnet RPC | PASS | private Helius HTTPS RPC is locally configured, secret-safe, healthy, and Mainnet genesis verified; rerun health immediately before the final asset audit |
-| Dependency advisory decision | BOUNDED, RECHECK | Goal 10E records the expanded five-finding Irys graph, Goals 10F–10G pin and repeat the exact path, and Goal 10H reruns the guard immediately before key load. No further signer-capable action is authorized |
+| Dependency advisory decision | BOUNDED, RECHECK | Goal 10N confirms the production audit remains at five transitive Irys findings (two high, two moderate, one low) and adds no dependency. No further signer-capable action is authorized |
 
 Because one BLOCKED item is sufficient for `NO-GO`, none may be downgraded to
 a warning.
@@ -185,12 +186,10 @@ simulation, or send function.
 
 ## Final decision
 
-**NO-GO for the bounded treasury action.** Goals 9A–10J close the safe local,
-quote-only, external-route, approval, bootstrap execution, and finalized
-read-back slice. Exactly two Solana Mainnet transactions and one Irys data
-upload have occurred: the reviewed owner bootstrap, exact Irys funding
-transfer, and exact metadata item. Goal 10I now passes at the documented signed
-Irys assurance boundary, while the absent independent Arweave copy stays
-explicit. None authorizes another write. Exact Asset/Identity messages, live audits and same-bytes simulations,
-Core/plugin rent, remaining live acquisition quotes, and per-action
-confirmations remain mandatory.
+**NO-GO for the bounded treasury action.** The identity is now live and Goal
+10N closes the current read-only activation baseline. Exactly three Solana
+Mainnet transactions and one Irys data upload have occurred: owner bootstrap,
+Irys funding, atomic identity birth, and the metadata item. None authorizes
+another write. The next boundary is a separate exact ATA/Profile/delegate write
+review; USDC funding and the `0.1 USDC` action remain later, separately approved
+steps with funded-state same-bytes simulations.

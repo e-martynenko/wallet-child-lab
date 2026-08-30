@@ -191,12 +191,15 @@ full lifecycle cannot fit the smaller of the unit caps and the dollar cap, the
 experiment stops rather than increasing the budget.
 
 The current treasury-action verdict is `NO-GO`. Goal 10C used `19,990,001`
-lamports for the finalized owner transfer plus fee; with the future `5,000`
-lamport direct-USDC funding fee reserve, `4,999` lamports remain unallocated
-inside the fixed boundary and no top-up is allowed. Official USDC remains
-outside Wallet Child. Durable metadata, exact Asset/Identity creation,
-remaining rent/fee reconciliation, immediate live delegate discovery, and
-same-signed-bytes simulations remain blockers. See `docs/mainnet-checklist.md`.
+lamports for the finalized owner transfer plus fee; reserving the future exact
+`5,000` lamport direct-USDC funding fee leaves `4,999` lamports unallocated
+inside the fixed boundary, and no top-up is allowed. Goal 10L has since spent
+only from the already-acquired owner balance to create the permanent identity.
+Goal 10N confirms a positive `7,075,032` lamport conservative owner balance
+after all remaining known activation rents and internal fees. Official USDC
+remains outside Wallet Child. Separate ATA/permission write review, finalized
+read-back, funding approval, and funded-state same-bytes simulations remain
+blockers. See `docs/mainnet-checklist.md`.
 
 ## Delegation threat model
 
@@ -373,47 +376,37 @@ This security model does not currently solve:
 
 ## Current dependency advisory
 
-`pnpm audit --prod` on 2026-08-24 reports one moderate advisory,
-[`GHSA-w5hq-g745-h8pq`](https://github.com/advisories/GHSA-w5hq-g745-h8pq),
-in transitive `uuid@8.3.2` through
-`umi-bundle-defaults -> @solana/web3.js -> jayson`. The affected behavior is
-caller-supplied output buffers in UUID v3/v5/v6. Wallet Child does not call
-those APIs.
+`pnpm audit --prod` on 2026-08-30 reports five transitive findings introduced
+through the pinned Irys upload graph: two high (`bigint-buffer`, `ws`), two
+moderate (`ws`, `uuid`), and one low (`elliptic`). Some have upstream patched
+versions while `bigint-buffer` and `elliptic` currently report no patched
+release. The lab does not force unsupported transitive overrides or claim a
+clean audit.
 
-There is no patched `uuid` release within Jayson's declared `^8.3.2` range.
-Forcing `uuid@11.1.1` would cross an unsupported major-version boundary, so the
-lab does not hide the finding with an override. This acceptance remains limited
-to this non-production Devnet lab and must be rechecked before each later goal.
+Goal 10N adds no dependency and does not invoke the Irys SDK, so it does not
+expand this reachability boundary. The acceptance remains limited to this
+small experimental Mainnet lab and must be rechecked before every signer-capable
+goal.
 
 ## Current security conclusion
 
-Goal 9A closes with the original Devnet owner and Core asset ownership
-unchanged, the known delegate record closed, and the Asset Signer still holding
-exactly `9,900,000` lamports. The isolated six-decimal TEST mint has a fixed
-`2,000,000` base-unit supply with no mint or freeze authority. The delegated
-path moved exactly `100,000` base units to the fixed receiver, then failed with
-Core `NoApprovals` after revoke. The direct owner path rescued the remaining
-`1,900,000` base units. All three token accounts have no token delegate or close
-authority. A repeated live command submitted zero transactions.
+Wallet Child #001 now has a finalized standalone Mainnet Core Asset and Agent
+Identity bound to the exact Irys metadata URI. Goal 10L created both atomically,
+with no collection, funding, ATA, Executive Profile, or delegation. Goals
+10M/10N independently re-read the owner and identity and scanned all currently
+documented Agent Tools accounts through full and filtered queries. They found
+zero active execution delegates.
 
-Goal 9B additionally performed a keyless finalized scan of all 253 accounts
-owned by the Devnet Agent Tools program. It classified 120 executive profiles
-and 133 execution delegate records, rejected unknown layouts, validated every
-record PDA/profile relationship, and matched a separate asset-filtered query
-against the full scan. Wallet Child #001 had zero active records and its known
-revoked record was absent.
+The safe current state is intentionally inert: the Asset Signer has no account
+balance or USDC ATA; the recovery ATA, Executive Profile, and Execution
+Delegate Record are absent; the `1 USDC` treasury remains outside Wallet Child.
+The exact builders, fee ceilings, revoke, and owner-only rescue paths exist in
+code, but none is active onchain.
 
-This materially reduces uncertainty around legacy SPL `TransferChecked`, owner
-rescue, and delegate discovery, but it is still not safe for a Mainnet write.
-A single RPC can censor data, Goal 9B is Devnet-only, real USDC was explicitly
-forbidden, and metadata durability, final Mainnet asset/RPC audit, funding
-route, dedicated RPC, final Mainnet message simulation, fixed SOL evacuation,
-and the dependency advisory remain unresolved.
-
-Goal 9C freezes a chain-neutral, inactive registration-v1 metadata candidate.
-It advertises zero services, `x402Support: false`, no registrations, and no
-supported trust mechanisms. Its exact 351 UTF-8 bytes have SHA-256
-`7f43011c5eed503f2373717a4d9f31e1f9f5cc4c598c89651bf283f6cbb8777c`.
-The strict validator rejects semantic false claims, unknown fields, byte-order
-or whitespace drift, and digest mismatch. The candidate is explicitly not
-published, has no durable URI, and has not changed any on-chain state.
+This is sufficient to continue to a separate permission-write review, not to
+fund or execute. The broad onchain delegation model still relies on the
+isolated Executive signer and the offchain fixed builder for amount,
+destination, and program enforcement. A single RPC can omit data, unknown
+future Agent Tools layouts are outside the closed-world scan, and the five Irys
+dependency findings remain. Any state drift, partial account setup, new
+delegate, fee/rent change, or balance change returns the experiment to STOP.

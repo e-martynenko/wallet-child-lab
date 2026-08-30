@@ -839,6 +839,29 @@ Review: [`reviews/goal-10m.md`](reviews/goal-10m.md)
 Artifact:
 [`wallet-child-001.goal10m.post-birth-permission-audit.json`](../artifacts/wallet-child-001.goal10m.post-birth-permission-audit.json)
 
+## Goal 10N — post-birth activation preflight
+
+Status: **pass — read-only baseline closed; STOP before any new write**
+
+Expected result:
+
+- repeat the finalized Core Asset, Agent Identity, owner, and zero-delegate
+  checks after the public listing becomes visible;
+- require both child USDC ATAs, the Executive Profile, and the Execution
+  Delegate Record to remain absent;
+- verify the experimental source can cover only the already-fixed `1 USDC`
+  funding message without loading its key;
+- refresh exact rents and all external/internal message fees;
+- prove the remaining lifecycle fits the fixed `0.02 SOL` boundary and leaves
+  a positive conservative owner balance;
+- load no key, sign/simulate/submit nothing, and stop at a separate ATA and
+  permission write review.
+
+Review: [`reviews/goal-10n.md`](reviews/goal-10n.md)
+
+Artifact:
+[`wallet-child-001.goal10n.post-birth-activation-review.json`](../artifacts/wallet-child-001.goal10n.post-birth-activation-review.json)
+
 ## Self-review format
 
 Every goal ends with:
